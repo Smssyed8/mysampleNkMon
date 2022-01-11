@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/executive_jobs.css'}" />
+<title>Mindful Consulting Qatar - Job Search</title>
+<meta name="keywords" content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- Body -->
+		<div class="box is-wide row is-reversed-d is-collapsed-m">
+			<section id="jsMiniJobView"
+				class="col is-9-d is-half sticky-sense u-none">
+				<div id="formToggleSheet">
+					<div id="view_inner"></div>
+					<div class="u-none" id=toggleFooter></div>
+				</div>
+			</section>
+			<section id="jsMainListingContainer" class="col is-9-d sticky-sense">
+				<div class="sticky-sidebar" data-sticky-sidebar>
+					<!-- Job Results-->
+					<div id="results_inner" class="sticky-content">
+
+						<!-- Job Results-->
+
+						<div class="card p0b search-tabs">
+							<div class="card-content">
+								<div class="row">
+									<div class="col-md-6 mb-3">
+										<div th:if="${displayErrorMessage}" id="alertErrorMessage"
+											class="alert alert-danger">
+											<span th:text="${displayErrorMessage}"></span>
+											<button onclick="hideElement('alertErrorMessage')"
+												class="close" aria-hidden="true">x</button>
+										</div>
+										<div th:if="${displayMessage}" id="alertMessage"
+											class="alert alert-success">
+											<span th:text="${displayMessage}"></span>
+											<button onclick="hideElement('alertMessage')" class="close"
+												aria-hidden="true">x</button>
+										</div>
+										<div class="tab">
+											<div class="card-head">
+												<h1 th:text="${headerMessage}" class="h5"></h1>
+												<span th:if="${#lists.size(searchedJobs)} > 0"
+													th:text="@{${#lists.size(searchedJobs)} + ' Jobs Found: Showing ' + ${lowerLimit} + ' - ' + ${upperLimit}}"></span>
+												<span th:if="${#lists.size(searchedJobs)} == 0"
+													th:text="@{'Sorry! No Jobs found with the searched criteria'}"></span>
+												<a id="filter" class="m u-right" th:href="@{'#'}"> <i
+													class="fa fa-filter t-large u-left"></i> <b
+													class="t-large "> Filter </b>
+												</a>
+											</div>
+											<button th:each="jobInstance: ${searchedJobs}"
+												class="tablinks"
+												th:onclick="@{'openCity(event, ' + ${jobInstance.id} + ')'}"
+												id="defaultOpen">
+												<div class="d-flex justify-content-between">
+													<div class="t-small">
+														<h1 class="m0 t-regular">
+															<a th:href="@{'#'}" th:text="${jobInstance.jobTitle}"></a>
+														</h1>
+														<span class="d-flex"><b
+															th:text="@{${jobInstance.employer.companyName} + ' - ' + ${jobInstance.city.city} + ', ' + ${jobInstance.city.country.country}}"
+															class="p10r"></b>
+															<p th:text="${jobInstance.createdOnFormatted}"></p></span> <span
+															class="list is-basic is-inline  t-small m10y"> <i
+															class="fa fa-briefcase t-mute m10x"></i><span
+															th:text="@{'&nbsp;' + ${jobInstance.jobLevel}}"></span> <i
+															class="fa fa-money t-mute m10x"></i><span
+															th:text="@{'$' + ${jobInstance.minSalary} + ' - $' + ${jobInstance.maxSalary}}"></span>
+														</span>
+														<p th:text="${jobInstance.description}"></p>
+													</div>
+													<div>
+														<img th:src="${jobInstance.employer.imagePath}"
+															class="img-70 u-right m10l">
+													</div>
+												</div>
+											</button>
+											<div class="p20y search-pagination">
+												<ul id="pagination" class="pagination">
+													<li class="pagination-prev hidden"><a
+														class="jsAjaxLoad"
+														data-js-params="{&quot;listOnly&quot;:true}"
+														th:href="@{'#'}"></a></li>
+													<li class="page pagination-current"><a
+														class="jsAjaxLoad"
+														data-js-params="{&quot;listOnly&quot;:true}"
+														th:href="@{'#'}">1</a></li>
+													<li class="page"><a class="jsAjaxLoad"
+														data-js-params="{&quot;listOnly&quot;:true}"
+														th:href="@{'#'}">2</a></li>
+													<li class="page"><a class="jsAjaxLoad"
+														data-js-params="{&quot;listOnly&quot;:true}"
+														th:href="@{'#'}">3</a></li>
+													<li class="page"><a class="jsAjaxLoad"
+														data-js-params="{&quot;listOnly&quot;:true}"
+														th:href="@{'#'}">4</a></li>
+													<li class="pagination-next"><a class="jsAjaxLoad"
+														data-js-params="{&quot;listOnly&quot;:true}"
+														th:href="@{'#'}"></a></li>
+												</ul>
+											</div>
+										</div>
+										<!--Tab Content-->
+									</div>
+									<div class="col-md-6">
+										<div th:each="jobInstance: ${searchedJobs}"
+											th:id="${jobInstance.id}" class="tabcontent">
+											<div class="card is-primary has-scroll">
+												<div class="card-head">
+													<div class="media" style="display: flex;">
+														<img th:src="${jobInstance.employer.imagePath}"
+															style="width: 95px;">
+														<div class="col">
+															<h2 th:text="${jobInstance.jobTitle}" class="t-large"></h2>
+															<ul class="list is-basic t-small">
+																<li><a
+																	th:text="${jobInstance.employer.companyName}"
+																	class="is-black" style="color: black;" href="#"></a></li>
+																<li><a class="is-black" style="color: black;"
+																	href="#"><span th:text="${jobInstance.city.city}"></span></a><a
+																	class="is-black" style="color: black;" href="#"><span
+																		th:text="@{', ' + ${jobInstance.city.country.country}}"></span></a>
+																	<span
+																	th:text="@{'Date Posted: ' + ${jobInstance.createdOnFormatted}}"
+																	class="p20l-d p10y-m u-block-m"></span></li>
+															</ul>
+														</div>
+													</div>
+													<form action="/jobseeker/job/apply" method="post">
+														<input name="jobId" type="hidden"
+															th:value="${jobInstance.id}"></input> <input
+															name="jobTitle" type="hidden"
+															th:value="${searchJobsDTO.jobTitle}"></input> <input
+															name="appliedJob" type="hidden"
+															th:value="${jobInstance.jobTitle}">
+														<button
+															th:text="${(recentlyAppliedJobIds != null && #lists.contains(recentlyAppliedJobIds, jobInstance.id))?'Already Applied':'Apply Now'}"
+															th:disabled="${recentlyAppliedJobIds != null && #lists.contains(recentlyAppliedJobIds, jobInstance.id)}"
+															type="submit"
+															class="btn is-primary is-small u-block-m m20r-d apply-now"></button>
+													</form>
+												</div>
+												<div class="card-content t-small bt p20"
+													style="max-height: 291px;">
+													<h2 style="font-size: 1rem; font-weight: 600">Job
+														Description</h2>
+													<strong>Roles And Responsibility</strong>
+													<ul>
+														<li th:text=${jobInstance.description}></li>
+													</ul>
+													<strong>Responsibilities</strong>:
+													<h2 class="h6 p10t" style="font-size: 1rem;">Skills</h2>
+													<strong>Basic Qualifications</strong>
+													<ul>
+														<li>B. Tech/MCA/M Tech (Minimum 16 years of formal
+															education)&nbsp;</li>
+														<li>Minimum 10 years of software development
+															experience with 3 years of Architecture experience&nbsp;</li>
+													</ul>
+													<strong>Preferred Experiences</strong>
+													<ul>
+														<li>Strong 10 years of Java/ J2EE, Spring, Spring
+															Boot, and Hibernate experiences</li>
+														<li>Experience in Micro Services and SOA based
+															architecture, Web Services (SOAP/REST) ?</li>
+													</ul>
+													&nbsp;
+													<h2 class="h6 p10t" style="font-size: 1rem;">Job
+														Details</h2>
+													<dl class="dlist is-spaced is-fitted t-small m0">
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 145px;">Job
+																Location</dt>
+															<dd>Gurgaon, India</dd>
+														</div>
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 145px;">Company
+																Industry</dt>
+															<dd>Recruitment &amp; Employee Placement Agency</dd>
+														</div>
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 145px;">Company
+																Type</dt>
+															<dd>Recruitment Agency</dd>
+														</div>
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 145px;">Job
+																Role</dt>
+															<dd>Information Technology</dd>
+														</div>
+													</dl>
+													<h2 class="h6 p10t" style="font-size: 1rem;">Preferred
+														Candidate</h2>
+													<dl class="dlist is-spaced is-fitted t-small m0">
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 145px;">Career
+																Level</dt>
+															<dd>Director/Head</dd>
+														</div>
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 145px;">Years
+																of Experience</dt>
+															<dd>Min: 10</dd>
+														</div>
+													</dl>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<aside class="col is-3-d sticky-sense" id="jsMainClusterContainer">
+				<form action="/search/jobs" method="get">
+					<div class="sticky-sidebar" data-sticky-sidebar>
+						<div class="sticky-content">
+							<div class="card is-primary-d is-compact p0">
+								<div class="card-content">
+									<div class="can-toggle is-m" data-toggle-sheet="#filter">
+										<div class="toggle-head">
+											<a href="javascript:;" class="b-close m" data-close-sheet></a>
+											<div>
+												<i class="fa fa-filter t-large"></i><b class="t-large ">Filter</b>
+											</div>
+											<span class="m"> </span>
+										</div>
+										<div class="toggle-content">
+											<div class="accordion t-small">
+												<div class="accordion-title">
+													<div class="has-icon m10t">
+
+														<input name="jobTitle" type="search"
+															class="input is-small u-expanded" placeholder="Search"
+															data-js-search-path=""
+															th:value="${searchJobsDTO.jobTitle}">
+														<button type="submit"
+															class="btn is-clear icon is-search p10y p10l p0r"></button>
+													</div>
+
+												</div>
+												<input id="JB_LOCATION_COUNTRY_ISO" class="accordion-toggle"
+													type="checkbox" checked="checked"> <label
+													for="JB_LOCATION_COUNTRY_ISO" class="accordion-title">Country</label>
+												<div class="accordion-animate">
+													<div class="accordion-content">
+														<ul class="list is-basic is-spaced is-compact t-small m0">
+															<li class="t-small"><a data-js-filter=""
+																th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle}}"
+																class="jsAjaxLoad" data-close-sheet
+																data-js-params='{"clickedFacet":"JB_LOCATION_COUNTRY_ISO"}'
+																rel="nofollow"> Qatar </a> &nbsp; <span class="t-mute"
+																th:text="@{'(' + ${#lists.size(searchedJobs)} + ')'}"></span>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+											<input id="JB_LOCATION_PR_ID" class="accordion-toggle"
+												type="checkbox"
+												th:checked="${searchJobsDTO.cityIds != null}"> <label
+												for="JB_LOCATION_PR_ID" class="accordion-title">City</label>
+											<div class="accordion-animate">
+												<div class="accordion-content">
+													<ul class="list is-basic is-spaced is-compact t-small m0">
+														<li><a data-js-filter=""
+															th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle}}"
+															data-close-sheet class="jsAjaxLoad" rel="nofollow">
+																All </a></li>
+														<li
+															th:each="instance : ${locationsWithJobsCountWithTitle}"
+															class="t-small"><input
+															th:checked="${searchJobsDTO.cityIds != null && #lists.contains(searchJobsDTO.cityIds, instance.key.id)}"
+															type="checkbox" name="cityIds"
+															th:value="${instance.key.id}" />&nbsp;<span
+															th:text="${instance.key.city}" data-js-filter=""
+															class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_LOCATION_PR_ID"}'></span>
+															&nbsp; <a
+															th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle} + '&cityIds=' + ${instance.key.id}}"
+															th:text="@{'(' + ${instance.value} + ')'}"></a></li>
+													</ul>
+												</div>
+											</div>
+											<!-- <input id="JB_LOCATION_LC_ID" class="accordion-toggle"
+												type="checkbox" checked="checked"> <label
+												for="JB_LOCATION_LC_ID" class="accordion-title">Area</label>
+											<div class="accordion-animate">
+												<div class="accordion-content">
+													<ul class="list is-basic is-spaced is-compact t-small m0">
+														<li><a data-js-filter="" th:href="@{'#'}"
+															data-close-sheet class="jsAjaxLoad" rel="nofollow">
+																All </a></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_LOCATION_LC_ID"}'
+															rel="nofollow"> New Cairo </a> &nbsp; <span
+															class="t-mute">(8)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_LOCATION_LC_ID"}'
+															rel="nofollow"> Giza </a> &nbsp; <span class="t-mute">(4)</span>
+														</li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_LOCATION_LC_ID"}'
+															rel="nofollow"> 6th of October </a> &nbsp; <span
+															class="t-mute">(3)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_LOCATION_LC_ID"}'
+															rel="nofollow"> Heliopolis </a> &nbsp; <span
+															class="t-mute">(3)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_LOCATION_LC_ID"}'
+															rel="nofollow"> Mohandessin </a> &nbsp; <span
+															class="t-mute">(2)</span></li>
+													</ul>
+													<div class="t-right">
+														<a th:href="@{'#'}"
+															class="is-gray t-xsmall toggler-active" data-toggler>
+															<span>Show More</span> <span></span>
+														</a>
+													</div>
+													<div id="hiddenGroupsJB_LOCATION_LC_ID">
+														<ul class="list is-basic is-spaced is-compact t-small m0">
+															<li class="t-small"><a data-js-filter=""
+																th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+																data-js-params='{"clickedFacet":"JB_LOCATION_LC_ID"}'
+																rel="nofollow"> Dokki </a> &nbsp; <span class="t-mute">(1)</span>
+															</li>
+															<li class="t-small"><a data-js-filter=""
+																th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+																data-js-params='{"clickedFacet":"JB_LOCATION_LC_ID"}'
+																rel="nofollow"> Nasr City </a> &nbsp; <span
+																class="t-mute">(1)</span></li>
+															<li class="t-small"><a data-js-filter=""
+																th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+																data-js-params='{"clickedFacet":"JB_LOCATION_LC_ID"}'
+																rel="nofollow"> Zamalek </a> &nbsp; <span class="t-mute">(1)</span></li>
+															<li class="t-small"><a data-js-filter=""
+																th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+																data-js-params='{"clickedFacet":"JB_LOCATION_LC_ID"}'
+																rel="nofollow"> 10th of Ramadan </a> &nbsp; <span
+																class="t-mute">(1)</span></li>
+															<li class="t-small"><a data-js-filter=""
+																th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+																data-js-params='{"clickedFacet":"JB_LOCATION_LC_ID"}'
+																rel="nofollow"> Boston </a> &nbsp; <span class="t-mute">(1)</span>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div> -->
+											<input id="JB_ROLE_ORIGINAL" class="accordion-toggle"
+												type="checkbox"
+												th:checked="${searchJobsDTO.jobRoles != null}"> <label
+												for="JB_ROLE_ORIGINAL" class="accordion-title">Job
+												Role</label>
+											<div class="accordion-animate">
+												<div class="accordion-content">
+													<ul class="list is-basic is-spaced is-compact t-small m0">
+														<li><a data-js-filter=""
+															th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle}}"
+															data-close-sheet class="jsAjaxLoad" rel="nofollow">
+																All </a></li>
+														<li th:each="instance : ${jobRolesWithJobsCountWithTitle}"
+															class="t-small"><input
+															th:checked="${searchJobsDTO.jobRoles != null && #lists.contains(searchJobsDTO.jobRoles, instance.key.id)}"
+															type="checkbox" name="jobRoles"
+															th:value="${instance.key.id}" />&nbsp;<span
+															th:text="${instance.key.jobRole}" data-js-filter=""
+															data-close-sheet
+															data-js-params='{"clickedFacet":"JB_ROLE_ORIGINAL"}'></span>
+															&nbsp; <a
+															th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle} + '&jobRoles=' + ${instance.key.id}}"
+															th:text="@{'(' + ${instance.value} + ')'}"></a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<!-- <input id="JB_SOCIAL_TAGS" class="accordion-toggle"
+											type="checkbox" checked="checked"> <label
+											for="JB_SOCIAL_TAGS" class="accordion-title">Specialty</label>
+										<div class="accordion-animate">
+											<div class="accordion-content">
+												<ul class="list is-basic is-spaced is-compact t-small m0">
+													<li><a data-js-filter="" th:href="@{'#'}"
+														data-close-sheet class="jsAjaxLoad" rel="nofollow">
+															All </a></li>
+													<li class="t-small"><a data-js-filter=""
+														th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+														data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+														rel="nofollow"> Sales </a> &nbsp; <span class="t-mute">(43)</span>
+													</li>
+													<li class="t-small"><a data-js-filter=""
+														th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+														data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+														rel="nofollow"> Business Development </a> &nbsp; <span
+														class="t-mute">(39)</span></li>
+													<li class="t-small"><a data-js-filter=""
+														th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+														data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+														rel="nofollow"> Sales and Marketing </a> &nbsp; <span
+														class="t-mute">(29)</span></li>
+													<li class="t-small"><a data-js-filter=""
+														th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+														data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+														rel="nofollow"> Engineering </a> &nbsp; <span
+														class="t-mute">(21)</span></li>
+													<li class="t-small"><a data-js-filter=""
+														th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+														data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+														rel="nofollow"> Digital Marketing </a> &nbsp; <span
+														class="t-mute">(18)</span></li>
+												</ul>
+												<div class="t-right">
+													<a href="#hiddenGroupsJB_SOCIAL_TAGS"
+														class="is-gray t-xsmall toggler-active" data-toggler>
+														<span>Show More</span> <span></span>
+													</a>
+												</div>
+												<div id="hiddenGroupsJB_SOCIAL_TAGS">
+													<ul class="list is-basic is-spaced is-compact t-small m0">
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Digital Media Sales </a> &nbsp; <span
+															class="t-mute">(14)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Marketing </a> &nbsp; <span
+															class="t-mute">(11)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> FMCG </a> &nbsp; <span class="t-mute">(10)</span>
+														</li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Education </a> &nbsp; <span
+															class="t-mute">(10)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Brokerage </a> &nbsp; <span
+															class="t-mute">(9)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Accounting </a> &nbsp; <span
+															class="t-mute">(9)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Finance </a> &nbsp; <span class="t-mute">(9)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Technical Sales </a> &nbsp; <span
+															class="t-mute">(8)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Logistics </a> &nbsp; <span
+															class="t-mute">(8)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> B2B </a> &nbsp; <span class="t-mute">(8)</span>
+														</li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Industrials </a> &nbsp; <span
+															class="t-mute">(7)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Sales Engineering </a> &nbsp; <span
+															class="t-mute">(7)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Oil and Gas </a> &nbsp; <span
+															class="t-mute">(6)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Customer Service </a> &nbsp; <span
+															class="t-mute">(6)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Project Management </a> &nbsp; <span
+															class="t-mute">(6)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Management </a> &nbsp; <span
+															class="t-mute">(6)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Real Estate </a> &nbsp; <span
+															class="t-mute">(6)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Supply Chain </a> &nbsp; <span
+															class="t-mute">(6)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Planning </a> &nbsp; <span class="t-mute">(5)</span></li>
+														<li class="t-small"><a data-js-filter=""
+															th:href="@{'#'}" class="jsAjaxLoad" data-close-sheet
+															data-js-params='{"clickedFacet":"JB_SOCIAL_TAGS"}'
+															rel="nofollow"> Mechanical Engineering </a> &nbsp; <span
+															class="t-mute">(5)</span></li>
+													</ul>
+												</div>
+											</div>
+										</div> -->
+										<input id="JB_INDUSTRY_ID_ORIGINAL" class="accordion-toggle"
+											type="checkbox"
+											th:checked="${searchJobsDTO.companyIndustries != null}">
+										<label for="JB_INDUSTRY_ID_ORIGINAL" class="accordion-title">Industry</label>
+										<div class="accordion-animate">
+											<div class="accordion-content">
+												<ul class="list is-basic is-spaced is-compact t-small m0">
+													<li><a data-js-filter=""
+														th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle}}"
+														data-close-sheet class="jsAjaxLoad" rel="nofollow">
+															All </a></li>
+													<li
+														th:each="instance : ${companyIndustriesWithJobsCountWithTitle}"
+														class="t-small"><input
+														th:checked="${searchJobsDTO.companyIndustries != null && #lists.contains(searchJobsDTO.companyIndustries, instance.key.id)}"
+														type="checkbox" name="companyIndustries"
+														th:value="${instance.key.id}" />&nbsp;<span
+														th:text="${instance.key.companyIndustry}"
+														data-js-filter="" data-close-sheet
+														data-js-params='{"clickedFacet":"JB_INDUSTRY_ID_ORIGINAL"}'></span>
+														&nbsp; <a
+														th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle} + '&companyIndustries=' + ${instance.key.id}}"
+														th:text="@{'(' + ${instance.value} + ')'}"></a></li>
+												</ul>
+											</div>
+										</div>
+										<input id="JB_COMPANY_TYPE_ID_ORIGINAL"
+											class="accordion-toggle" type="checkbox"
+											th:checked="${searchJobsDTO.companyTypes != null}"> <label
+											for="JB_COMPANY_TYPE_ID_ORIGINAL" class="accordion-title">Company
+											Type</label>
+										<div class="accordion-animate">
+											<div class="accordion-content">
+												<ul class="list is-basic is-spaced is-compact t-small m0">
+													<li><a data-js-filter=""
+														th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle}}"
+														data-close-sheet class="jsAjaxLoad" rel="nofollow">
+															All </a></li>
+													<li
+														th:each="instance : ${companyTypesWithJobsCountWithTitle}"
+														class="t-small"><input
+														th:checked="${searchJobsDTO.companyTypes != null && #lists.contains(searchJobsDTO.companyTypes, instance.key.id)}"
+														type="checkbox" name="companyTypes"
+														th:value="${instance.key.id}" />&nbsp;<span
+														th:text="${instance.key.companyType}" data-js-filter=""
+														data-close-sheet
+														data-js-params='{"clickedFacet":"JB_COMPANY_TYPE_ID_ORIGINAL"}'></span>
+														&nbsp; <a
+														th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle} + '&companyTypes=' + ${instance.key.id}}"
+														th:text="@{'(' + ${instance.value} + ')'}"></a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<input id="JB_CAREER_LEVEL_ID_ORIGINAL"
+										class="accordion-toggle" type="checkbox"
+										th:checked="${searchJobsDTO.jobLevels != null}"> <label
+										for="JB_CAREER_LEVEL_ID_ORIGINAL" class="accordion-title">Career
+										Level</label>
+									<div class="accordion-animate">
+										<div class="accordion-content">
+											<ul class="list is-basic is-spaced is-compact t-small m0">
+												<li><a data-js-filter=""
+													th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle}}"
+													data-close-sheet class="jsAjaxLoad" rel="nofollow"> All
+												</a></li>
+												<li th:each="instance : ${jobLevelsWithJobsCountWithTitle}"
+													class="t-small"><input
+													th:checked="${searchJobsDTO.jobLevels != null && #lists.contains(searchJobsDTO.jobLevels, instance.key.id)}"
+													type="checkbox" name="jobLevels"
+													th:value="${instance.key.id}" />&nbsp;<span
+													th:text="${instance.key.jobLevel}" data-js-filter=""
+													data-close-sheet
+													data-js-params='{"clickedFacet":"JB_CAREER_LEVEL_ID_ORIGINAL"}'></span>
+													&nbsp; <a
+													th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle} + '&jobLevels=' + ${instance.key.id}}"
+													th:text="@{'(' + ${instance.value} + ')'}"></a></li>
+											</ul>
+										</div>
+									</div>
+									<input id="JB_EMPLOYMENT_TYPE" class="accordion-toggle"
+										type="checkbox" th:checked="${searchJobsDTO.jobTypes != null}">
+									<label for="JB_EMPLOYMENT_TYPE" class="accordion-title">Employment
+										Type</label>
+									<div class="accordion-animate">
+										<div class="accordion-content">
+											<ul class="list is-basic is-spaced is-compact t-small m0">
+												<li><a data-js-filter=""
+													th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle}}"
+													data-close-sheet class="jsAjaxLoad" rel="nofollow"> All
+												</a></li>
+												<li th:each="instance : ${jobTypesWithJobsCountWithTitle}"
+													class="t-small"><input
+													th:checked="${searchJobsDTO.jobTypes != null && #lists.contains(searchJobsDTO.jobTypes, instance.key.id)}"
+													type="checkbox" name="jobTypes"
+													th:value="${instance.key.id}" />&nbsp;<span
+													th:text="${instance.key.jobType}" data-js-filter=""
+													data-close-sheet
+													data-js-params='{"clickedFacet":"JB_EMPLOYMENT_TYPE"}'></span>
+													&nbsp; <a
+													th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle} + '&jobTypes=' + ${instance.key.id}}"
+													th:text="@{'(' + ${instance.value} + ')'}"></a></li>
+											</ul>
+										</div>
+									</div>
+									<input id="JB_GENDER_INT" class="accordion-toggle"
+										type="checkbox" th:checked="${searchJobsDTO.genders != null}">
+									<label for="JB_GENDER_INT" class="accordion-title">Gender</label>
+									<div class="accordion-animate">
+										<div class="accordion-content">
+											<ul class="list is-basic is-spaced is-compact t-small m0">
+												<li><a data-js-filter=""
+													th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle}}"
+													data-close-sheet class="jsAjaxLoad" rel="nofollow"> All
+												</a></li>
+												<li th:each="instance : ${gendersWithJobsCountWithTitle}"
+													class="t-small"><input
+													th:checked="${searchJobsDTO.genders != null && #lists.contains(searchJobsDTO.genders, instance.key)}"
+													type="checkbox" name="genders" th:value="${instance.key}" />&nbsp;<span
+													th:text="${instance.key == 'm'?'Male':'Female'}"
+													data-js-filter="" data-close-sheet
+													data-js-params='{"clickedFacet":"JB_GENDER_INT"}'></span>
+													&nbsp; <a
+													th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle} + '&genders=' + ${instance.key}}"
+													th:text="@{'(' + ${instance.value} + ')'}"></a></li>
+											</ul>
+										</div>
+									</div>
+									<input id="EMPLOYER_COMPANY_TYPE" class="accordion-toggle"
+										type="checkbox"
+										th:checked="${searchJobsDTO.companySectors != null}">
+									<label for="EMPLOYER_COMPANY_TYPE" class="accordion-title">Sector</label>
+									<div class="accordion-animate">
+										<div class="accordion-content">
+											<ul class="list is-basic is-spaced is-compact t-small m0">
+												<li><a data-js-filter=""
+													th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle}}"
+													data-close-sheet class="jsAjaxLoad" rel="nofollow"> All
+												</a></li>
+
+												<li th:each="instance : ${sectorsWithJobsCountWithTitle}"
+													class="t-small"><input
+													th:checked="${searchJobsDTO.companySectors != null && #lists.contains(searchJobsDTO.companySectors, instance.key.id)}"
+													type="checkbox" name="companySectors"
+													th:value="${instance.key.id}" />&nbsp;<span
+													th:text="${instance.key.sector}" data-js-filter=""
+													class="jsAjaxLoad" data-close-sheet
+													data-js-params='{"clickedFacet":"EMPLOYER_COMPANY_TYPE"}'></span>
+													&nbsp; <a
+													th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle} + '&companySectors=' + ${instance.key.id}}"
+													th:text="@{'(' + ${instance.value} + ')'}"></a></li>
+											</ul>
+										</div>
+									</div>
+									<input id="JB_LAST_MODIFICATION_DATE_INTERVAL"
+										class="accordion-toggle" type="checkbox"
+										th:checked="${searchJobsDTO.daysInterval != 0}"> <label
+										for="JB_LAST_MODIFICATION_DATE_INTERVAL"
+										class="accordion-title">Date Modified</label>
+									<div class="accordion-animate">
+										<div class="accordion-content">
+											<ul class="list is-basic is-spaced is-compact t-small m0">
+												<li><a data-js-filter=""
+													th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle}}"
+													data-close-sheet class="jsAjaxLoad" rel="nofollow"> All
+												</a></li>
+												<li class="t-small"><input
+													th:checked="${searchJobsDTO.daysInterval == 1}"
+													type="radio" name="daysInterval" th:value="1" />&nbsp;<span
+													data-js-filter="" class="jsAjaxLoad" data-close-sheet
+													data-js-params='{"clickedFacet":"JB_LAST_MODIFICATION_DATE_INTERVAL"}'>
+														1 day ago </span> &nbsp; <a
+													th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle} + '&daysInterval=1'}"
+													th:text="@{'(' + ${last1DayJobsCount} + ')'}"></a></li>
+												<li class="t-small"><input
+													th:checked="${searchJobsDTO.daysInterval == 7}"
+													type="radio" name="daysInterval" th:value="7" />&nbsp;<span
+													data-js-filter="" class="jsAjaxLoad" data-close-sheet
+													data-js-params='{"clickedFacet":"JB_LAST_MODIFICATION_DATE_INTERVAL"}'>
+														7 days ago </span> &nbsp; <a
+													th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle} + '&daysInterval=7'}"
+													th:text="@{'(' + ${last7DaysJobsCount} + ')'}"></a></li>
+												<li class="t-small"><input
+													th:checked="${searchJobsDTO.daysInterval == 30}"
+													type="radio" name="daysInterval" th:value="30" />&nbsp;<span
+													data-js-filter="" class="jsAjaxLoad" data-close-sheet
+													data-js-params='{"clickedFacet":"JB_LAST_MODIFICATION_DATE_INTERVAL"}'>
+														30 days ago </span> &nbsp; <a
+													th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle} + '&daysInterval=30'}"
+													th:text="@{'(' + ${last30DaysJobsCount} + ')'}"></a></li>
+											</ul>
+										</div>
+									</div>
+									<input id="EMPLOYER_GROUP_ID" class="accordion-toggle"
+										type="checkbox"
+										th:checked="${searchJobsDTO.employers != null}"> <label
+										for="EMPLOYER_GROUP_ID" class="accordion-title">Company
+										Name</label>
+									<div class="accordion-animate">
+										<div class="accordion-content">
+											<ul class="list is-basic is-spaced is-compact t-small m0">
+												<li><a data-js-filter=""
+													th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle}}"
+													data-close-sheet class="jsAjaxLoad" rel="nofollow"> All
+												</a></li>
+
+												<li th:each="instance : ${companiesWithJobsCountWithTitle}"
+													class="t-small"><input
+													th:checked="${searchJobsDTO.employers != null && #lists.contains(searchJobsDTO.employers, instance.key.id)}"
+													type="checkbox" name="employers"
+													th:value="${instance.key.id}" />&nbsp;<span
+													th:text="${instance.key.companyName}" data-js-filter=""
+													class="jsAjaxLoad" data-close-sheet
+													data-js-params='{"clickedFacet":"EMPLOYER_GROUP_ID"}'></span>
+													&nbsp; <a
+													th:href="@{'/search/jobs?jobTitle=' + ${searchJobsDTO.jobTitle} + '&employers=' + ${instance.key.id}}"
+													th:text="@{'(' + ${instance.value} + ')'}"></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</aside>
+		</div>
+	</div>
+
+</body>
+</html>

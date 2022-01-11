@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout_employers">
+<head>
+<title>Mindful Consulting Qatar - Job Seeker</title>
+<meta name="keywords" content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+<link rel="stylesheet"
+	th:href="@{'/assets/css/plugin_other.css'}" />
+</head>
+<body id="design3" class="cv-search">
+	<div layout:fragment="content">
+	<section class="cover is-compact"
+        style="background-image:url(https://img3cf.b8cdn.com/bayt/assets/employers-131/images/Group.png);">
+        <div class="box">
+            <h1 class="t-inverse search-heading">Limited Time Offer!</h1>
+            <p class="t-inverse t-large find-candidate">Get the best of Bayt.com’s Online Recruitment Solutions that have helped over
+                40,000 employers hire!</p>
+            <div class="t-center">
+                <a class="btn is-outline is-inverse" th:href="@{'#'}" rel="nofollow">
+                    Read More </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="box t-center">
+        <div class="row v-align-center bg-offer">
+            <div class="col is-6-d is-12-m">
+                <div class="h-align-center v-align-center">
+                    <b class="h1 t-inverse search-heading">
+                        23%
+                        <br>
+                        OFF </b>
+                </div>
+            </div>
+            <div class="col is-6 is-12-m bg-mute t-left">
+                <form action="" method="" class="form is-compact p10">
+                    <input type="hidden" name="" value="" />
+                    <input type="hidden" name="" value="" />
+                    <input type="hidden" name="" value="" />
+                    <h3 class="p20t search-heading">Save $298.1 with Today’s Special Offer!</h3>
+                    <ul class="list is-basic">
+                        <li><i class="icon is-search t-success is-20"></i>One Month CV Search</li>
+                        <li><i class="icon is-post t-primary is-20"></i>Two Job Postings</li>
+                    </ul>
+                    <span class="offer-price pull-left">$999.90</span>
+                    <span class="t-mute m20l"><del>$1,298</del></span>
+                    <footer class="form-footer p0x">
+                        <a th:href="@{'#'}" class="btn is-secondary">Get in Touch</a>
+                        <button class="btn m10y m0x add-to-cart" type="submit">Add to Cart</button>
+                    </footer>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <section id="info" class="is-compact bg-inverse t-center">
+        <div class="box">
+            <h2 class="m20 search-heading">Here's What's Included in Your Special Offer</h2>
+            <div class="media t-left">
+                <div class="row ">
+                    <div class="col is-6-d">
+                        <h3 class="search-heading"><i class="icon is-search t-success is-32"></i>CV Search</h3>
+                        <ul class="list is-basic t-regular t-mute">
+                            <li><i class="icon is-check t-success"></i><span class="t-xsmall">Get access to search
+                                    through 37,000,000+ CVs</span></li>
+                            <li><i class="icon is-check t-success"></i><span class="t-xsmall">Use 33+ filtration tools
+                                    to help you narrow down your search results</span></li>
+                            <li><i class="icon is-check t-success"></i><span class="t-xsmall">Get trained on how to
+                                    utilize CV Search to hire the best for your organization</span></li>
+                        </ul>
+                    </div>
+                    <div class="col is-6-d">
+                        <h3 class="search-heading"><i class="icon is-post t-primary is-32"></i>Job Postings</h3>
+                        <ul class="list is-basic t-regular t-mute">
+                            <li><i class="icon is-check t-success"></i><span class="t-xsmall">Create questionnaire for
+                                    applicants to answer when applying to jobs</span></li>
+                            <li><i class="icon is-check t-success"></i><span class="t-xsmall">Express your vacancy to
+                                    over 10,000,000 monthly visitors</span></li>
+                            <li><i class="icon is-check t-success"></i><span class="t-xsmall">Create folders to help you
+                                    organize sort and categorize your applicants</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <button class="btn add-to-cart" type="button">Add to Cart</button>
+        </div>
+    </section>
+            </div>
+            <script th:src="@{'/assets/js/employer_plugin.js'}"></script>
+</body>
+
+</html>

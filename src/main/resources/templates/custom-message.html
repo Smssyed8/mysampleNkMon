@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout-custom">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/login.css'}" />
+<title>Mindful Consulting Qatar - Login</title>
+<meta name="keywords" content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- navigation section-->
+		<div id="header"></div>
+
+		<!-- header end -->
+		<section>
+			<div class="container">
+				<div class="login-form text-center">
+					<div class="row">
+						<div class="col col-md-8 col-lg-6 mx-auto">
+							<span th:if="${errorMessage != ''}" th:text="${errorMessage}"
+								style="color: red; font-weight: italic; margin: 30px 0px;"></span>
+							<span th:if="${message != ''}" th:text="${message}"
+								style="color: green; font-weight: italic; margin: 30px 0px;"></span>
+							<span th:if="${verifyEmail != null && verifyEmail == true}"
+								style="color: green; font-weight: italic; margin: 30px 0px;">Your
+								email have not been verified yet. Please click <a
+								th:href="@{${baseUrl} + 'email/verification/send'}">here</a> to
+								send verification link to your email !!
+							</span> <span
+								th:if="${errorMessage == '' && message == '' && verifyEmail == null}"
+								th:text="@{'Something went wrong! Please contact admin@mindfulqatar.com !!'}"
+								style="color: red; font-weight: italic; margin: 30px 0px;"></span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+	</div>
+</body>
+</html>

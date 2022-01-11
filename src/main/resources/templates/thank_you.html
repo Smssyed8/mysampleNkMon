@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout_employers">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/employer.css'}" />
+<link rel="stylesheet" th:href="@{'/assets/css/plugin_other.css'}" />
+<title>Mindful Consulting Qatar - Thank You</title>
+<meta name="keywords"
+	content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="employersPage">
+			<div class="t-center print-only"></div>
+			<div class="all-content">
+				<section class="t-center p20">
+					<h2 class="p20y">
+						Thank you for shopping with us. Please click <a
+							th:href="@{'/employer/home'}">here</a> to go to your dashboard.
+					</h2>
+				</section>
+			</div>
+		</div>
+	</div>
+	<script th:src="@{'/assets/js/employer_plugin.js'}"></script>
+</body>
+</html>

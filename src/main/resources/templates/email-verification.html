@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout-custom">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/login.css'}" />
+<title>Mindful Consulting Qatar - Login</title>
+<meta name="keywords" content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- navigation section-->
+		<div id="header"></div>
+
+		<!-- header end -->
+		<section id="login">
+			<div class="container">
+				<div class="login-form text-center">
+					<div class="row">
+						<div class="col col-md-8 col-lg-6 mx-auto">
+							<form class="form" th:action="@{'/email/verification/send'}"
+								method="post">
+								<input type="hidden" value="" name="">
+								<div style="display: none">
+									<input type="hidden" value="1" name="yform_c6de1a2f">
+								</div>
+
+								<h1 class="loginHeading">Email</h1>
+								<span th:if="${errorMessage != ''}" th:text="${errorMessage}"
+									style="color: red; font-weight: italic; margin: 30px 0px;"></span>
+								<div class="form-item ">
+
+									<div class="form-value">
+										<input class="input form-control" type="email" id="email"
+											name="email" placeholder="Email" value="" />
+										<div class="form-hint" id="username_em_" style="display: none"></div>
+									</div>
+								</div>
+
+								<footer class=" form-footer p0t p10b">
+									<button type="submit" name="submit" value="submit"
+										id="login-button" class="btn u-expanded ">Send link
+										to email</button>
+								</footer>
+							</form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+	</div>
+</body>
+</html>

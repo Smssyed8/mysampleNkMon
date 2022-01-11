@@ -1,0 +1,838 @@
+@media (max-width: 1199px){
+	.login-details {width: 33%;	}
+	#navbar .contact {
+    padding: 10px 28px 10px 0px;
+}
+.login-details a{font-size: 13px;}
+.login-details .pad-right30{padding-right:20px;}
+	#navbar .contact-details {width: 90%;font-size: 12px;}
+	.navbar-brand img{width: 160%;}
+	.navbar-light .navbar-nav .nav-link {font-size: 12px;}
+	.slider-description {padding: 0px 172px;}
+	.normal-btn { padding: 3px 12px;}
+	.counter {text-align: -webkit-auto;font-size: 35px;}
+	.countplus {margin-top: -24px;}
+	.client-text h3 {font-size: 14px;}
+	.jobs-discover {margin: 57px 0px;}
+	.jobs-apply {margin: 57px 0px 57px 17px;}
+	.basic-links textarea {width: 147px;font-size: 12px;}
+	.basic-links input {font-size: 11px;}
+/*design3*/
+	.desing3 .navbar-brand img {width: 220px;}
+	.navbar-expand-lg .navbar-collapse{width: 100%;}
+	#design3 .city {font-size: 14px;width: 180px;}
+	#design3 .skills {font-size: 14px;/*width: 206px;*/}
+	.search-bar {width: 120%;margin-left: -42px;}
+	.jobs-text {font-size: 26px;}
+	.explore-text {font-size: 18px;	}
+	.btn-apply {padding: 12px 20px;	font-size: 12px;}
+	.btn-discover {font-size: 12px;padding: 12px 7px;}
+	.update {font-size: 13px;}
+	.yourself {font-size: 11px;	}
+	.main-cource {font-size: 17px;}
+	.section2-sub1 p {padding: 9px 13px;}
+	#companies .notification .pr-0{	padding-right: 15px !important;}
+	.fallow {padding: 7px 25px;margin-left: -15px;}
+	.calendar:after {right: 65%;}
+	/*Employer Home*/
+	.mindful-app .navbar-light .navbar-nav .nav-link{font-size: 12px;}
+	
+	}
+@media (max-width: 991px) {
+	#navbar .mb-detail{flex-direction: column;}
+	#navbar .contact-details {font-size: 14px;}
+	#navbar .contact-details {width: 100%;}
+	.login-details {padding: 10px 10px;width:100%;}
+    .login-details .pad-right30 {padding-right: 12px;}
+   .employers-Option li a {padding: 0px 0px 0px 11px;}
+	#navbar .contact { padding: 10px 32px 10px 0px;}
+	.navbar-collapse {
+	    background: #ffffff;
+	    width: 100%;
+	    top: 50px;
+	    left: 0;
+	    display: block;
+	    position: absolute;
+	    z-index: 999;
+	    transition: all .5s ease;
+	    border-top: 1px solid #57606e;
+	}
+	#design3 .navbar-collapse{
+		background: #feda39;
+	    width: 103.3%;
+	    top: 68px;
+	    left:-15px;
+	    /*display: block;*/
+	    position: absolute;
+	    z-index: 999;
+	    transition: all .5s ease;
+	    border-top: 1px solid #57606e;
+	}
+	.navbar-light .navbar-nav .nav-link{padding: 17px 20px 10px 20px !important;}
+	.mindful-app .navbar-light .navbar-nav .nav-link {
+	    padding: 6px 17px;
+	    font-size: 16px;
+	    width: max-content;
+	}
+	.mindful-app .navbar-light .navbar-nav .nav-item{padding:10px 0px;}
+	.mindful-app .start-hiring {
+    width: max-content;
+}
+.bg-light .desing3 .dropdown-menu {
+    left: -30px;
+}
+	.notifications{
+		margin-bottom: 28px !important;
+	    padding-left: 12px !important;
+	    padding-top: 15px;
+	    float: left;
+	}
+	.navbar-brand img {
+	    width: auto;
+	}
+	.navbar-light .navbar-nav .nav-link {
+	    font-size: 14px;
+	    padding: 10px 17px;
+	}
+	.navbar-light .navbar-nav .nav-link:after {
+	    content: none;
+	}
+	.login-details a {
+	    font-size: 16px;
+	    padding-right: 30px;
+    	padding-left: 10px;
+	}
+	.slider-heading {
+	    line-height: 1;
+	}
+	.slider-description {
+	    padding: 0px 88px;
+	}
+	.dollar{
+		padding-top: 4px;
+	}
+	.same-btn{
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	.google span i {
+	    font-size: 12px;
+	    padding: 0px 17px 20px 0px;
+	}
+	.no-pad{
+		padding-left: 0px;
+	}
+	.countplus {
+	    right: 146px;
+	}
+	.worktext{
+		font-size: 30px;
+	}
+	.thyroid-profile-box {
+	    padding: 15px 0px 4px 12px;
+	}
+	.amount{
+	    font-size: 12px ; 
+	    padding-left: 6px;
+	}
+	.mb-width{
+		width: 420px;
+	}
+	.testimonial {
+	    margin-top: 30px;
+	}
+	.jobs-apply {
+	    margin: 57px 0px 57px -9px;
+	}
+	.jobstext {
+	    font-size: 23px;
+	    padding-left: 0px;
+	}
+	.jobs-discover {
+	    padding: 12px 12px;
+	}
+	.ex-text{
+		padding-left: 19px;
+	}
+	.basic-links input {
+	    font-size: 15px;
+	}
+	.basic-links textarea {
+	    width: 209px;
+	    font-size: 15px;
+	}
+	.search-bar {
+	    width: 100%;
+	    margin-left: 0px; 
+	}
+	.skills {
+	    width: 248px;
+	}
+	.infotech{
+		width:30%;
+	}
+	.calendar:after{
+		bottom: 9%;
+    	right: 74%;
+	}
+	#executive .pr-1{
+		padding-right: 15px !important;
+		margin-bottom: 20px;
+	}
+	.btn-discover {
+	    font-size: 15px;
+	    padding: 12px 24px;
+	    margin-top: 0px;
+	}
+	.executive-job {
+	    text-align: center;
+	    padding: 55px 18px 55px;
+	}
+	#executive .pr-0{
+		padding-left:15px !important;
+		padding-right: 0px !important;
+	}
+	.main-cource {
+	    font-size: 15px;
+	}
+	.sub-cource {
+	    font-size: 13px;
+	}
+	.description {
+	    font-size: 12px;
+	}
+	.recommended {
+		margin-bottom: 20px;
+	}
+	#executive .pl-1{
+		padding-left:15px !important;
+	}
+	.workjob {
+	    padding: 55px 0px 198px !important;
+	    text-align: center !important;
+	    justify-content: center;
+	    display: flex;
+	}
+	#executive .btn-apply {
+		margin-top: 0px;
+	}
+	.professional{
+		padding: 17px 28px;
+	}
+	.cv{
+		padding: 11px 9px;
+	}
+	.section2-sub1 p {
+	    padding: 0px 0px 0px;
+	   
+	}
+	.section2-sub1 .first-post{ min-height: 135px;}
+	
+	.assesment-text{
+		padding: 0px 0px 13px 10px !important;
+	}
+	.assesmenttest{
+		padding: 0 0px 0px 25px;
+	}
+	.quick-suggestion-sub .assesmenttest.candidate-profile {
+    padding: 37px 0px;
+}
+	.job-title{
+		margin-bottom: 10px !important;
+	}
+	.quick-suggestion-sub .btn-custom{
+		font-size: 17px;
+	}
+	#executive .pr-15 {
+		padding-right: 15px !important;
+	}
+	.fallow {
+	    margin-left: -45px;
+	    font-size: 14px;
+	}
+	#design3 .navbar-brand {padding: 15px 0px;width: 235px;}
+	.desing3 .navbar-brand img {width: 100%;}
+}
+@media (max-width: 920px) {
+	.contact-details a {
+	    color: #ffffff;
+	}
+	#navbar .contact {
+	    padding: 10px 20px 10px 0px;
+	}
+}
+@media (min-width:768px){
+	.form-modal-dialog{    max-width: 1140px !important;}
+}
+@media (max-width: 768px) {
+	#navbar .contact p,#navbar .contact a{
+		font-size: 14px;
+	}
+	.login-details a {
+	    font-size: 14px;
+	}
+	.login-details {
+    padding: 10px 10px;
+    }
+    .login-details .pad-right30 {
+    padding-right: 12px;
+   }
+   .employers-Option li a {
+    padding: 0px 0px 0px 11px;
+   }
+}
+@media (max-width: 767px) {
+	/*.login-details {
+		flex-direction: column;
+	}*/
+	#navbar .contact p, #navbar .contact a {font-size: 12px;}
+	#navbar .contact-details {
+    flex-direction: column;
+    align-items: center;
+}
+	.login-details a {
+	    font-size: 15px;
+	}
+	.login-details .pad-right30 {
+    padding-right: 0px;
+}
+	.mb-detail{
+		flex-direction: column;
+	}
+	#navbar .contact-details {
+	    width: 100%;
+	    font-size:9px;
+	}
+	#navbar .basic-links ul{
+		margin-bottom: 10px !important;
+	}
+	.login-details {
+	    width: 100%;
+	}
+	.slider-heading {
+	    line-height: 1.2;
+	    font-size: 36px;
+	}
+	.slider-description {
+	    padding: 0px 0px;
+	}
+	.countplus {
+	    right: 54px;
+	}
+	.slider-content .select-group{width: 152px;}
+	.search-form .skills {
+	    width: 156px;
+	    padding: 19px 10px;
+	    font-size: 13px;
+	    border-right: 1px solid #838383;
+	}
+	.city {
+	    font-size: 13px;
+	    padding: 19px 9px;
+	    /* width: 124px; */
+	}
+	.jobs-discover {
+	    margin: 57px 35%;
+	}
+	.jobs-apply {
+	    margin: 57px 140px 57px 195px;
+	}
+	#design3 .city {
+	    font-size: 12px;
+	    width: 132px;
+	}
+	#design3 .select-group{
+		width:139px;
+		font-size:12px;
+	}
+	.card-header p {
+	    font-size: 10px;
+	}
+	.infotech {
+	    width: 69%;
+	}
+	.calendar:after {
+	    bottom: 0%;
+	    right: 63%;
+	}
+	.final-test{
+		margin-left: -15px;
+	}
+	.main-cource {
+	    font-size: 12px;
+	}
+	.description {
+	    font-size: 10px;
+	}
+	.sub-cource {
+	    font-size: 11px;
+	}
+	.yourself {
+	    padding: 0px 15px;
+	}
+	.view-jobs {
+		width: 43%;
+	}
+	.recommended .pad-lr35{
+		align-items: flex-end !important;
+	}
+	.guranteed {
+	    font-size: 12px;
+	}
+	.professional {
+	    padding: 17px 28px 8px;
+	}
+	.quick-suggestion-sub {
+	    margin-bottom: 20px;
+	}
+	.section2-sub1 p {
+	    padding: 28px 0px 50px;
+	}
+	#companies .notification .pl-0{
+		padding-left: 15px !important;
+	}
+	.candidate {
+	    margin: 0px 48%;
+	}
+	.modal-data input {
+	    width: 93.5%;
+	}
+	.account-active {
+	    margin-top: 45px;
+	}
+	.choose-data .choose-account:before {
+	    width: 33%;
+	}
+	.choose-data .choose-account:after {
+	    width: 33%;
+	    margin-left: 10px;
+	}
+	#myModal .modal-dialog{
+		margin-left: 15px !important;
+	}
+	.modal-data .phone {
+	    width: 93.7%;
+	}
+	.modal-data .empty-check {
+	    width: 5%;
+	}
+	#design3 .skills {
+    font-size: 12px;
+    padding: 19px 12px;
+	}
+}
+@media (max-width: 576px) {
+	#navbar .contact-details {
+	    flex-direction: column;
+	    align-items: center;
+	}
+	#navbar .contact {
+	    padding: 10px 20px 0px 0px;
+	}
+	.countplus {
+	    right: 322px;
+	}
+	.search-form .skills ,.slider-content .select-group { width: 100%;}
+	.search-btn {padding: 5px 0px;}
+	.thyroid-profile-box .google{
+		margin-top: 15px;
+	}
+	.search-form,.search-form form{flex-direction:column;}
+	.slider-content .search-left { margin: 4px 0px;}
+	.mb-width {
+	    width: 100%;
+	    justify-content: center;
+	}
+	.google span i {
+	    padding: 0px 0px 12px 0px;
+	}
+	.suitcase{
+		width: 80px;
+	}
+	.workbg1 {
+		text-align: center;
+	}
+	.workbg1 img {
+		width: 100%;
+	}
+	.jobs-discover {
+	    margin: 28px 0px 57px;
+	}
+	.jobs-apply {
+	    margin: 28px 0px 57px 0px;
+	}
+	.workbg {
+	    text-align: -webkit-center;
+	}
+	.workbg img {
+		width: 100%;
+		/*height: 50%;*/
+	}
+	.google .dollar {
+    padding-top: 4px;
+    padding-left: 15px;
+}
+/*	.ex-text {
+    padding-left: 19px;
+    margin-top: -197px !important;
+}*/
+	.mb-none{
+		display: none;
+	}
+	#testimonials .padbot25{
+		padding-bottom: 76px;
+	}
+	.dollar {
+	    justify-content: center;
+	    padding-bottom: 20px;
+	}
+	.thyroid-profile-box {
+	    text-align: -webkit-center;
+	}
+	.slider-heading {
+	    line-height: 1.2;
+	    font-size: 28px;
+	}
+	
+    .select-group{
+    	padding: 10px 10px !important;
+	    width: 117px;
+	}
+	select + i.fa {
+	    margin-top: -28px;
+	    margin-right: 0px;
+	    font-size: 20px;
+	}
+	#design3 .skills {
+	    width: 118px;
+	}
+	.card-header p {
+	    font-size: 9px;
+	}
+	.calendar:after {
+	    bottom: 16%;
+    	right: 70%;
+	}
+	.recommended .pad-lr35 {
+	    align-items: flex-end !important;
+	}
+	.main-cource {
+	    font-size: 15px;
+	}
+	.sub-cource {
+	    font-size: 13px;
+	}
+	.recommended .pad-lr35 {
+	    align-items: center !important;
+	    flex-direction: column;
+	}
+	.yourself {
+	    font-size: 12px;
+	    margin-top: 15px;
+	}
+	.applied-recently {
+	    padding: 20px 15px;
+	}
+	.mb-margin{
+		margin-left: 0px !important;
+	}
+	.choose-data .choose-account:before {
+	    width: 28%;
+	}
+	.choose-data .choose-account:after {
+	    width: 28%;
+	    margin-left: 10px;
+	}
+	.candidate {
+	    margin: 0px 46%;
+	}
+	.modal-data input {
+	    width: 91.6%;
+	}
+	.modal-data .phone {
+	    width: 91.9%;
+	}
+	.modal-selector .fa-caret-down {
+	    position: absolute;
+	    right: 7px;
+	    bottom: 9px;
+	}
+	#myModal .modal-dialog {
+	    margin-left: 0px !important;
+	}
+}
+@media (max-width: 475px) {
+	.mb-width {
+	    width: 100%;
+	    flex-direction: column;
+	}
+	.main-home .navbar-brand{width: 190px;}
+	.main-home .navbar-light{padding:.5rem 16px;}
+	.login-details a {
+    padding-right: 15px;}
+	.dollar {
+	    padding-top: 0px;
+	}
+	.countplus {
+	    right: 244px;
+	}
+	.search-form .skills {
+	    padding: 19px 10px;
+	}
+	.slider-content select + i.fa{    margin-top: -30px;
+    margin-right: 4px;}
+    
+	.navbar-brand img {
+	    width: 235%;
+	}
+	.google .suitcase {width: auto;}
+	#design3 .select-group {
+	    width: 120px;
+	}
+	#design3 .city {
+	    font-size: 14px;
+	    width: 120px;
+	}
+	.cv {
+	    padding: 23px;
+	    width: 71px;
+	    margin-top: 15px;
+	}
+	.professional {
+	    flex-direction: column;
+	    text-align: -webkit-center;
+	}
+	.fallow {
+	    margin-left: -57px;
+	}
+	#companies .notification p{
+		font-size: 12px;
+	}
+	#companies .notification .pl1-0{
+		padding-left:0px;
+	}
+	.calendar:after {
+	    bottom: 4%;
+	    right: 57%;
+	}
+	.choose-data .choose-account:before {
+	    width: 24%;
+	}
+	.choose-data .choose-account:after {
+	    width: 24%;
+	}
+	.modal-data input {
+	    width: 89.5%;
+	}
+	.modal-data .phone {
+	    width: 89.5%;
+	}
+	.modal-data .empty-check {
+	    width: 6%;
+	}
+	.mb-data{
+		flex-direction: column;
+	}
+	.btn-signup{
+		margin-bottom: 10px;
+	}
+	.candidate {
+	    margin: 0px 42%;
+	}
+
+}
+@media (max-width: 425px) {
+	.countplus {
+	    right: 195px;
+	}
+	#design3 .city {
+	    font-size: 14px;
+	    width: 99px;
+	}
+	#design3 .search-btn {
+	    background: #fff;
+	    padding: 5px 12px;
+	}
+	#design3 .skills {
+	    width: 108px;
+	}
+	.fallow {
+	    margin-left: -41px;
+	    font-size: 12px;
+	    padding: 7px 17px;
+	}
+	.calendar:after {
+	    bottom: 4%;
+	    right: 59%;
+	}
+	.choose-data .choose-account:before {
+	    width: 19%;
+	}
+	.choose-data .choose-account:after {
+	    width: 19%;
+	}
+	.modal-data input {
+	    width: 87.5%;
+	}
+	.modal-data .phone {
+		width: 87.5%;
+	}
+	.accepts {
+	    font-size: 12px;
+	}
+}
+@media (max-width: 414px) {
+	.countplus {
+	    right: 149px;
+	}
+	#design3 .select-group {
+	    width: 107px;
+	}
+	.view-jobs {
+	    width: 68%;
+	}
+}
+@media (max-width: 376px) {
+	.worktext {
+	    font-size: 24px;
+	}
+	.fa-arrow-circle-up{
+		font-size: 11px !important;
+	}
+	.input-file-container label {
+	    font-size: 12px;
+	}
+	.slider-heading {
+	    line-height: 1.2;
+	    font-size: 27px;
+	}
+	.slider-content {
+	    padding: 87px 0px 60px;
+	}
+	.banner-btn{
+		font-size: 11px !important
+	}
+	.select-group {
+	    padding: 10px 10px !important;
+	    font-size: 11px;
+	}
+	.city {
+	    font-size: 10px;
+	}
+	.skills {
+	    font-size: 11px;
+	    width: 90px;
+	}
+	.search-btn a i {
+	    font-size: 14px;
+	    }
+	 .slider-content .select-group {
+	    font-size: 15px;
+	}
+	.slider-content select + i.fa {
+	    margin-top: -28px;
+	    margin-right: 10px;
+	    font-size: 20px;
+	}
+	#work p {
+    color: #e6e3e3;
+    font-size: 17px;padding-left: 0px;}
+	.slider-description {font-size: 14px;}
+	.slider-content .banner-btn {font-size: 11px !important;}
+	.countplus {
+	    right: 104px;
+	}
+	.navbar-brand img {
+	    width: 197%;
+	}
+	#design3 .select-group {
+	    width: 93px;
+	}
+	#design3 .city {
+	    font-size: 14px;
+	    width: 84px;
+	}
+	#design3 .skills {
+	    width: 89px;
+	}
+	.application-heading {
+	    font-size: 18px;
+	}
+	.fallow-text {
+	    font-size: 15px;
+	}
+	.jobs-text {
+	    font-size: 23px;
+	}
+	#design3 .desing3 .navbar-brand {
+	    width: 200px;
+	}
+	.desing3 .navbar-brand img {
+	    width: 190px;
+	}
+	.calendar:after {
+	    bottom: 4%;
+	    right: 53%;
+	}
+	.card-header p {
+	    font-size: 8px;
+	}
+	.img-job{
+		    margin-left: -13px;
+	}
+	.card-body h6 {
+	    font-size: 14px;
+    }
+    .calendar a, .facilities a {
+	    font-size: 10px;
+	}
+	.modal-data input {
+	    width: 84.5%;
+	}
+	.modal-data .phone {
+	    width: 84.5%;
+	}
+	.choose-data .choose-account:before {
+	    width: 19%;
+	}
+	.choose-data .choose-account:after {
+	    width: 19%;
+	}
+	/*.modal-data input,.modal-data .phone {
+	    width: 86.5%;
+	}*/
+	.modal-heading {
+	    font-size: 16px;
+	}
+}
+@media (max-width: 360px){
+	.calendar:after {
+	    bottom: -2%;
+	    right: 59%;
+	}
+	.card-header p {
+	    font-size: 7px;
+	}
+}
+@media (max-width: 325px) {
+	#design3 .city {
+	    font-size: 8px;
+	    width: 77px;
+	}
+	#design3 .select-group {
+	    width: 73px;
+	}
+	#design3 .skills {
+	    width: 77px;
+	    font-size: 8px;
+	}
+	.fallow {
+	    margin-left: -54px;
+	}
+	.choose-data .choose-account:before,.choose-data .choose-account:after {
+	    width: 10%;
+	}
+	.candidate {
+	    margin: 0px 39%;
+	}
+}

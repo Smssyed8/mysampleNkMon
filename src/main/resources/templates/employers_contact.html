@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/employer.css'}" />
+<link rel="stylesheet" th:href="@{'/assets/css/plugin_other.css'}" />
+<title>Mindful Consulting Qatar - Job Seeker</title>
+<meta name="keywords"
+	content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+</head>
+<body id="design3" class="cv-search">
+	<div layout:fragment="content">
+		<div class="box is-large">
+			<div id="empContactUsPage" class="row box p20y ">
+				<div id="empContactUsContainer" class="col-lg-12">
+					<div class="card">
+						<div class="t-center">
+							<div th:if="${displayErrorMessage}" id="alertErrorMessage"
+								class="alert alert-danger">
+								<span th:text="${displayErrorMessage}"></span>
+								<button onclick="hideElement('alertErrorMessage')" class="close"
+									aria-hidden="true">x</button>
+							</div>
+						</div>
+						<div class="card-head">
+							<h1 class="h2 search-heading">How can we help?</h1>
+							<p class="find-candidate">If you have any employer inquiries,
+								please fill in the following form and we will contact you.</p>
+						</div>
+						<div class="card-content is-stretched">
+							<form class="form is-basic is-compact"
+								th:object="${employerContactUs}" action="/employer/drop/email"
+								method="post">
+								<input type="hidden" name="employerId"
+									th:value="${currentEmployer.id}" />
+								<div class="form-section">
+									<div class="form-item ">
+										<div class="form-value ">
+											<input placeholder="Subject" class="input" name="subject"
+												type="text" />
+											<p class="form-errors"
+												th:if="${#fields.hasErrors('subject')}"
+												th:text="@{'Please provide the subject'}"></p>
+										</div>
+									</div>
+									<div class="form-item ">
+										<div class="form-value ">
+											<textarea placeholder="Message" rows="5" class="input"
+												name="message"></textarea>
+											<p class="form-errors"
+												th:if="${#fields.hasErrors('message')}"
+												th:text="@{'Please provide the message'}"></p>
+										</div>
+									</div>
+									<div class="form-item ">
+										<div class="form-value ">
+											<input placeholder="Name" class="input" name="name"
+												type="text" />
+											<p class="form-errors" th:if="${#fields.hasErrors('name')}"
+												th:text="@{'Please provide the name'}"></p>
+										</div>
+									</div>
+									<div class="form-item ">
+										<div class="form-value ">
+											<input placeholder="Job Title" class="input" name="jobTitle"
+												type="text" />
+											<p class="form-errors"
+												th:if="${#fields.hasErrors('jobTitle')}"
+												th:text="@{'Please provide your job title'}"></p>
+										</div>
+									</div>
+									<div class="form-item ">
+										<div class="form-value ">
+											<input placeholder="Company Name" class="input"
+												name="companyName" type="text" />
+											<p class="form-errors"
+												th:if="${#fields.hasErrors('companyName')}"
+												th:text="@{'Please provide the your company name'}"></p>
+										</div>
+									</div>
+									<div class="form-item ">
+										<div class="form-value ">
+											<input placeholder="Email" class="input" name="email"
+												type="email" />
+											<p class="form-errors" th:if="${#fields.hasErrors('email')}"
+												th:text="@{'Please provide a valid email'}"></p>
+										</div>
+									</div>
+									<div class="form-item ">
+										<div class="form-value ">
+											<div class="input-pack ">
+												<input class="input u-expanded-m in-pack"
+													name="mobileNumber" placeholder="Mobile number"
+													type="number" maxlength="15" />
+											</div>
+											<p class="form-errors"
+												th:if="${#fields.hasErrors('mobileNumber')}"
+												th:text="@{'Please provide correct mobile number'}"></p>
+										</div>
+									</div>
+									<input class="input" name="" type="hidden" />
+									<div class="form-item ">
+										<div class="form-value ">
+											<div class="select">
+												<select
+													data-searchable="{&quot;data&quot;:{&quot;search&quot;:true}}"
+													class="input" name="countryId">
+													<option value="" selected="selected" disabled="disabled">Select
+														Country</option>
+													<option th:each="instance: ${countries}"
+														th:text="${instance.country}" th:value="${instance.id}"></option>
+												</select>
+												<p class="form-errors"
+													th:if="${#fields.hasErrors('countryId')}"
+													th:text="@{'Please select the country'}"></p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<footer class="form-footer">
+									<button class="btn add-to-cart" type="submit" name="submit"
+										value="submit">Send</button>
+								</footer>
+							</form>
+						</div>
+					</div>
+					<br>
+				</div>
+				<!-- other-offices -->
+			</div>
+			<!-- empCallUsInfo -->
+		</div>
+	</div>
+	<script th:src="@{'/assets/js/employer_plugin.js'}"></script>
+</body>
+
+</html>

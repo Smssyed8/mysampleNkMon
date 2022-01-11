@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/registration.css'}" />
+<title>Mindful Consulting Qatar - Registration</title>
+<meta name="keywords"
+	content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- navigation section-->
+		<div id="header"></div>
+
+		<!-- header end -->
+		<section style="background-color: #f1f2f0;">
+			<div class="container">
+				<div class="register-account">
+					<div class="d-flex justify-content-between">
+						<h3 class="modal-heading">Signup To Your Account</h3>
+					</div>
+					<div class="modal-data">
+						<div class="choose-data">
+							<p class="choose-account text-center">Choose your Account
+								Type</p>
+						</div>
+						<div>
+							<ul class="nav nav-tabs account-active" role="tablist">
+								<li class="nav-item"><a
+									th:class="${(activePageName == null || activePageName == 'regJobseeker')?'nav-link active':'nav-link'}"
+									data-toggle="tab" href="#regJobseeker">
+										<div class="account-details">
+											<div class="candidate">
+												<i class="fa fa-user-circle-o"></i>
+											</div>
+											<h4>Jobseeker</h4>
+											<p>I want to discover awesome companies.</p>
+										</div>
+								</a></li>
+								<li class="nav-item"><a
+									th:class="${(activePageName == 'regEmployer')?'nav-link active':'nav-link'}"
+									data-toggle="tab" href="#regEmployer">
+										<div class="account-details">
+											<div class="candidate employer-data">
+												<i class="fa fa-suitcase"></i>
+											</div>
+											<h4>Employer</h4>
+											<p>I want to attract best talent.</p>
+										</div>
+								</a></li>
+							</ul>
+							<div class="tab-content">
+								<div id="regJobseeker"
+									th:class="${(activePageName == null || activePageName == 'regJobseeker')?'container tab-pane active':'container tab-pane'}">
+									<form th:action="@{/registration}" th:object="${account}"
+										method="post">
+										<input id="role" name="role" th:value="ROLE_JOBSEEKER"
+											class="form-control" type="hidden" /> <input
+											id="activePageName" name="activePageName"
+											th:value="regJobseeker" type="hidden" /> <br>
+										<div class="row">
+											<div class="col col-12 col-md-6 col-lg-6">
+												<div>
+													<div class="form-group">
+														<div class="label-data">
+															<label>Name*</label>
+														</div>
+														<inputgroup> <input id="name"
+															th:field="*{name}" type="text" placeholder="Name">
+														<i class="fa fa-user-circle-o"></i> </inputgroup>
+														<p class="form-errors"
+															th:if="${#fields.hasErrors('name')}"
+															th:text="@{'Please provide the name'}"></p>
+													</div>
+													<div class="form-group">
+														<div class="label-data">
+															<label>Email Address*</label>
+														</div>
+														<inputgroup> <input id="email"
+															th:field="*{email}" type="text" placeholder="Email">
+														<i class="fa fa-envelope-o"></i> </inputgroup>
+														<p class="form-errors"
+															th:if="${#fields.hasErrors('email') && emailError == null}"
+															th:text="@{'Please provide correct email'}"></p>
+														<p class="form-errors" th:if="${emailError != null}"
+															th:text="${emailError}"></p>
+													</div>
+													<div class="form-group">
+														<div class="label-data">
+															<label>Password*</label>
+														</div>
+														<inputgroup> <input id="password"
+															th:field="*{password}" type="password"
+															placeholder="Password"> <i class="fa fa-ship"></i>
+														</inputgroup>
+														<p class="form-errors"
+															th:if="${#fields.hasErrors('password')}"
+															th:text="@{'Please provide correct password'}"></p>
+													</div>
+												</div>
+											</div>
+											<div class="col col-12 col-md-6 col-lg-6">
+												<div>
+													<div class="form-group">
+														<div class="label-data">
+															<label>Phone*</label>
+														</div>
+														<inputgroup> <input id="mobilePhone"
+															th:field="*{mobilePhone}" type="text"
+															placeholder="Phone Number"> <i
+															class="fa fa-volume-control-phone"></i> </inputgroup>
+														<p class="form-errors"
+															th:if="${#fields.hasErrors('mobilePhone')}"
+															th:text="@{'Please make sure you enter 8 digit mobile number'}"></p>
+													</div>
+													<div class="form-group">
+														<div class="label-data">
+															<label>Confirm Email Address*</label>
+														</div>
+														<inputgroup> <input id="confirmEmail"
+															th:field="*{confirmEmail}" type="text"
+															placeholder="Confirm Email"> <i
+															class="fa fa-envelope-o"></i> </inputgroup>
+														<p class="form-errors"
+															th:if="${#fields.hasErrors('confirmEmail')}"
+															th:text="@{'Please make sure email and confirm email are same'}"></p>
+													</div>
+													<div class="form-group">
+														<div class="label-data">
+															<label>Confirm Password*</label>
+														</div>
+														<inputgroup> <input id="confirmPassword"
+															th:field="*{confirmPassword}" type="password"
+															placeholder="Confirm Password"> <i
+															class="fa fa-ship"></i> </inputgroup>
+														<p class="form-errors"
+															th:if="${#fields.hasErrors('confirmPassword')}"
+															th:text="@{'Please make sure password and confirm password are same'}"></p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div>
+											<div class="form-group">
+												<div class="label-data">
+													<label>Select Sector:</label>
+												</div>
+												<div class="modal-selector">
+													<select id="sector" th:field="*{sector}" class="selector">
+														<option value="">Select Sector</option>
+														<option th:each="sector: ${sectors}"
+															th:value="${sector.id}" th:text="${sector.sector}"></option>
+													</select> <i class="fa fa-caret-down"></i>
+												</div>
+												<p class="form-errors"
+													th:if="${#fields.hasErrors('sector')}"
+													th:text="@{'Please select sector'}"></p>
+											</div>
+											<div class="form-group">
+												<div class="label-data">
+													<label>Select Nationality:</label>
+												</div>
+												<div class="modal-selector">
+													<select id="nationality" th:field="*{nationality}"
+														class="selector">
+														<option value="">Select Nationality</option>
+														<option th:each="country: ${countries}"
+															th:value="${country.id}" th:text="${country.country}"></option>
+													</select> <i class="fa fa-caret-down"></i>
+												</div>
+												<p class="form-errors"
+													th:if="${#fields.hasErrors('nationality')}"
+													th:text="@{'Please select nationality'}"></p>
+											</div>
+											<div class="form-group">
+												<div class="d-flex align-items-center privacy">
+													<input id="terms" type="checkbox" th:field="*{terms}"
+														class="empty-check">
+													<p class="accepts">
+														You accepts our <span><a href="#">Terms and
+																Conditions</a></span> and <span><a href="#">Privacy
+																Policy</a></span>
+													</p>
+												</div>
+												<p class="form-errors"
+													th:if="${#fields.hasErrors('nationality')}"
+													th:text="@{'You must select our terms and conditions'}"></p>
+											</div>
+											<div
+												class="form-group d-flex justify-content-between align-items-center mb-data padt20">
+												<div>
+													<button class="btn btn-signup">Sign Up</button>
+												</div>
+												<div>
+													<a th:href="@{'/login'}" class="choose-account login-link">Already
+														have an account? Login</a>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+								<div id="regEmployer"
+									th:class="${(activePageName == 'regEmployer')?'container tab-pane active':'container tab-pane fade'}">
+									<br>
+									<form th:action="@{/registration}" th:object="${account}"
+										method="post">
+										<input id="role" name="role" th:value="ROLE_EMPLOYER"
+											class="form-control" type="hidden" /> <input
+											id="activePageName" name="activePageName"
+											th:value="regEmployer" type="hidden" />
+										<p class="form-errors" th:if="${#fields.hasGlobalErrors()}"
+											th:each="error : ${#fields.errors('global')}"
+											th:text="${error}">Validation error</p>
+										<br>
+										<div class="row">
+											<div class="col col-12 col-md-6 col-lg-6">
+												<div>
+													<div class="form-group">
+														<div class="label-data">
+															<label>Name*</label>
+														</div>
+														<inputgroup> <input id="name"
+															th:field="*{name}" type="text" placeholder="Name">
+														<i class="fa fa-user-circle-o"></i> </inputgroup>
+														<p class="form-errors"
+															th:if="${#fields.hasErrors('name')}"
+															th:text="@{'Please provide the name'}"></p>
+													</div>
+													<div class="form-group">
+														<div class="label-data">
+															<label>Email Address*</label>
+														</div>
+														<inputgroup> <input id="email"
+															th:field="*{email}" type="text" placeholder="Email">
+														<i class="fa fa-envelope-o"></i> </inputgroup>
+														<p class="form-errors"
+															th:if="${#fields.hasErrors('email') && emailError == null}"
+															th:text="@{'Please provide correct email'}"></p>
+														<p class="form-errors" th:if="${emailError != null}"
+															th:text="${emailError}"></p>
+													</div>
+													<div class="form-group">
+														<div class="label-data">
+															<label>Password*</label>
+														</div>
+														<inputgroup> <input id="password"
+															th:field="*{password}" type="password"
+															placeholder="Password"> <i class="fa fa-ship"></i>
+														</inputgroup>
+														<p class="form-errors"
+															th:if="${#fields.hasErrors('password')}"
+															th:text="@{'Please provide correct password'}"></p>
+													</div>
+												</div>
+											</div>
+											<div class="col col-12 col-md-6 col-lg-6">
+												<div>
+													<div class="form-group">
+														<div class="label-data">
+															<label>Phone*</label>
+														</div>
+														<inputgroup> <input id="mobilePhone"
+															th:field="*{mobilePhone}" type="text"
+															placeholder="Phone Number"> <i
+															class="fa fa-volume-control-phone"></i> </inputgroup>
+														<p class="form-errors"
+															th:if="${#fields.hasErrors('mobilePhone')}"
+															th:text="@{'Please make sure you enter 8 digit mobile number'}"></p>
+													</div>
+													<div class="form-group">
+														<div class="label-data">
+															<label>Confirm Email Address*</label>
+														</div>
+														<inputgroup> <input id="confirmEmail"
+															th:field="*{confirmEmail}" type="text"
+															placeholder="Confirm Email"> <i
+															class="fa fa-envelope-o"></i> </inputgroup>
+														<p class="form-errors"
+															th:if="${#fields.hasErrors('confirmEmail')}"
+															th:text="@{'Please make sure email and confirm email are same'}"></p>
+													</div>
+													<div class="form-group">
+														<div class="label-data">
+															<label>Confirm Password*</label>
+														</div>
+														<inputgroup> <input id="confirmPassword"
+															th:field="*{confirmPassword}" type="password"
+															placeholder="Confirm Password"> <i
+															class="fa fa-ship"></i> </inputgroup>
+														<p class="form-errors"
+															th:if="${#fields.hasErrors('confirmPassword')}"
+															th:text="@{'Please make sure password and confirm password are same'}"></p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div>
+											<div class="form-group">
+												<div class="label-data">
+													<label>Select Sector:</label>
+												</div>
+												<div class="modal-selector">
+													<select id="sector" th:field="*{sector}" class="selector">
+														<option value="">Select Sector</option>
+														<option th:each="sector: ${sectors}"
+															th:value="${sector.id}" th:text="${sector.sector}"></option>
+													</select> <i class="fa fa-caret-down"></i>
+												</div>
+												<p class="form-errors"
+													th:if="${#fields.hasErrors('sector')}"
+													th:text="@{'Please select sector'}"></p>
+											</div>
+											<div class="form-group">
+												<div class="label-data">
+													<label>Organization Name:</label>
+												</div>
+												<inputgroup> <input id="companyName"
+													th:field="*{companyName}" type="text" class="text phone"
+													placeholder="Organization Name"> <i
+													class="fa fa-suitcase"></i> </inputgroup>
+												<p class="form-errors"
+													th:if="${#fields.hasErrors('companyName')}"
+													th:text="@{'Please enter correct company name'}"></p>
+											</div>
+											<div class="form-group">
+												<div class="label-data">
+													<label>Select Nationality:</label>
+												</div>
+												<div class="modal-selector">
+													<select id="nationality" th:field="*{nationality}"
+														class="selector">
+														<option value="">Select Nationality</option>
+														<option th:each="country: ${countries}"
+															th:value="${country.id}" th:text="${country.country}"></option>
+													</select> <i class="fa fa-caret-down"></i>
+												</div>
+												<p class="form-errors"
+													th:if="${#fields.hasErrors('nationality')}"
+													th:text="@{'Please select nationality'}"></p>
+											</div>
+											<div class="form-group">
+												<div class="d-flex align-items-center privacy">
+													<input id="terms" type="checkbox" th:field="*{terms}"
+														class="empty-check">
+													<p class="accepts">
+														You accepts our <span><a href="#">Terms and
+																Conditions</a></span> and <span><a href="#">Privacy
+																Policy</a></span>
+													</p>
+												</div>
+												<p class="form-errors"
+													th:if="${#fields.hasErrors('nationality')}"
+													th:text="@{'You must select our terms and conditions'}"></p>
+											</div>
+											<div
+												class="form-group d-flex justify-content-between align-items-center mb-data padt20">
+												<div>
+													<button class="btn btn-signup">Sign Up</button>
+												</div>
+												<div>
+													<a th:href="@{'/login'}" class="choose-account login-link">Already
+														have an account? Login</a>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

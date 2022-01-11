@@ -1,0 +1,134 @@
+#design3 .navbar-brand{width:340px;}
+#design3 .dropdown {padding:0px;}
+/*#design3 .mindful-app .navbar-collapse.collapse {display:flex !important;}*/
+.mindful-app .start-hiring{
+	background-color: transparent;
+	padding: 6px 6px;
+    font-size: 13px;
+    border-color: #6b6a73;
+    margin-left: 20px;
+    color: #4a4a4a;
+    font-weight: 400;
+}
+.mindful-app .btn:focus:not(:disabled), .mindful-app .btn:hover:not(:disabled){
+	background-color: #fff;
+    border-color: #6b6a73;
+    color:#4a4a4a;
+}
+#design3 .bg-offer{background-color:#fed90a;}
+#design3 .t-primary {
+    color: #fed90a;
+}
+#design3 .save-more{color:#6b6a73;border-color:#fed90a;}
+#design3 .save-more:hover{color:#fed90a;border-color:#6b6a73;}
+#design3 .add-to-cart{background-color:#fed90a;border:1px solid #6b6a73;}
+#design3 .add-to-cart:hover{background-color:#dbba01;}
+#design3 .external-link{color:#fed90a;}
+.employer_section{
+    background-color: #f1f2f0;
+    padding: 60px 0px 20px;
+}
+.applicant_data{text-align: -webkit-center;}
+.applicant_data h1{font-size: 70px;
+    font-weight: 100;
+    color: #7f7e7e;}
+.quick-suggestion-sub .immediate-hiring{
+    text-align: -webkit-center;
+    margin: 21px 0px 20px;
+}
+.quick-suggestion-sub .quick-search{align-self: flex-start;padding-left: 15px;}
+.immediate-hiring .hiring-weeks{    font-size: 60px;
+    font-weight: 600;
+    margin-top: -25px;}
+.immediate-hiring .hiring-weeks span{    font-size: 30px;
+    margin-left: -13px;
+}
+.immediate-hiring .cv-search{font-size: 22px;
+    font-weight: 600;
+    margin-top: -20px;}
+.immediate-hiring .hiring-cost{font-size: 22px;
+    font-weight: 300;
+    text-decoration: line-through;
+    color: #000;}
+.immediate-hiring h1{font-weight: 600;}
+.candidate-hiring .quick-suggestion-sub .search-btn{margin-bottom: 5px; margin-top: -10px;}
+.candidate-hiring .quick-suggestion-sub .add-btn{margin-top: -5px;
+    margin-bottom: 42px;}
+.quick-suggestion-sub .btn-advance{
+    font-size: 22px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 7px;
+    color: #fed90a;
+}
+.candidate-hiring .quick-suggestion-sub{margin-top: 15px;}
+.candidate-hiring .quick-suggestion-sub:hover{background-color: #fed90a;}
+.candidate-hiring .quick-suggestion-sub:hover .btn-custom{background-color: #fff;}
+.candidate-hiring .quick-suggestion-sub:hover .fa-external-link{color:#fff;}
+.candidate-hiring .quick-suggestion-sub img{
+    height: auto;
+    margin-top: 0px;
+    border-top-left-radius: 7% !important;
+    border-top-right-radius: 7% !important;
+}
+.candidate-hiring .candidate-data .section2-sub1{padding: 0px;}
+.candidate-hiring .section2-sub1 p{font-size: 19px;
+    line-height: 1.3;}
+.quick-suggestion-sub .recommended-cv p{
+    padding: 0px;
+    margin-top: 18px;
+    padding-left: 15px;
+}
+.quick-suggestion-sub .recommended-cv h3{font-weight: 600;}
+.quick-suggestion-sub .client-designation p{font-size: 13px;}
+.quick-suggestion-sub .candidate-profile{padding: 49px 0px;}
+.candidate-hiring .quick-suggestion-sub:hover .assesmenttest h5{color:#fff;}
+.candidate-hiring .applicant-break{min-height: 417px;}
+.section2-sub1 .fa-external-link{color:#ffc843;margin-top:20px;font-size: 80px;}
+.select-employers .experienced-years{-webkit-appearance: none;}
+.experience{display: flex;-webkit-appearance: none;}
+#candidate-exective-job{background-color: #fff;padding: 30px 0px;}
+#candidate-exective-job .executive-section{padding: 15px 6px;background-color: #f1f2f0;}
+#user-activity{padding: 30px 0px;}
+#user-activity .user-data-select{    width: 26%;
+    margin: 17px 0px;}
+#user-activity .applicant_data p{font-size: 15px;}
+.active-jobs h5{font-size: 18px;
+    padding: 20px 0px 0px;}
+#user-activity .experienced-years{-webkit-appearance: none;}
+.employer-footer .footer-link{text-transform: uppercase;}
+.employer-footer p{    
+    padding: 0px 62px 0px 0px;
+    line-height: 1.7;
+    color: #c1c1c1;
+    margin-bottom: 16px;}
+.cv-search .search-heading{
+	font-weight: bold;
+} 
+.cv-search .find-candidate{
+	    margin: 20px 0px;
+}
+#design3 .search-bar{background-color: transparent;;}
+#frame footer{
+	padding:0px;
+}
+#design3 .navbar-brand {padding: 6px 0px; margin-right: 0px;}
+.write_newQues #id-question_title {    width: 545px;    margin: -1px 0px 0;}
+.write_newQues .img_newQues{width: 8%;height: 40px;}
+#streamTabs .nav-tabs.nav-justified>li {
+    display: table-cell;
+    width: 100%;
+}
+.cv-search .employer-post-job .modal-content{border:0px;}
+.cv-search .employer-post-job .modal-dialog{padding:0px;}
+.cv-search .employer-post-job .profile-data .form-item{display:block;    margin-top: 0px;}
+.cv-search .employer-post-job .profile-data .form-item .form-value{
+display: block;
+    width: 100%;
+    padding-right: 0px;
+}
+.cv-search .employer-post-job .password-data .form-control{margin-bottom:0px !important;}
+.cv-search .buy-now-btn{background-color: #828a93 !important;color:#fff !important; text-align:center;}
+.cv-search .buy-now-btn:hover{background-color: #fed90a !important; border: 1px solid #6b6a73 !important;}
+.cv-search .add-to-cart{text-align:center;}

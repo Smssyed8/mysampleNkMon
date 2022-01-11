@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout_employers">
+<head>
+<title>Mindful Consulting Qatar - Job Seeker</title>
+<meta name="keywords" content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+<link rel="stylesheet" type="text/css" th:href="@{'/assets/css/bootstrap_other.css'}" />
+	
+</head>
+<body id="design3" class="cv-search">
+	<div layout:fragment="content">
+	<div id="fb-root"></div>
+		<div id="frame" class="revamp">
+			<div class="wide">
+				<h2 class="text-center"><b>SPECIALTIES IS A GREAT WAY TO</b></h2>
+				<h2 class="text-center"><b>NETWORK AND GET ANSWERS</b></h2>
+				<p class="text-center">Connect with your friends and other interesting people. Keep up-to-date with the things that most interest you. Engage with career stories in real time, from every angle.</p>
+				<div class="btnContainer">
+					<a class="btn btn-warning" href="#">
+						Join Now</a>
+					<a class="watch-video" href="#"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>Watch the Video</a>
+				</div>
+			</div>
+			<div class="ie-wrapper">
+			<div class="content-wrapper"></div>
+		</div>
+		<div id="">
+		<div id="content-frame">
+			<div class="all-content">
+                <div id="modalsharecontent" class="hide">
+		            <div class="sharecontainer">
+                        <a href="#" class="btn btn-block btn-social btn-facebook">
+                        <span> <i class="fa fa-facebook"></i> </span>
+                        <label class="l" >Share on Facebook</label>
+                        </a>
+                        <a href="#" class="btn btn-block btn-social btn-twitter">
+                        <span><i class="fa fa-twitter"></i></span>
+                        <label class="l">Share on Twitter</label>
+                        </a>
+			      	</div>
+                </div>
+                <div class="container">
+	                <div class="row">
+		                <div> </div>
+					<div id="specContent" class="pull-left col-lg-8 col-md-8 col-12 col">
+                        <div id="streamTabs" class="panel">
+                            <div class="panel-body text-center">
+                                <ul class="nav nav-tabs nav-justified">
+                                    <li id="strPost-question" class="active">
+                                        <a data-toggle="tab" href="#post-question-item">
+                                            <i class="icon ask"></i>Ask the Community</a>
+                                        <span class="graySeparator first-sep"> | </span>
+                                    </li>
+                                </ul>
+                            <div class="tab-content text-justify">
+                            <div id="post-question-item" class="tab-pane fade in active">
+                        <form method="post" action="" name="main-ask-question-from">
+                            <input type="hidden" value="" name="tags_list">
+                            <p><small>Ask any professional question and get answers from other specialists.</small></p>
+                            <div class="clearfix write_newQues row">
+                            <img class="pull-left img-responsive img_newQues" src="https://img4cf.b8cdn.com/images/people/no-photo-m-140x140.png" height="40" width="40">
+                            <textarea placeholder="  - Write a Question -" name="question_title" class="pull-left text-muted" id="id-question_title"
+                             onblur= ""></textarea>
+                           </div>
+                            <div class="hide" id="error-msg">This field must contain at least 15 characters.</div>
+                            <div class="hide" id="error-msg-char">This field must contain 150 characters or less.</div>
+                            <div class="row clearfix">
+                            <a  href="#" class="btn btn-primary q_sbmt" style="display:none;">Post Your Question</a>
+                           </div>
+                        </form>
+
+                    </div> <!-- post-question-item -->
+
+                    <div id="post-article-item" class="tab-pane fade">
+                        
+                        <div id="post-article-form">
+                            <div class="share-article-desc">
+                                Did you read something related to your specialties that you'd like to share with other professionals? <b>Share and add your thoughts</b>
+                                to start a discussion with the community.</div>
+                            <input type="hidden" name="action" value="1" />
+                            <div class="share-article-link row">
+
+                                <div class="pull-left attach-icon">
+                                    <i class="i_attach stream-icons"></i>
+                                </div>
+                                <div class="pull-left">
+                                    <input type="text"name="" value="Share the article link here" maxlength="1000" class="shareLink req max-600 text text-muted" >
+                                    <br class="clear"/>
+                                    <span id="url_source_loading" class="mute">
+                                        <img src="https://img0cf.b8cdn.com/bayt/assets/specialties-110/images/loading_h.gif" width="16" height="11" alt="Loading">
+                                    </span>
+                                    <span class ="tip text-muted">e.g: http://www.example.com</span>
+                                </div>
+                            </div>
+
+                            <div id="item-preview" class="stream row">
+                                <img id="item_img" width="140" height="140" class="pull-left" src=""/>
+                                <p class="pull-left">
+                                    <span class="h3" id="item_title"></span>
+                                    <br>
+                                    <span id="item_body"></span>
+                                </p>
+                            </div>
+
+                            <div class="article-perspective row">
+                                <div class="pull-left prespect-icon">
+                                    <i class="i_pov stream-icons"></i>
+                                </div>
+                                <div class="pull-left">
+                                    <span id="err-item_perspective" class="error"></span>
+                                    <textarea name="item_perspective" class="req textarea max-2000 text-muted" >Write your thoughts about the article</textarea>
+                                </div>
+                            </div>
+                            <div class="select-spc-tip">
+                                Select Specialties you want your article to be posted in</div>
+                            <input type="hidden" name="tags_id" value="" />
+                        </div>
+                    <div class="stream-post-item" id="stream-item-suggested-tags">
+                        <div>
+
+                            <span id="itemTagesSelected" class="add_spc_tags"></span>
+                            <div class="tags_suggestions row">
+                                <span id="err-itemTagesSelected" class="error"></span>
+                                <input type="text" name="add_tags_from" autocomplete="off" id="artShare" maxlength="50" class="type-spc-name max text-muted text ac_input"  placeholder="- Type Specialty Name -">
+
+                        <p id="suggested-tag-text" class="h4"><b>Examples of specialties you can add:</b></p>
+                        <span class="clear" id="suggested-tags"></span>
+                        <div name="suggested_tags_template" class="hide row suggested_tags_template">
+                            <a class="s_tag label">
+                                TAGNAME
+                            </a>
+                        </div>
+                    </div>
+                </div>
+				<div class="post-article row">
+					<button id="post-item-btn" class="btn btn-primary ">Post</button>
+				</div>
+			</div>
+			</div><!-- post-article-item -->
+
+			<div id="postBlog" class="tab-pane fade">
+				WRITE A BLOG
+			</div> <!-- postBlog -->
+
+		</div> <!-- tab-content -->
+	</div> <!-- panel-body -->
+</div> <!-- streamTabs -->
+<div id="similarQuestions" class="hide">
+	<div id="similarQues">
+			<h3 class="h3-simliarQ">Check for similar questions</h3>
+	<div class="simiBorder"></div>
+	<ul class="relatedNewQuestions"></ul>
+
+	<div class="simiBorder"></div>
+		<div class="pull-right">
+			<a href="#" class="btn btn-primary newQ">My Question is New</a>
+		</div>
+	</div>
+</div>
+
+	<div id="all_stream_loader" class="content_loader text-center">
+		<img src="https://img1cf.b8cdn.com/images/people/content-loader.gif" alt="Loading"><br>
+					Loading</div>
+		<div id="customize-your-experience" class="hide"> </div>
+		<div id="contentLoader">
+		<ul id="specialties-stream" class="specialties-stream list-unstyled">
+            <li class="stream question activeParent" id="streamQuestion156430522">
+	            <div class="stream-tags margin-b25">
+					<h3>
+				<a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Human Resources</a>
+			</h3>
+			<div class="b_wrap"></div>
+				<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">
+				Human Resources Management Systems</a>
+			</h3>
+			<div class="b_wrap"></div>
+			</div>
+	<div class="stream-author margin-b30 clearfix">
+		<a name="userBoubble_56935178" target="_blank" href="#" class="photo pull-left userBoubble">
+			<img src="htpps://img0cf.b8cdn.com/70x70/images/uploads/user_photos/78/56935178_20190923143921.jpg" class="img-circle" width="70" height="70"  alt="KARTHICK GM">
+		</a>
+		<div class="info pull-right">
+			Question added by<a class="userBoubble" name="userBoubble_56935178" target="_blank" href="#">
+					KARTHICK GM</a>, Engineer trainee, TVS Motor Company Limited<br>1 hour ago</div>
+	</div>
+	<div class="stream-body">
+		<h2  dir="ltr" class="margin-b30 text-left" >
+			<a href="#" class="dark">Can take fresher as a team member in the Human resources department?&lrm;</a>
+		</h2>
+	</div>
+	<div class="social-summary text-muted margin-b30" id="questionCounters_422909">
+		<span data-count="0">Answers (0)</span>
+		<span data-count="0" class="followQues questionFolCounters_422909">Followers (0)</span>
+		<span data-count="1" >Views (1)</span>
+		<span data-count="0" class="questionVoteCounters_422909">Vote Count (0)</span>
+	</div>
+	<div class="stream-actions questionActivitySteam" id="questionActivitySteam_422909">
+		<ul class="list-inline">
+			<li>
+				<a href="#" id="answerLink_156430522'" class="btn btn-action" >
+				Be the First to Answer</a>
+			</li>
+			<li>
+				<a href="#" id="followActivity_422909" class="j_question_action " >
+				<span class="j_txt">Follow</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" id="voteActivity_422909" class="j_question_action">
+				Upvote</a>
+			</li>
+			<li>
+				<a id="show-share-modal" href="#" >
+				<span class="edit_answer_span_qpage">Share</span>
+				</a>
+			</li>
+			<li class="reportCont pull-right">
+				<span class="action_item pull-right report">
+				<a href="#" class="light report">
+				Report Inappropriate</a>
+				</span>
+			</li>
+		</ul>
+	</div>
+	<div id="answer_box_on_stream_156430522" class="hide">
+		<div class="alert alert-success hide" style="margin-top:30px;">
+			 <p style="padding-top: 2px;"></p>
+		</div>
+		<div class="answer-div-stream"  id="answer-div-stream-156430522">
+			<div id="answer-div-error-156430522" class="alert alert-danger " style="display:none">
+				<p class="">Please make sure that your answer is written in English.</p>
+				<p class="" ><b>Try adding a different answer.</b><br>Thank you for answering the question. Unfortunately, the answer you are trying to submit has already been added.</p>
+				<p class="" >You can't add content on Bayt.com Specialties because your account has been blocked for violating the terms of service.</p>
+				<p class="">You can't add content on Bayt.com Specialties because you don't have a rank yet or your email hasn't been verified.</p>
+				<p class="">The owner has blocked you</p>
+				<p class="">Answer should contain a minimum of 25 characters.</p>
+			</div>
+			<textarea  class="textarea mceEditor" style="height:280px;max-height:250px;margin:0 0 15px;overflow-y:auto !important;resize:none;width:98.4%"></textarea>
+				<span class="mute" id="answer_body_tip" >Answer should contain a minimum of 25 characters.</span>
+				<button class="btn btn-primary pull-left">Answer</button>
+		</div>
+	</div>
+</li>
+<div id="featured-questions-id" class="hide">
+	<ul class="thumbnails" style="padding:0"></ul>
+ 	<div class="mute txt-size-12">
+		Get +10 points added to your Specialty Rank every time your answer is voted up.<a href="#">Learn more</a>
+	</div>
+	<div class="border-padding border-top">
+		<div class="footer-padding c">
+			<a href="#" class="mute"><u>See More </u></a>
+		</div>
+	</div>
+</div>
+<span id="titleOfpopup" class="hide">
+	<span>Thanks for sharing your expertise! Can you also help answer any of these questions?</span>
+</span>
+<li class="stream answer" id="answer_1963258">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Staff Development</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Staff Management</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Human Resources	</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">HR Management</a></h3>
+	</div>
+	<h2  dir="ltr" class="margin-b30 text-left" >
+		<a href="#" class="dark">
+			When should I conduct PDR with my staff members if I have staff commencing out of line with the PDR cycle?&lrm;
+		</a>
+	</h2>
+	<div class="stream-author margin-b30 clearfix">
+		<a name="userBoubble_57003776" target="_blank" href="#" class="photo pull-left userBoubble">
+			<img src="https://img1cf.b8cdn.com/70x70/images/uploads/user_photos/76/57003776_20190928053144.jpg" class="img-circle" width="70" height="70" alt="Shingirayi Madarani">
+		</a>
+		<div class="info pull-right">
+			Answer added by&nbsp;
+			<a  class="userBoubble" name="userBoubble_57003776" target="_blank" href="#">
+			Shingirayi Madarani</a>, Human Resources Manager, National Employment Council<br>
+             1 hour ago		
+        </div>
+	</div>
+	<div class="stream-body">
+		<p class="margin-b30 text-left" dir="ltr" >
+		Ideally PDR should be conducted once on an annual basis. However it is very important to determine the current  competence level of employees in achieving underlying orga									... <a href="https://www.bayt.com/en/specialties/q/411512/when-should-i-conduct-pdr-with-my-staff-members-if-i-have-staff-commencing-out-of-line-with-the-pdr-cycle/#answer_1963258" class="dark text-underline">See More</a>
+		</p>
+	</div>
+	<div class="stream-actions vote">
+		<ul class="list-inline">
+			<li>
+				<a  href="#"  class="j_vote_answer j_up btn btn-action">
+				Upvote(<span class="count">0</span>)
+				</a>
+			</li>
+			<li>
+				<a  href="#" class="j_vote_answer j_down">Downvote</a>
+			</li>
+			<li class="reportCont anserReport pull-right">
+				<span class="action_item pull-right report">
+				<a  href="#" class="light report">
+				Report Inappropriate</a>
+				</span>
+			</li>
+		</ul>
+	</div>
+</li>
+<li class="stream answer" id="answer_1963256">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Staff Development</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Staff Management</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Human Resources</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">HR Management</a></h3>
+	</div>
+	<h2  dir="ltr" class="margin-b30 text-left" >
+        <a href="#" class="dark">               
+            When should I conduct PDR with my staff members if I have staff commencing out of line with the PDR cycle?&lrm;
+        </a>
+	</h2>
+	<div class="stream-author margin-b30 clearfix">
+		<a name="userBoubble_46453393" target="_blank" href="#" class="photo pull-left userBoubble">
+			<img src="https://img2cf.b8cdn.com/70x70/images/uploads/user_photos/93/46453393_20180130050940.jpg" class="img-circle" width="70" height="70" alt="Imran Ali Akbar">
+		</a>
+		<div class="info pull-right">
+			Answer added by&nbsp;
+			<a  class="userBoubble" name="userBoubble_46453393" target="_blank" href="#">
+			Imran Ali Akbar</a>, KASMY Pack (PVT) Ltd , Kasmy Pack PVT Ltd <br>
+			 1 hour ago	</div>
+	</div>
+	<div class="stream-body">
+			<p class="margin-b30 text-left" dir="ltr" >
+				PDR is annual assesment, if employee misses his/her goals then we can set meeting for PDR during the year.</p>
+			</div>
+	<div class="stream-actions vote">
+		<ul class="list-inline">
+			<li>
+				<a href="#"  class="j_vote_answer j_up btn btn-action">
+				Upvote(<span class="count">0</span>)
+				</a>
+			</li>
+			<li>
+				<a href="#" class="j_vote_answer j_down">Downvote</a>
+			</li>
+			<li class="reportCont anserReport pull-right">
+				<span class="action_item pull-right report">
+				<a href="#" class="light report">
+				Report Inappropriate</a>
+				</span>
+			</li>
+		</ul>
+	</div>
+</li>
+
+<li class="stream question activeParent" id="streamQuestion1283338793">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Web Design</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Web Development</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Mobile</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Service Delivery</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Human Resources</a></h3>
+			<div class="b_wrap"></div>
+	</div>
+	<div class="stream-author margin-b30 clearfix">
+		<a name="userBoubble_56878941" target="_blank" href="#" class="photo pull-left userBoubble">
+			<img src="https://img4cf.b8cdn.com/70x70/images/people/no-photo-m-140x140.png" class="img-circle" width="70" height="70" alt="John Watson">
+		</a>
+		<div class="info pull-right">
+			Question added by<a class="userBoubble" href="#">
+			John Watson</a>	<br>22 hours ago</div>
+	</div>
+	<div class="stream-body">
+		<h2  dir="ltr" class="margin-b30 text-left" >
+			<a href="#" class="dark">
+				 How Much Does It Cost to Create an On-Demand Delivery App?&lrm;
+			</a>
+		</h2>
+		<p class="margin-b30 text-left" dir="ltr" >
+		Nowadays food ordering smartphone applications has grown the business conductors from anonymous assistance and it simply took few years to reach this milestone. We can sa&lrm;
+		... <a href="#" class="dark text-underline">See More</a>
+		</p>
+	</div>
+
+	<div class="social-summary text-muted margin-b30">
+		<span data-count="0">Answers (0)</span>
+		<span data-count="0" class="followQues questionFolCounters_422895">Followers (0)</span>
+		<span data-count="2" >Views (2)</span>
+		<span data-count="0" class="questionVoteCounters_422895">Vote Count (0)</span>
+	</div>
+
+	<div class="stream-actions questionActivitySteam" id="questionActivitySteam_422895">
+		<ul class="list-inline">
+			<li>
+				<a  href="#" id="answerLink_1283338793'" class="btn btn-action" >
+				Be the First to Answer</a>
+			</li>
+			<li>
+				<a  href="#" id="followActivity_422895" class="j_question_action " >
+				<span class="j_txt">Follow</span>
+				</a>
+			</li>
+			<li>
+				<a  href="#" id="voteActivity_422895" class="j_question_action">
+				Upvote</a>
+			</li>
+			<li>
+				<a id="show-share-modal" href="#">
+				<span class="edit_answer_span_qpage">Share</span>
+                </a>
+			</li>
+			<li class="reportCont pull-right">
+				<span class="action_item pull-right report">
+				<a  href="#" class="light report">
+				Report Inappropriate</a>
+				</span>
+			</li>
+		</ul>
+	</div>
+	<div id="answer_box_on_stream_1283338793" class="hide">
+		<div class="alert alert-success hide" style="margin-top:30px;" id="answer-div-success-1283338793">
+			 <p style="padding-top: 2px;" name="successful-answer-422895"></p>
+		</div>
+		<div class="answer-div-stream"  id="answer-div-stream-1283338793">
+			<div id="answer-div-error-1283338793" class="alert alert-danger " style="display:none">
+				<p class="" name="languag-validation-422895">Please make sure that your answer is written in English.</p>
+				<p class="" name="duplicate-validation-422895"><b>Try adding a different answer.</b><br>Thank you for answering the question. Unfortunately, the answer you are trying to submit has already been added.</p>
+				<p class="" name="banned-validation-422895">You can't add content on Bayt.com Specialties because your account has been blocked for violating the terms of service.</p>
+				<p class="" name="grade-banned-validation-422895">You can't add content on Bayt.com Specialties because you don't have a rank yet or your email hasn't been verified.</p>
+				<p class="" name="blocked-validation-422895">The owner has blocked you</p>
+				<p class="" name="short-answer-422895">Answer should contain a minimum of 25 characters.</p>
+			</div>
+			<textarea  class="textarea mceEditor" id="answer-in-stream-1283338793" style="height:280px;max-height:250px;margin:0 0 15px;overflow-y:auto !important;resize:none;width:98.4%"></textarea>
+				<span class="mute" id="answer_body_tip" >Answer should contain a minimum of 25 characters.</span>
+				<button class="btn btn-primary pull-left" onclick="addAnswerOnStream('1283338793','422895','','56878941','en','/en/specialties/q/422895/how-much-does-it-cost-to-create-an-on-demand-delivery-app/')" >
+				Answer</button>
+		</div>
+	</div>
+</li>
+<div id="featured-questions-id" class="hide">
+	<ul class="thumbnails" style="padding:0"></ul>
+ 	<div class="mute txt-size-12">
+		Get +10 points added to your Specialty Rank every time your answer is voted up.<a href="#">Learn more</a>
+	</div>
+	<div class="border-padding border-top">
+		<div class="footer-padding c">
+			<a href="#" class="mute"><u>See More </u></a>
+		</div>
+	</div>
+</div>
+<span id="titleOfpopup" class="hide">
+	<span>Thanks for sharing your expertise! Can you also help answer any of these questions?</span>
+</span>
+<li class="stream answer" id="answer_1963248">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Staff Development</a></h3>
+	    <h3><a class="s_tag label text-capitalize tagBoubble" href="#">Staff Management</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Human Resources	</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">HR Management</a></h3>
+	</div>
+	<h2  dir="ltr" class="margin-b30 text-left" >
+		<a href="#" class="dark">
+			When should I conduct PDR with my staff members if I have staff commencing out of line with the PDR cycle?&lrm;
+		</a>
+	</h2>
+	<div class="stream-author margin-b30 clearfix">
+		<a name="userBoubble_55571389" target="_blank" href="#" class="photo pull-left userBoubble">
+			<img src="https://img4cf.b8cdn.com/70x70/images/uploads/user_photos/89/55571389_20190627182006.jpg" class="img-circle" width="70" height="70" alt="ADESEGUN TAIWO">
+		</a>
+		<div class="info pull-right">
+			Answer added by&nbsp;
+			<a  class="userBoubble" name="userBoubble_55571389" target="_blank" href="#">
+			ADESEGUN TAIWO</a>, registered nurse, General Hospital,Ayetoro.	<br>
+			 2 hours ago/div>
+	</div>
+	<div class="stream-body">
+		<p class="margin-b30 text-left" dir="ltr" >
+		After working hours of the Day.</p>
+	</div>
+	<div class="stream-actions vote">
+		<ul class="list-inline">
+			<li>
+				<a  href="#"  class="j_vote_answer j_up btn btn-action">
+				Upvote(<span class="count">0</span>)
+				</a>
+			</li>
+			<li>
+				<a  href="#" class="j_vote_answer j_down">Downvote</a>
+			</li>
+			<li class="reportCont anserReport pull-right">
+				<span class="action_item pull-right report">
+				<a  href="#" onclick="reportInappropriate(this,'411512',2);" class="light report">
+				Report Inappropriate</a>
+				</span>
+			</li>
+		</ul>
+	</div>
+</li>
+
+<li class="stream answer" id="answer_1963252">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Staff Development</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Staff Management</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Human Resources</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">HR Management</a></h3>
+	</div>
+	<h2  dir="ltr" class="margin-b30 text-left" >
+		<a href="#" class="dark">
+			When should I conduct PDR with my staff members if I have staff commencing out of line with the PDR cycle?&lrm;
+		</a>
+	</h2>
+	<div class="stream-author margin-b30 clearfix">
+		<a name="userBoubble_55951644" target="_blank" href="#" class="photo pull-left userBoubble">
+			<img src="https://img0cf.b8cdn.com/70x70/images/uploads/user_photos/44/55951644_20190719091004.jpg" class="img-circle" width="70" height="70" border="0" alt="Krishna Kant Yadav">
+		</a>
+		<div class="info pull-right">
+			Answer added by&nbsp;
+			a  class="userBoubble" name="userBoubble_55951644" target="_blank" href="#">
+			Krishna Kant Yadav</a>, Manager HR&amp; Legal, Kautuki Agro Products Pvt. Ltd.			<br>
+			 1 hour ago</div>
+	</div>
+	<div class="stream-body">
+		<p class="margin-b30 text-left" dir="ltr" >
+		There is a supervision for everyone whether you work in a clinical or non-clinical role. The PDR helps you to review your supervision and plan for the year ahead 1) New P									... <a href="https://www.bayt.com/en/specialties/q/411512/when-should-i-conduct-pdr-with-my-staff-members-if-i-have-staff-commencing-out-of-line-with-the-pdr-cycle/#answer_1963252" class="dark text-underline">See More</a>
+		</p>
+	</div>
+	<div class="stream-actions vote">
+		<ul class="list-inline">
+			<li>
+				<a href="#"  class="j_vote_answer j_up btn btn-action">
+				Upvote
+				</a>
+			</li>
+			<li>
+				<a href="#" class="j_vote_answer j_down">Downvote</a>
+            </li>				
+            <li class="reportCont anserReport pull-right">
+				<span class="action_item pull-right report">
+				<a href="#" onclick="reportInappropriate(this,'411512',2);" class="light report">
+	    		Report Inappropriate</a>
+				</span>
+			</li>
+		</ul>
+	</div>
+</li>
+
+<li class="stream answer" id="answer_1963243">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">	Web Applications</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Job Search</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Human Resources</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Management</a></h3>
+	</div>
+	<h2  dir="ltr" class="margin-b30 text-left" >
+		<a href="#" class="dark">
+			What are the biggest mistakes you see on job applications? &lrm;
+		</a>
+	</h2>
+	<div class="stream-author margin-b30 clearfix">
+		<a name="userBoubble_23465991" target="_blank" href="#" class="photo pull-left userBoubble">
+			<img src="https://img2cf.b8cdn.com/70x70/images/uploads/user_photos/91/23465991_20190928050809.jpg" class="img-circle" width="70" height="70" alt="Debabrata Pattanayak">
+		</a>
+		<div class="info pull-right">
+			Answer added by&nbsp;
+			<a  class="userBoubble" name="userBoubble_23465991" target="_blank" href="#">
+			Debabrata Pattanayak</a>, Associate Director -HR, Apeejay Surrendra Park Hotels Ltd ( The Park Hotels )<br>
+			 2 hours ago</div>
+	</div>
+	<div class="stream-body">
+		<p class="margin-b30 text-left" dir="ltr" >
+			The biggest Mistake is the JD is not some times matching as per the work requirements.							</p>
+	</div>
+	<div class="stream-actions vote">
+		<ul class="list-inline">
+			<li>
+				<a href="#"  class="j_vote_answer j_up btn btn-action">
+				Upvote</a>
+			</li>
+			<li>
+				<a href="#" class="j_vote_answer j_down">Downvote</a>
+			</li>
+			<li class="reportCont anserReport pull-right">
+				<span class="action_item pull-right report">
+				<a href="#" onclick="reportInappropriate(this,'418154',2);" class="light report">
+				Report Inappropriate</a>
+				</span>
+			</li>
+		</ul>
+	</div>
+</li>
+<li class="stream answer" id="answer_1963247">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Privacy</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Human Resources</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Social Media</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">HR Management</a></h3>
+	</div>
+	<h2  dir="ltr" class="margin-b30 text-left" >
+		<a href="#" class="dark">
+			Do HR managers have the right to investigate employees&#039; social media accounts?&lrm;
+		</a>
+	</h2>
+	<div class="stream-author margin-b30 clearfix">
+		<a name="userBoubble_31376099" target="_blank" href="#" class="photo pull-left userBoubble">
+			<img src="https://img0cf.b8cdn.com/70x70/images/uploads/user_photos/99/31376099_20170228105812.jpg" class="img-circle" width="70" height="70" alt="Mohamed Hashim  Mohamed Nawshad">
+		</a>
+		<div class="info pull-right">
+			Answer added by&nbsp;
+			<a class="userBoubble" name="userBoubble_31376099" target="_blank" href="https://people.bayt.com/nawshad-mohamed-31376099/">
+			Mohamed Hashim  Mohamed Nawshad</a>, HR Officer, Urbacon Contracting &amp; Trading LLC<br>
+			 2 hours ago</div>
+	</div>
+	<div class="stream-body">
+		<p class="margin-b30 text-left" dir="ltr" >
+		Really No. This is their Perosnal Life. but any post / picture / Vedio of the company secrect / negative post which will harmful for the organization then you have to inv									... <a href="https://www.bayt.com/en/specialties/q/411873/do-hr-managers-have-the-right-to-investigate-employees-social-media-accounts/#answer_1963247" class="dark text-underline">See More</a>
+		</p>
+	</div>
+	<div class="stream-actions vote">
+		<ul class="list-inline">
+			<li>
+				<a href="#"  class="j_vote_answer j_up btn btn-action">Upvote</a>
+			</li>
+			<li>
+				<a href="#" class="j_vote_answer j_down">Downvote</a>
+			</li>
+			<li class="reportCont anserReport pull-right">
+				<span class="action_item pull-right report">
+				<a href="#" class="light report">Report Inappropriate</a>
+				</span>
+			</li>
+		</ul>
+	</div>
+</li>
+<li class="stream question activeParent" id="streamQuestion1505863067">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Hearing Conservation</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Human Resources</a></h3>
+			<div class="b_wrap"></div>
+	</div>
+	<div class="stream-author margin-b30 clearfix">
+		<a name="userBoubble_56981751" target="_blank" href="#" class="photo pull-left userBoubble">
+			<img src="https://img4cf.b8cdn.com/70x70/images/people/no-photo-m-140x140.png" class="img-circle" alt="Melody Phiri">
+		</a>
+		<div class="info pull-right">
+            Question added by<a class="userBoubble" href="#">Melody Phiri</a>, Senior Staff Development Officer, Zambia Railways Limited<br>1 day ago
+        </div>
+	</div>
+	<div class="stream-body">
+		<h2  dir="ltr" class="margin-b30 text-left" >
+			<a href="#" class="dark">
+				 How do you handle an employee who has an outstanding case but resigns before a case hearing is done?&lrm;
+			</a>
+		</h2>
+	</div>
+	<div class="social-summary text-muted margin-b30" id="questionCounters_422861">
+		<span data-count="0">Answers (0)</span>
+		<span data-count="1" class="followQues questionFolCounters_422861">Followers (1)</span>
+		<span data-count="1" >Views (1)</span>
+		<span data-count="0" class="questionVoteCounters_422861">Vote Count (0)</span>
+	</div>
+	<div class="stream-actions questionActivitySteam" id="questionActivitySteam_422861">
+		<ul class="list-inline">
+			<li><a href="#" id="answerLink_1505863067'" class="btn btn-action" >Be the First to Answer</a></li>
+			<li><a href="#" id="followActivity_422861" class="j_question_action">
+			<span class="j_txt">Follow</span>
+			</a>
+			</li>
+			<li><a href="#" id="voteActivity_422861" class="j_question_action">Upvote</a></li>
+			<li><a id="show-share-modal" href="#">
+				<span class="edit_answer_span_qpage">Share</span></a>
+			</li>
+			<li class="reportCont pull-right">
+				<span class="action_item pull-right report">
+				<a href="#" class="light report">Report Inappropriate</a>
+                </span>
+			</li>
+		</ul>
+	</div>
+	<div id="answer_box_on_stream_1505863067" class="hide">
+		<div class="alert alert-success hide" style="margin-top:30px;">
+			 <p style="padding-top: 2px;" name="successful-answer-422861"></p>
+		</div>
+		<div class="answer-div-stream">
+			<div class="alert alert-danger" style="display:none">
+				<p class="">Please make sure that your answer is written in English.</p>
+				<p class=""><b>Try adding a different answer.</b><br>Thank you for answering the question. Unfortunately, the answer you are trying to submit has already been added.</p>
+				<p class="">You can't add content on Bayt.com Specialties because your account has been blocked for violating the terms of service.</p>
+				<p class="">You can't add content on Bayt.com Specialties because you don't have a rank yet or your email hasn't been verified.</p>
+				<p class="">The owner has blocked you</p>
+				<p class="">Answer should contain a minimum of 25 characters.</p>
+			</div>
+			<textarea  class="textarea mceEditor" style="height:280px;max-height:250px;margin:0 0 15px;overflow-y:auto !important;resize:none;width:98.4%"></textarea>
+				<span class="mute" id="answer_body_tip" >Answer should contain a minimum of 25 characters.</span>
+				<button class="btn btn-primary pull-left" >Answer</button>
+		</div>
+	</div>
+</li>
+<div id="featured-questions-id" class="hide">
+	<ul class="thumbnails" style="padding:0"></ul>
+ 	<div class="mute txt-size-12">
+		Get +10 points added to your Specialty Rank every time your answer is voted up.<a href="#">Learn more</a>
+	</div>
+	<div class="border-padding border-top">
+		<div class="footer-padding c">
+			<a href="#" class="mute"><u>See More </u></a>
+		</div>
+	</div>
+</div>
+<span id="titleOfpopup" class="hide">
+	<span>Thanks for sharing your expertise! Can you also help answer any of these questions?</span>
+</span>
+<!-- maburoqa end of modalcontent-->
+<li class="stream question activeParent">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag " href="#">Managerial Experience</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Administrative Organisation</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">HR Strategy</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Human Resources</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Admin Assistant</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Administrative</a></h3>
+			<div class="b_wrap"></div>
+	</div>
+
+	<div class="stream-author margin-b30 clearfix">
+		<a href="#" class="photo pull-left userBoubble">
+			<img src="https://img2cf.b8cdn.com/70x70/images/uploads/user_photos/08/56729008_20190912082049.jpg" class="img-circle" width="70" height="70" alt="Neelima Saseedharan">
+		</a>
+		<div class="info pull-right">
+			Question added by<a class="userBoubble" href="#">
+			Neelima Saseedharan</a>, Meet and greet hostess, Al Habtoor Motors<br>22 hours ago</div>
+	</div>
+	<div class="stream-body">
+		<h2  dir="ltr" class="margin-b30 text-left" >
+			<a href="#" class="dark">
+				I have 6 years of UAE Experience and currently am in India!
+                Is it possible for me to reach out to a particular organisation?&lrm;
+			</a>
+		</h2>
+		<p class="margin-b30 text-left" dir="ltr" >I am MBA holder specialised in HR. Is it possible to get a job Visa by providing online interview?
+            Iam currently residing in India but born and bought up in UAE &lrm;</p>
+	</div>
+	<div class="social-summary text-muted margin-b30">
+		<span data-count="1">Answers (1)</span>
+		<span data-count="1" class="followQues questionFolCounters_422894">Followers (1)</span>
+		<span data-count="3" >Views (3)</span>
+		<span data-count="0" class="questionVoteCounters_422894">Vote Count (0)</span>
+	</div>
+	<div class="stream-actions questionActivitySteam" id="questionActivitySteam_422894">
+		<ul class="list-inline">
+			<li><a href="#" class="btn btn-action" >Answer (1)</a></li>
+			<li><a href="#" class="j_question_action "><span class="j_txt">Follow</span></a></li>
+			<li><a href="#" class="j_question_action">Upvote</a></li>
+			<li><a href="#"><span class="edit_answer_span_qpage">Share</span></a></li>
+			<li class="reportCont pull-right"><span class="action_item pull-right report"><a href="#" class="light report">Report Inappropriate</a></span></li>
+		</ul>
+	</div>
+	<div class="hide">
+		<div class="alert alert-success hide" style="margin-top:30px;">
+			 <p style="padding-top: 2px;"></p>
+		</div>
+		<div class="answer-div-stream">
+			<div class="alert alert-danger " style="display:none">
+				<p class="">Please make sure that your answer is written in English.</p>
+				<p class=""><b>Try adding a different answer.</b><br>Thank you for answering the question. Unfortunately, the answer you are trying to submit has already been added.</p>
+				<p class="">You can't add content on Bayt.com Specialties because your account has been blocked for violating the terms of service.</p>
+				<p class="">You can't add content on Bayt.com Specialties because you don't have a rank yet or your email hasn't been verified.</p>
+				<p class="">The owner has blocked you</p>
+				<p class="">Answer should contain a minimum of 25 characters.</p>
+			</div>
+			<textarea class="textarea mceEditor" style="height:280px;max-height:250px;margin:0 0 15px;overflow-y:auto !important;resize:none;width:98.4%"></textarea>
+				<span class="mute" id="answer_body_tip" >Answer should contain a minimum of 25 characters.</span>
+				<button class="btn btn-primary pull-left">Answer</button>
+		</div>
+	</div>
+</li>
+<div id="featured-questions-id" class="hide">
+	<ul class="thumbnails" style="padding:0"></ul>
+ 	<div class="mute txt-size-12">
+		Get +10 points added to your Specialty Rank every time your answer is voted up.<a href="#">Learn more</a>
+	</div>
+	<div class="border-padding border-top">
+		<div class="footer-padding c">
+			<a href="#" class="mute"><u>See More </u></a>
+		</div>
+	</div>
+</div>
+<span id="titleOfpopup" class="hide">
+	<span>Thanks for sharing your expertise! Can you also help answer any of these questions?</span>
+</span>
+<!-- maburoqa end of modalcontent-->
+<li class="stream question activeParent" >
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Performance Management</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Staff Building</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Contract Recruitment</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Managing Employees</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Human Resources</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">HR Policies</a></h3>
+			<div class="b_wrap"></div>
+	</div>
+	<div class="stream-author margin-b30 clearfix">
+		<a href="#" class="photo pull-left userBoubble">
+			<img src="https://img0cf.b8cdn.com/70x70/images/uploads/user_photos/40/37237140_20161011074259.jpg" class="img-circle" width="70" height="70" alt="Marvin Lomanog">
+		</a>
+		<div class="info pull-right">
+			Question added by<a class="userBoubble" href="#">
+			Marvin Lomanog</a>, Group HR Director, Al Rayyan Tourism &amp; Investment Company (Hotels Operation)<br>3 days ago</div>
+	</div>
+	<div class="stream-body">
+		<h2 dir="ltr" class="margin-b30 text-left" >
+			<a href="#" class="dark">When do we need implement Performance Improvement Plan?&lrm;</a>
+		</h2>
+	</div>
+	<div class="social-summary text-muted margin-b30" id="questionCounters_422789">
+		<span data-count="0">Answers (0)</span>
+		<span data-count="1" class="followQues questionFolCounters_422789">Followers (1)</span>
+		<span data-count="2" >Views (2)</span>
+		<span data-count="0" class="questionVoteCounters_422789">Vote Count (0)</span>
+	</div>
+	<div class="stream-actions questionActivitySteam" id="questionActivitySteam_422789">
+		<ul class="list-inline">
+			<li><a href="#" class="btn btn-action" >Be the First to Answer</a></li>
+			<li><a href="#" class="j_question_action "><span class="j_txt">Follow</span></a></li>
+			<li><a href="#" class="j_question_action">Upvote</a></li>
+			<li><a href="#"><span class="edit_answer_span_qpage">Share</span></a></li>
+			<li class="reportCont pull-right">
+				<span class="action_item pull-right report"><a href="#" class="light report">Report Inappropriate</a></span>
+			</li>
+		</ul>
+	</div>
+	<div class="hide">
+		<div class="alert alert-success hide" style="margin-top:30px;">
+			 <p style="padding-top: 2px;"></p>
+		</div>
+		<div class="answer-div-stream"  id="answer-div-stream-1297406939">
+			<div id="answer-div-error-1297406939" class="alert alert-danger " style="display:none">
+				<p class="" >Please make sure that your answer is written in English.</p>
+				<p class=""><b>Try adding a different answer.</b><br>Thank you for answering the question. Unfortunately, the answer you are trying to submit has already been added.</p>
+				<p class="">You can't add content on Bayt.com Specialties because your account has been blocked for violating the terms of service.</p>
+				<p class="">You can't add content on Bayt.com Specialties because you don't have a rank yet or your email hasn't been verified.</p>
+				<p class="">The owner has blocked you</p>
+				<p class="">Answer should contain a minimum of 25 characters.</p>
+			</div>
+			<textarea  class="textarea mceEditor" style="height:280px;max-height:250px;margin:0 0 15px;overflow-y:auto !important;resize:none;width:98.4%"></textarea>
+				<span class="mute" id="answer_body_tip" >Answer should contain a minimum of 25 characters.</span>
+				<button class="btn btn-primary pull-left" >Answer</button>
+		</div>
+	</div>
+</li>
+<div id="featured-questions-id" class="hide">
+	<ul class="thumbnails" style="padding:0"></ul>
+ 	<div class="mute txt-size-12">
+		Get +10 points added to your Specialty Rank every time your answer is voted up.<a href="#">Learn more</a>
+	</div>
+	<div class="border-padding border-top">
+		<div class="footer-padding c">
+			<a href="#" class="mute"><u>See More </u></a>
+		</div>
+	</div>
+</div>
+<span id="titleOfpopup" class="hide">
+	<span>Thanks for sharing your expertise! Can you also help answer any of these questions?</span>
+</span>
+<!-- maburoqa end of modalcontent-->
+<li class="stream answer" id="answer_1963146">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Managerial Experience</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Administrative Organisation</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">HR Strategy</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Human Resources</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Admin Assistant</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Administrative</a></h3>
+	</div>
+	<h2  dir="ltr" class="margin-b30 text-left" >
+		<a href="#" class="dark">
+			I have 6 years of UAE Experience and currently am in India!
+            Is it possible for me to reach out to a particular organisation?&lrm;
+		</a>
+	</h2>
+	<div class="stream-author margin-b30 clearfix">
+		<a href="#" class="photo pull-left userBoubble">
+			<img src="https://img3cf.b8cdn.com/70x70/images/uploads/user_photos/87/31436887_20171115193552.jpg" class="img-circle" width="70" height="70" alt="Jamal Khresha">
+		</a>
+		<div class="info pull-right">
+			Answer added by&nbsp;
+			<a class="userBoubble" href="#">
+			amal Khresha</a>, مدير العلاقات العامة, مؤسسة منذر  محمود لتجارة واستيراد الكمبيوتر ولوازمها 			<br>
+			 12 hours ago</div>
+	</div>
+	<div class="stream-body">
+		<p class="margin-b30 text-left" dir="ltr" >Of course you can And It is important not to give up							</p>
+	</div>
+	<div class="stream-actions vote">
+		<ul class="list-inline">
+			<li><a href="#" class="j_vote_answer j_up btn btn-action">Upvote(<span class="count">1</span>)</a></li>
+			<li><a href="#" class="j_vote_answer j_down">Downvote</a></li>
+			<li class="reportCont anserReport pull-right"><span class="action_item pull-right report">
+			<a href="#" class="light report">Report Inappropriate</a></span></li>
+		</ul>
+	</div>
+</li>
+<li class="stream question activeParent" id="streamQuestion590305226">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Electrical</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Electrical Engineering</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Job Description Development</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">IT Benchmarking</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Human Resources</a></h3>
+			<div class="b_wrap"></div>
+	</div>
+	<div class="stream-author margin-b30 clearfix">
+		<a href="#" class="photo pull-left userBoubble">
+			<img src="https://img3cf.b8cdn.com/70x70/images/uploads/user_photos/89/45849489_20180102185723.jpg" class="img-circle" width="70" height="70" border="0" alt="Mahmoud Baroudi">
+		</a>
+		<div class="info pull-right">
+			Question added by<a class="userBoubble" href="#">
+			Mahmoud Baroudi</a>, senior waiter, Babel Lebanese restaurant-UAE<br>3 days ago	</div>
+	</div>
+	<div class="stream-body">
+		<h2  dir="ltr" class="margin-b30 text-left" >
+			<a href="#" class="dark">
+				 For engineers who studied electrical engineering in training institutes  Dubai,does they have the same chances to get a job like who studied it?&lrm;
+			</a>
+		</h2>
+	</div>
+	<div class="social-summary text-muted margin-b30" id="questionCounters_422793">
+		<span data-count="0">Answers (0)</span>
+		<span data-count="0" class="followQues questionFolCounters_422793">Followers (0)</span>
+		<span data-count="1" >Views (1)</span>
+		<span data-count="0" class="questionVoteCounters_422793">Vote Count (0)</span>
+	</div>
+	<div class="stream-actions questionActivitySteam" id="questionActivitySteam_422793">
+		<ul class="list-inline">
+			<li><a href="#" class="btn btn-action">Be the First to Answer</a></li>
+            <li><a href="#" class="j_question_action "><span class="j_txt">Follow</span></a></li>
+			<li><a href="#" class="j_question_action">Upvote</a></li>
+			<li><a href="#"><span class="edit_answer_span_qpage">Share</span></a></li>
+			<li class="reportCont pull-right">
+				<span class="action_item pull-right report"><a href="#" class="light report">Report Inappropriate</a></span>
+			</li>
+		</ul>
+	</div>
+	<div class="hide">
+		<div class="alert alert-success hide" style="margin-top:30px;" >
+			 <p style="padding-top: 2px;" name="successful-answer-422793"></p>
+		</div>
+		<div class="answer-div-stream">
+			<div id="answer-div-error-590305226" class="alert alert-danger " style="display:none">
+				<p class="">Please make sure that your answer is written in English.</p>
+				<p class=""><b>Try adding a different answer.</b><br>Thank you for answering the question. Unfortunately, the answer you are trying to submit has already been added.</p>
+				<p class="">You can't add content on Bayt.com Specialties because your account has been blocked for violating the terms of service.</p>
+				<p class="">You can't add content on Bayt.com Specialties because you don't have a rank yet or your email hasn't been verified.</p>
+				<p class="">The owner has blocked you</p>
+				<p class="" >Answer should contain a minimum of 25 characters.</p>
+			</div>
+			<textarea class="textarea mceEditor" style="height:280px;max-height:250px;margin:0 0 15px;overflow-y:auto !important;resize:none;width:98.4%"></textarea>
+				<span class="mute" id="answer_body_tip" >Answer should contain a minimum of 25 characters.</span>
+				<button class="btn btn-primary pull-left" >Answer</button>
+		</div>
+	</div>
+</li>
+<div id="featured-questions-id" class="hide">
+	<ul class="thumbnails" style="padding:0"></ul>
+ 	<div class="mute txt-size-12">
+		Get +10 points added to your Specialty Rank every time your answer is voted up.<a href="#">Learn more</a>
+	</div>
+	<div class="border-padding border-top">
+		<div class="footer-padding c">
+			<a href="#" class="mute"><u>See More </u></a>
+		</div>
+	</div>
+</div>
+<span id="titleOfpopup" class="hide">
+	<span>Thanks for sharing your expertise! Can you also help answer any of these questions?</span>
+</span>
+<!-- maburoqa end of modalcontent-->
+
+<li class="stream question activeParent">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Architecture</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Interior Design</a></h3>
+			<div class="b_wrap"></div>
+	</div>
+	<div class="stream-author margin-b30 clearfix">
+		<a href="#" class="photo pull-left userBoubble">
+			<img src="https://img3cf.b8cdn.com/70x70/images/uploads/user_photos/04/9878504_20190924113621.jpg" class="img-circle" width="70" height="70" border="0" alt="Mahdi Al-Yasin">
+		</a>
+		<div class="info pull-right">
+			Question added by<a class="userBoubble" href="#">
+			Mahdi Al-Yasin</a>, Senior Architect and Interior Designer, Alareen	<br>3 days ago</div>
+	</div>
+	<div class="stream-body">
+		<h2  dir="ltr" class="margin-b30 text-left" >
+			<a href="#" class="dark">What is the golden ratio ؟ ?&lrm;</a>
+		</h2>
+		<p class="margin-b30 text-left" dir="ltr" >golden ratio&lrm;</p>
+	</div>
+	<div class="social-summary text-muted margin-b30" id="questionCounters_422791">
+		<span data-count="0">Answers (0)</span>
+		<span data-count="0" class="followQues questionFolCounters_422791">Followers (0)</span>
+		<span data-count="1" >Views (1)</span>
+		<span data-count="0" class="questionVoteCounters_422791">Vote Count (0)</span>
+	</div>
+	<div class="stream-actions questionActivitySteam">
+		<ul class="list-inline">
+			<li><a href="#" class="btn btn-action" >Be the First to Answer</a></li>
+			<li><a href="#" class="j_question_action " ><span class="j_txt">Follow</span></a></li>
+			<li><a href="#" class="j_question_action">Upvote</a></li>
+			<li><a href="#"><span class="edit_answer_span_qpage">Share</span></a></li>
+			<li class="reportCont pull-right">
+				<span class="action_item pull-right report"><a href="#" class="light report">Report Inappropriate</a></span>
+			</li>
+		</ul>
+	</div>
+	<div class="hide">
+		<div class="alert alert-success hide" style="margin-top:30px;">
+			 <p style="padding-top: 2px;"></p>
+		</div>
+		<div class="answer-div-stream"  id="answer-div-stream-1003227909">
+			<div id="answer-div-error-1003227909" class="alert alert-danger " style="display:none">
+				<p class="">Please make sure that your answer is written in English.</p>
+				<p class=""><b>Try adding a different answer.</b><br>Thank you for answering the question. Unfortunately, the answer you are trying to submit has already been added.</p>
+				<p class="">You can't add content on Bayt.com Specialties because your account has been blocked for violating the terms of service.</p>
+				<p class="">You can't add content on Bayt.com Specialties because you don't have a rank yet or your email hasn't been verified.</p>
+				<p class="">The owner has blocked you</p>
+				<p class="">Answer should contain a minimum of 25 characters.</p>
+			</div>
+			<textarea class="textarea mceEditor" style="height:280px;max-height:250px;margin:0 0 15px;overflow-y:auto !important;resize:none;width:98.4%"></textarea>
+				<span class="mute" id="answer_body_tip" >Answer should contain a minimum of 25 characters.</span>
+				<button class="btn btn-primary pull-left" >Answer</button>
+		</div>
+	</div>
+</li>
+<div id="featured-questions-id" class="hide">
+	<ul class="thumbnails" style="padding:0"></ul>
+ 	<div class="mute txt-size-12">
+		Get +10 points added to your Specialty Rank every time your answer is voted up.<a href="#">Learn more</a>
+	</div>
+	<div class="border-padding border-top">
+		<div class="footer-padding c">
+			<a href="#" class="mute"><u>See More</u></a>
+		</div>
+	</div>
+</div>
+<span id="titleOfpopup" class="hide">
+	<span>Thanks for sharing your expertise! Can you also help answer any of these questions?</span>
+</span>
+<!-- maburoqa end of modalcontent-->
+<li class="stream answer" id="answer_1963217">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Staff Development</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Staff Management</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Human Resources</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">HR Management</a></h3>
+	</div>
+	<h2  dir="ltr" class="margin-b30 text-left" >
+		<a href="#" class="dark">
+			When should I conduct PDR with my staff members if I have staff commencing out of line with the PDR cycle?&lrm;
+		</a>
+	</h2>
+	<div class="stream-author margin-b30 clearfix">
+		<a href="#" class="photo pull-left userBoubble">
+			<img src="https://img4cf.b8cdn.com/70x70/images/people/no-photo-m-140x140.png" class="img-circle" width="70" height="70" alt="Luke Snowden">
+		</a>
+		<div class="info pull-right">
+			Answer added by&nbsp;<a class="userBoubble" href="#">
+			Luke Snowden</a>, Project supervisor , Downer EDI<br>
+			 6 hours ago</div>
+	</div>
+	<div class="stream-body">
+		<p class="margin-b30 text-left" dir="ltr" >6 to 12 monthly or as required</p>
+	</div>
+	<div class="stream-actions vote">
+		<ul class="list-inline">
+			<li><a href="#"class="j_vote_answer j_up btn btn-action">Upvote(<span class="count">0</span>)</a></li>
+			<li><a href="#" class="j_vote_answer j_down">Downvote</a></li>
+			<li class="reportCont anserReport pull-right"><span class="action_item pull-right report"><a href="#" class="light report">Report Inappropriate</a></span>
+			</li>
+		</ul>
+	</div>
+</li>
+<li class="stream answer" id="answer_1963183">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Staff Development</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Staff Management</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Human Resources</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">HR Management</a></h3>
+	</div>
+	<h2  dir="ltr" class="margin-b30 text-left" >
+		<a href="#" class="dark">
+			When should I conduct PDR with my staff members if I have staff commencing out of line with the PDR cycle?&lrm;
+		</a>
+	</h2>
+	<div class="stream-author margin-b30 clearfix">
+		<a href="#" class="photo pull-left userBoubble">
+			<img src="https://img2cf.b8cdn.com/70x70/images/uploads/user_photos/89/57001689_20190927225230.jpg" class="img-circle" width="70" height="70" alt="Sekai Pricilla Mapuranga">
+		</a>
+		<div class="info pull-right">
+			Answer added by&nbsp;
+			<a class="userBoubble" href="#">Sekai Pricilla Mapuranga</a>, operations team leader, First capital bank zimbabwe			<br>
+			 9 hours ago</div>
+	</div>
+	<div class="stream-body">
+		<p class="margin-b30 text-left" dir="ltr" >
+			The PDR cycle is for the year but can be tuned as appropriate to meet the goals and targets.If there are staff commencing out of line of the cycle the PDR should commence									... <a href="https://www.bayt.com/en/specialties/q/411512/when-should-i-conduct-pdr-with-my-staff-members-if-i-have-staff-commencing-out-of-line-with-the-pdr-cycle/#answer_1963183" class="dark text-underline">See More</a>
+		</p>
+	</div>
+	<div class="stream-actions vote">
+		<ul class="list-inline">
+			<li><a href="#" class="j_vote_answer j_up btn btn-action">Upvote(<span class="count">0</span>)</a></li>
+			<li><a href="#" class="j_vote_answer j_down">Downvote</a></li>
+			<li class="reportCont anserReport pull-right">
+                <span class="action_item pull-right report"><a href="#" class="light report">Report Inappropriate</a></span>
+			</li>
+		</ul>
+	</div>
+</li>
+<li class="stream question activeParent" id="streamQuestion838000679">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Human Resources</a></h3>
+			<div class="b_wrap"></div>
+	</div>
+	<div class="stream-author margin-b30 clearfix">
+		<a href="#" class="photo pull-left userBoubble">
+			<img src="https://img3cf.b8cdn.com/70x70/images/uploads/user_photos/99/56773599_20190912212031.jpeg" class="img-circle" width="70" height="70" border="0" alt="Nedal Ahmad">
+		</a>
+		<div class="info pull-right">
+			Question added by<a class="userBoubble" href="#">
+			Nedal Ahmad</a>, Electrical Engineering Teacher, Royal Jordanian Air Force<br>10 days ago</div>
+	</div>
+	<div class="stream-body">
+		<h2  dir="ltr" class="margin-b30 text-left" >
+			<a href="#" class="dark">
+				 How To Answer &quot;Why Are You Interested In This Job?&quot;&lrm;
+			</a>
+		</h2>
+	</div>
+	<div class="social-summary text-muted margin-b30" id="questionCounters_422626">
+		<span data-count="0">Answers (0)</span>
+		<span data-count="1" class="followQues questionFolCounters_422626">Followers (1)</span>
+		<span data-count="2" >Views (2)</span>
+		<span data-count="0" class="questionVoteCounters_422626">Vote Count (0)</span>
+	</div>
+	<div class="stream-actions questionActivitySteam" id="questionActivitySteam_422626">
+		<ul class="list-inline">
+			<li><a href="#" class="btn btn-action">Be the First to Answer</a></li>
+			<li><a href="#" class="j_question_action " ><span class="j_txt">Follow</span></a></li>
+			<li><a href="#"  class="j_question_action">Upvote</a></li>
+			<li><a id="show-share-modal" href="#"><span class="edit_answer_span_qpage">Share</span></a></li>
+			<li class="reportCont pull-right">
+				<span class="action_item pull-right report"><a href="#" class="light report">Report Inappropriate</a></span>
+			</li>
+		</ul>
+	</div>
+	<div id="answer_box_on_stream_838000679" class="hide">
+		<div class="alert alert-success hide" style="margin-top:30px;" id="answer-div-success-838000679">
+			 <p style="padding-top: 2px;"></p>
+		</div>
+		<div class="answer-div-stream" >
+			<div  class="alert alert-danger " style="display:none">
+				<p class="" >Please make sure that your answer is written in English.</p>
+				<p class="" ><b>Try adding a different answer.</b><br>Thank you for answering the question. Unfortunately, the answer you are trying to submit has already been added.</p>
+				<p class="" >You can't add content on Bayt.com Specialties because your account has been blocked for violating the terms of service.</p>
+				<p class="">You can't add content on Bayt.com Specialties because you don't have a rank yet or your email hasn't been verified.</p>
+				<p class="">The owner has blocked you</p>
+				<p class="">Answer should contain a minimum of 25 characters.</p>
+			</div>
+
+			<textarea  class="textarea mceEditor" id="answer-in-stream-838000679" style="height:280px;max-height:250px;margin:0 0 15px;overflow-y:auto !important;resize:none;width:98.4%"></textarea>
+				<span class="mute" id="answer_body_tip" >Answer should contain a minimum of 25 characters.</span>
+				<button class="btn btn-primary pull-left" >Answer</button>
+		</div>
+	</div>
+</li>
+<div id="featured-questions-id" class="hide">
+	<ul class="thumbnails" style="padding:0"></ul>
+ 	<div class="mute txt-size-12">
+		Get +10 points added to your Specialty Rank every time your answer is voted up.<a href="#">Learn more</a>
+	</div>
+	<div class="border-padding border-top">
+		<div class="footer-padding c">
+			<a href="#" class="mute"><u>See More </u></a>
+		</div>
+	</div>
+</div>
+<span id="titleOfpopup" class="hide">
+	<span>Thanks for sharing your expertise! Can you also help answer any of these questions?</span>
+</span>
+<!-- maburoqa end of modalcontent-->
+<li class="stream question activeParent" id="streamQuestion126583062">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Cost Accounting	</a></h3>
+			<div class="b_wrap"></div>
+	</div>
+	<div class="stream-author margin-b30 clearfix">
+		<a href="#" class="photo pull-left userBoubble">
+			<img src="https://img4cf.b8cdn.com/70x70/images/people/no-photo-m-140x140.png" class="img-circle" width="70" height="70" alt="mohammed elsayed">
+		</a>
+		<div class="info pull-right">
+			Question added by<a class="userBoubble" href="#">mohammed elsayed</a><br>8 days ago</div>
+	</div>
+	<div class="stream-body">
+		<h2  dir="rtl" class="margin-b30 text-right" >
+			<a href="#" class="dark">
+				 كيف ادخل الى مجال محاسبة التكاليف؟&lrm;
+			</a>
+		</h2>
+			</div>
+	<div class="social-summary text-muted margin-b30" >
+		<span data-count="0">Answers (0)</span>
+		<span data-count="0" class="followQues questionFolCounters_422700">Followers (0)</span>
+		<span data-count="0" >Views (0)</span>
+		<span data-count="0" class="questionVoteCounters_422700">Vote Count (0)</span>
+	</div>
+
+	<div class="stream-actions questionActivitySteam" >
+		<ul class="list-inline">
+			<li><a href="#" class="btn btn-action" >Be the First to Answer</a></li>
+			<li><a href="#" class="j_question_action " ><span class="j_txt">Follow</span></a></li>
+			<li><a href="#" class="j_question_action">Upvote</a></li>
+			<li><a id="show-share-modal" href="#" ><span class="edit_answer_span_qpage">Share</span></a></li>
+			<li class="reportCont pull-right">
+				<span class="action_item pull-right report">
+				<a href="#" class="light report">Report Inappropriate</a>
+				</span>
+			</li>
+		</ul>
+	</div>
+	<div class="hide">
+		<div class="alert alert-success hide" style="margin-top:30px;" >
+			 <p style="padding-top: 2px;" ></p>
+		</div>
+		<div class="answer-div-stream" >
+			<div class="alert alert-danger " style="display:none">
+				<p class="">Please make sure that your answer is written in Arabic.</p>
+				<p class=""><b>Try adding a different answer.</b><br>Thank you for answering the question. Unfortunately, the answer you are trying to submit has already been added.</p>
+				<p class="" >You can't add content on Bayt.com Specialties because your account has been blocked for violating the terms of service.</p>
+				<p class="">You can't add content on Bayt.com Specialties because you don't have a rank yet or your email hasn't been verified.</p>
+				<p class="">The owner has blocked you</p>
+				<p class="">Answer should contain a minimum of 25 characters.</p>
+			</div>
+			<textarea class="textarea mceEditor" id="answer-in-stream-126583062" style="height:280px;max-height:250px;margin:0 0 15px;overflow-y:auto !important;resize:none;width:98.4%"></textarea>
+				<span class="mute" id="answer_body_tip" >Answer should contain a minimum of 25 characters.</span>
+				<button class="btn btn-primary pull-left"  >Answer</button>
+		</div>
+	</div>
+</li>
+<div id="featured-questions-id" class="hide">
+	<ul class="thumbnails" style="padding:0"></ul>
+ 	<div class="mute txt-size-12">
+		Get +10 points added to your Specialty Rank every time your answer is voted up.<a href="#">Learn more</a>
+	</div>
+	<div class="border-padding border-top">
+		<div class="footer-padding c">
+			<a href="#" class="mute"><u>See More </u></a>
+		</div>
+	</div>
+</div>
+<span id="titleOfpopup" class="hide">
+	<span>Thanks for sharing your expertise! Can you also help answer any of these questions?</span>
+</span>
+<!-- maburoqa end of modalcontent-->
+<li class="stream answer" id="answer_1962386">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Negotiation	</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Work Planning</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Human Resources</a></h3>
+		<h3><a class="s_tag label text-capitalize tagBoubble" href="#">Management</a></h3>
+	</div>
+	<h2  dir="ltr" class="margin-b30 text-left" >
+		<a href="#" class="dark">
+			Who in your view is a better employee who logs in full work hours ? Other wise an employee who works 80% of work hours and gives 100% output?&lrm;
+		</a>
+	</h2>
+	<div class="stream-author margin-b30 clearfix">
+		<a href="#" class="photo pull-left userBoubble">
+			<img src="https://img4cf.b8cdn.com/70x70/images/people/no-photo-m-140x140.png" class="img-circle" width="70" height="70" alt="Seraseini  Adileleasiga">
+		</a>
+		<div class="info pull-right">
+			Answer added by&nbsp;
+			<a class="userBoubble" href="#">
+			Seraseini  Adileleasiga</a>, Reservation Clerk, Mantaray Island Resort<br>
+			 2 days ago</div>
+	</div>
+	<div class="stream-body">
+		<p class="margin-b30 text-left" dir="ltr" >
+		I would say the employee who works 80% of work hours and gives 100% output							</p>
+	</div>
+	<div class="stream-actions vote">
+		<ul class="list-inline">
+			<li><a href="#" class="j_vote_answer j_up btn btn-action">Upvote(<span class="count">2</span>)</a></li>
+			<li><a href="#" class="j_vote_answer j_down">Downvote</a></li>
+			<li class="reportCont anserReport pull-right">
+				<span class="action_item pull-right report">
+				<a href="#" class="light report">Report Inappropriate</a>
+				</span>
+			</li>
+		</ul>
+	</div>
+</li>
+<li class="stream question activeParent" id="streamQuestion833884021">
+	<div class="stream-tags margin-b25">
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Performance Management</a></h3>
+			<div class="b_wrap"></div>
+		<h3><a class="s_tag label text-capitalize tagBoubble tagBoubble s_tag" href="#">Human Resources</a></h3>
+			<div class="b_wrap"></div>
+	</div>
+	<div class="stream-author margin-b30 clearfix">
+		<a href="#" class="photo pull-left userBoubble">
+			<img src="https://img0cf.b8cdn.com/70x70/images/uploads/user_photos/80/36548580_20160715103048.jpg" class="img-circle" width="70" height="70" alt="Santosh Kumar Dubey">
+		</a>
+		<div class="info pull-right">
+			Question added by<a class="userBoubble" href="#">
+		Santosh Kumar Dubey</a>, Head- HR (Middle East, Africa &amp; India), Mainspring Trajecta Global Inc	<br>9 days ago</div>
+	</div>
+	<div class="stream-body">
+		<h2  dir="ltr" class="margin-b30 text-left" >
+			<a href="#" class="dark">
+				 Employee non performance is his self mental block or something else?&lrm;
+			</a>
+		</h2>
+	</div>
+	<div class="social-summary text-muted margin-b30" id="questionCounters_422656">
+		<span data-count="0">Answers (0)</span>
+		<span data-count="0" class="followQues questionFolCounters_422656">Followers (0)</span>
+		<span data-count="1" >Views (1)</span>
+		<span data-count="0" class="questionVoteCounters_422656">Vote Count (0)</span>
+	</div>
+	<div class="stream-actions questionActivitySteam" id="questionActivitySteam_422656">
+		<ul class="list-inline">
+			<li><a href="#" class="btn btn-action" >Be the First to Answer</a></li>
+			<li><a href="#" class="j_question_action " ><span class="j_txt">Follow</span></a></li>
+			<li><a href="#" class="j_question_action">Upvote</a></li>
+			<li><a href="#" ><span class="edit_answer_span_qpage">Share</span></a></li>
+			<li class="reportCont pull-right">
+				<span class="action_item pull-right report"><a href="#" class="light report">Report Inappropriate</a></span>
+			</li>
+		</ul>
+	</div>
+	<div id="answer_box_on_stream_833884021" class="hide">
+		<div class="alert alert-success hide" style="margin-top:30px;" id="answer-div-success-833884021">
+			 <p style="padding-top: 2px;" name="successful-answer-422656"></p>
+		</div>
+		<div class="answer-div-stream">
+			<div class="alert alert-danger " style="display:none">
+				<p class="" >Please make sure that your answer is written in English.</p>
+				<p class=""><b>Try adding a different answer.</b><br>Thank you for answering the question. Unfortunately, the answer you are trying to submit has already been added.</p>
+				<p class="">You can't add content on Bayt.com Specialties because your account has been blocked for violating the terms of service.</p>
+				<p class="">You can't add content on Bayt.com Specialties because you don't have a rank yet or your email hasn't been verified.</p>
+				<p class="">The owner has blocked you</p>
+				<p class="">Answer should contain a minimum of 25 characters.</p>
+			</div>
+			<textarea  class="textarea mceEditor" style="height:280px;max-height:250px;margin:0 0 15px;overflow-y:auto !important;resize:none;width:98.4%"></textarea>
+				<span class="mute" id="answer_body_tip" >Answer should contain a minimum of 25 characters.</span>
+				<button class="btn btn-primary pull-left" >Answer</button>
+		</div>
+	</div>
+</li>
+<div id="featured-questions-id" class="hide">
+	<ul class="thumbnails" style="padding:0"></ul>
+ 	<div class="mute txt-size-12">
+		Get +10 points added to your Specialty Rank every time your answer is voted up.<a href="#">Learn more</a>
+	</div>
+	<div class="border-padding border-top">
+		<div class="footer-padding c">
+			<a href="#" class="mute"><u>See More </u></a>
+		</div>
+	</div>
+</div>
+<span id="titleOfpopup" class="hide">
+	<span>Thanks for sharing your expertise! Can you also help answer any of these questions?</span>
+</span>
+<!-- maburoqa end of modalcontent-->
+</ul>
+<div class="text-center small">
+	<div class="mute hide margin-b20">
+		<img src="https://img0cf.b8cdn.com/images/icons/loading_h.gif" width="16" height="11" alt="Loading"> <b>Loading</b>
+	</div>
+	<a href="#?page=2" id="seeMore" class="text-muted">
+		<u>Show more</u>
+		<br><i class="glyphicon glyphicon-triangle-bottom small"></i>
+	</a>
+	<input name="js_offset_holder" type="hidden" value="1">
+</div></div>
+	</div>
+		<div id="specSidebar" class="pull-right col-lg-4 col-md-4 col-12 col">
+			<div class="panel">
+	<div class="panel-heading">
+		<h3><strong>Featured Questions</strong></h3>
+	</div>
+	<div class="panel-body">
+		<ul class="list-unstyled small bordered">
+			<li  dir="ltr" class="text-left" >
+			    <a href="#">What is the function of the cooling tower?&lrm; </a>
+			</li>
+			<li  dir="ltr" class="text-left" >
+				<a href="#"> What do you do as a salesman to meet your target? &lrm; </a>
+			</li>
+			<li  dir="ltr" class="text-left" >
+				<a href="#">What do you think about Uber buying Careem?&lrm; </a>
+			</li>
+			<li  dir="ltr" class="text-left" >
+				<a href="#">
+					What is the Difference between Capital Expenditure &amp; Revenue Expenditure?&lrm; 
+				</a>
+			</li>
+			<li  dir="ltr" class="text-left" >
+				<a href="#">
+					What&#039;s the difference between income and expenditure?&lrm; 
+				</a>
+			</li>			
+		</ul>
+	</div>
+</div>		</div>
+	</div>
+</div>
+
+<div class="specialties_show_more c hide">
+	<div class="mute hide margin-b20">
+		<img src="/https:/img0cf.b8cdn.com/images/icons/loading_h.gif" width="16" height="11" alt="Loading"> <b>Loading</b>
+	</div>
+	</div>
+	<div class="take_a_tour_overlay hide"></div>
+	<div class="take_a_tour modal welcome hide">
+	<div class="modal-header">
+		<a class="modalcloseimg"><button type="button" class="close modalcloseimg modalClose" data-dismiss="modal" ></button></a>
+			<h5>Welcome to Bayt.com Specialties</h5>
+		 </div>
+		<p>Bayt.com Specialties is a platform to network, collaborate, and get answers to your professional questions.</p>
+		<p class="actions">
+			<span class="steps pull-left">
+				<span class="btn-circle pull-left"></span> 
+				<span class="btn-circle mute pull-left"></span> 
+				<span class="btn-circle mute pull-left"></span> 
+				<span class="btn-circle mute pull-left"></span> 
+			</span>
+			<a href="#" class="button btn btn-primary pull-right">Take a Tour</a>
+		</p>
+	</div>
+	<div class="take_a_tour modal participate hide">
+	<i class="i_16_item i_modal_arrow top"></i>
+		<div class="modal-header">
+		 	 <a href="#"  class="pull-right modalcloseimg close_tour">&times;</a>
+			<h5>Ask your questions</h5>
+		 </div>
+		<p>
+			Ask your questions and get answers from other professionals		</p>
+		<p class="actions">
+			<span class="steps pull-left">
+				<span class="btn-circle pull-left mute"></span> 
+				<span class="btn-circle  pull-left"></span> 
+				<span class="btn-circle mute pull-left"></span> 
+				<span class="btn-circle mute pull-left"></span> 
+			</span>
+			<a href="#" class="button btn btn-primary pull-right">Next</a>
+		</p>
+	</div>
+	<div class="take_a_tour modal read_news hide">
+		<i class="i_16_item i_modal_arrow top"></i>
+		<div class="modal-header">
+		 	 <a href="#" class="pull-right modalcloseimg close_tour">&times;</a>
+			<h5>Share an Article</h5>
+		 </div>
+		<p>
+			Share an article and add your thoughts to start a discussion with the community		</p>
+		<p class="actions">
+			<span class="steps pull-left">
+				<span class="btn-circle pull-left mute"></span> 
+				<span class="btn-circle  pull-left mute"></span> 
+				<span class="btn-circle  pull-left"></span> 
+				<span class="btn-circle mute pull-left"></span> 
+			</span>
+			<a href="#" class="button btn btn-primary pull-right">Next</a>
+		</p>
+	</div>
+	<div class="take_a_tour modal get_ranked hide">
+	<i class="i_16_item i_modal_arrow top"></i>
+		<div class="modal-header">
+		 	 <a href="#" class="pull-right modalcloseimg close_tour">&times;</a>
+			<h5>Write a Blog Post</h5>
+		 </div>
+		<p>
+			Write a blog post and share your expertise with other professionals		</p>
+		<p class="actions">
+			<span class="steps pull-left">
+				<span class="btn-circle pull-left mute"></span> 
+				<span class="btn-circle  pull-left mute"></span> 
+				<span class="btn-circle mute pull-left"></span> 
+				<span class="btn-circle  pull-left"></span> 
+			</span>
+			<a href="#" class="button btn btn-primary pull-right">Done</a>
+		</p>
+	</div>
+<div id="report_question_bubble_template" class="hide">
+	<div class="form-group ">
+	  <div class="radio">
+		<label id="label-report_reason1" class="radio">
+		 <input name="report_reason" type="radio" value="1" required />
+		 Irrelevant</label>
+	   </div>
+	   <div class="radio">
+		<label id="label-report_reason2" class="radio">
+		 <input name="report_reason" type="radio" value="2" required />
+		Inappropriate or offensive.		</label>
+	   </div>
+	   <div class="radio">
+		<label id="label-report_reason3" class="radio">
+		 <input name="report_reason" type="radio" value="3" required />
+		Spam (unsolicited advertising).		</label>
+	   </div>
+	 </div>
+</div>
+<div id="report_answer_bubble_template" class="hide">
+	<div class="form-group ">
+		<div class="radio">
+			<label id="label-report_reason1" class="radio">
+			 <input name="report_reason" type="radio" value="1" required/>
+			 Irrelevant to Specialties or not an answer.			</label>
+		   </div>
+		   <div class="radio">
+			<label id="label-report_reason2" class="radio">
+			 <input name="report_reason" type="radio" value="2" required/>
+			Inappropriate or offensive.			</label>
+		   </div>
+		   <div class="radio">
+			<label id="label-report_reason3" class="radio">
+			 <input name="report_reason" type="radio" value="3" required/>
+			Spam (unsolicited advertising).			</label>
+		 </div>
+	 </div>
+</div>
+<div id="report_comment_bubble_template" class="hide">
+	<div class="form-group ">
+		<div class="radio">
+			<label id="label-report_reason1" class="radio">
+			 <input name="report_reason" type="radio" value="1" required/>
+			 Irrelevant			</label>
+		   </div>
+		   <div class="radio">
+			<label id="label-report_reason2" class="radio">
+			 <input name="report_reason" type="radio" value="2" required/>
+			Inappropriate or offensive.			</label>
+		   </div>
+		   <div class="radio">
+			<label id="label-report_reason3" class="radio">
+			 <input name="report_reason" type="radio" value="3" required/>
+			Spam (unsolicited advertising).			</label>
+		 </div>
+	 </div>
+</div>
+<div id="report_perspective_bubble_template" class="hide">
+	<div class="form-group ">
+		<div class="radio">
+			<label id="label-report_reason1" class="radio">
+			 <input name="report_reason" type="radio" value="1" required/>
+			 Irrelevant to Specialties or not an Article/Note.			</label>
+		   </div>
+		   <div class="radio">
+			<label id="label-report_reason2" class="radio">
+			 <input name="report_reason" type="radio" value="2" required/>
+			Inappropriate or offensive.			</label>
+		   </div>
+		   <div class="radio">
+			<label id="label-report_reason3" class="radio">
+			 <input name="report_reason" type="radio" value="3" required/>
+			Spam (unsolicited advertising).			</label>
+		 </div>
+	 </div>
+</div>
+<div id="report_blog_bubble_template" class="hide">
+	<div class="form-group ">
+		<div class="radio">
+			<label id="label-report_reason1" class="radio">
+			 <input name="report_reason" type="radio" value="1" required/>
+			 Irrelevant to Specialties or not a Blog.			</label>
+		   </div>
+		   <div class="radio">
+			<label id="label-report_reason2" class="radio">
+			 <input name="report_reason" type="radio" value="2" required/>
+			Inappropriate or offensive.			</label>
+		   </div>
+		   <div class="radio">
+			<label id="label-report_reason3" class="radio">
+			 <input name="report_reason" type="radio" value="3" required/>
+			Spam (unsolicited advertising).			</label>
+		 </div>
+	 </div>
+</div>
+</div>
+            </div>
+            <script th:src="@{'/assets/js/employer_plugin.js'}"></script>
+</body>
+
+</html>

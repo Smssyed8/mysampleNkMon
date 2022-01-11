@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/jobs_by_role.css'}" />
+<title>Mindful Consulting Qatar - Jobs by role</title>
+<meta name="keywords" content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- <div class="t-center print-only"><img th:src="@{'/JobRolesBayt_files/bayt-logo.svg" alt="Bayt.com'}"></div> -->
+		<section class="t-center box">
+			<h1 class="m20y p20y">Most Common Job Roles in the Middle East</h1>
+		</section>
+
+		<div class="box is-wide">
+			<div
+				class="row m20-d p20-d v-align-stretch t-center-d h-align-center">
+
+				<div th:each="instance : ${jobRolesWithCount}" class="col is-2-d">
+					<a th:href="@{'/search/jobs?jobRoles=' + ${instance.key.id}}">
+						<div class="card">
+							<div class="card-content">
+								<p th:text="${instance.value}" class="h1 t-light u-right-m m0-m"></p>
+								<span th:text="${instance.key.jobRole}"
+									class="t-large p10y u-block"></span>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

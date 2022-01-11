@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/employer.css'}" />
+<link rel="stylesheet" th:href="@{'/assets/css/plugin_other.css'}" />
+<title>Mindful Consulting Qatar - Employers</title>
+<meta name="keywords"
+	content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="employersPage">
+			<div class="t-center">
+				<div th:if="${displayErrorMessage}" id="alertErrorMessage"
+					class="alert alert-danger">
+					<span th:text="${displayErrorMessage}"></span>
+					<button onclick="hideElement('alertErrorMessage')" class="close"
+						aria-hidden="true">x</button>
+				</div>
+				<div th:if="${displayMessage}" id="alertMessage"
+					class="alert alert-success">
+					<span th:text="${displayMessage}"></span>
+					<button onclick="hideElement('alertMessage')" class="close"
+						aria-hidden="true">x</button>
+				</div>
+			</div>
+			<div class="all-content">
+				<section class="cover is-compact from-bottom employer-banner">
+					<div class="row box">
+						<a class="col d" th:href="@{'#'}"></a>
+						<div class="col">
+							<div class="t-center">
+								<a th:href="@{'#'}">
+									<h1 class="t-inverse p20b-d h2 candidates-heading">
+										Hire candidates quickly and easily.<br> <span
+											class="u-none-m">Access 37,000,000 CVs</span>
+									</h1>
+									<p class="t-inverse t-large p20t p0b m20b t-large">Try CV
+										search for free</p>
+								</a>
+								<form class="t-left card p10 d" action="employer/cv/jobseekers"
+									method="post" target="_self"
+									data-validate-form='{
+						"model":"cvSearch",
+						"attrs": [
+							{
+								"name": "position_keyword",
+								"config": [
+									{ "fn":"required", "msg":"Field is required"}
+								]
+							}
+						],
+						"hooks":{"after":"cvSearchForm"}
+					}'>
+									<input type="hidden" name="position_operator" value="3">
+									<div class="input-pack">
+										<input id="cvSearch_position_keyword" name="keywords"
+											type="text" class="input in-pack is-large m0r"
+											placeholder="Enter job title, skills, etc.">
+										<div class="select in-pack m10x">
+											<select name="cityId" class="input is-large "
+												id="cvSearchIso" data-searchable>
+												<option value="" disabled="disabled" selected="selected">Select
+													Location</option>
+												<option th:each="cityInstance: ${cities}"
+													th:value="${cityInstance.id}"
+													th:text="${cityInstance.city}"></option>
+											</select>
+										</div>
+										<button type="submit" class="btn  is-large is-royal">
+											Search CVs <i class="icon is-search"></i>
+										</button>
+									</div>
+									<span id="cvSearch_position_keyword_em_" class="form-hint"></span>
+								</form>
+								<form class="t-left m" action="employer/cv/jobseekers"
+									method="post" target="_self"
+									data-validate-form='{
+						"model":"cvSearch",
+						"attrs": [
+							{
+								"name": "position_keyword_m",
+								"config": [
+									{ "fn":"required", "msg":"Field is required"}
+								]
+							}
+						],
+						"hooks":{"after":"cvSearchForm"}
+					}'>
+									<input type="hidden" name="position_operator" value="3">
+									<div class="input-pack">
+										<input id="cvSearch_position_keyword_m" name="keywords"
+											type="text" class="input in-pack is-large"
+											placeholder="Enter job title, skills, etc.">
+										<div class="select in-pack">
+											<select name="cityId" class="input is-large"
+												id="cvSearchIso_m" data-searchable>
+												<option value="" disabled="disabled" selected="selected">Select
+													Location</option>
+												<option th:each="cityInstance: ${cities}"
+													th:value="${cityInstance.id}"
+													th:text="${cityInstance.city}"></option>
+											</select>
+										</div>
+										<button type="submit" class="btn in-pack is-large is-royal">
+											Search CVs <i class="icon is-search"></i>
+										</button>
+									</div>
+									<span id="cvSearch_position_keyword_m_em_" class="form-hint"></span>
+								</form>
+								<a th:href="@{'#'}">
+									<p class="t-inverse u-none-d p20t p0b m10b">Try job posting
+										for free</p>
+								</a> <a class="btn is-inverse u-none-d" th:href="@{'#'}"> Post
+									Your Job </a>
+							</div>
+						</div>
+						<a class="col d" href="#"></a>
+					</div>
+				</section>
+				<div class="bg-inverse m20b-m">
+					<div class="box">
+						<div class="row m20y p20y t-center">
+							<div class="col is-4-d">
+								<i class="icon is-shop is-32"></i>
+								<h5 class="m20y">Small Business Solutions</h5>
+								<a class="btn is-outline is-round" th:href="@{'/login'}">
+									Explore Now </a>
+							</div>
+
+							<div class="col is-4-d">
+								<i class="icon is-briefcase is-32"></i>
+								<h5 class="m20y">Post Your Job</h5>
+								<a class="btn is-primary is-round" th:href="@{'/employer/home'}">
+									Post Now </a>
+
+							</div>
+							<div class="col is-4-d">
+								<i class="icon is-gift is-32"></i>
+								<h5 class="m20y">Get Your Special Offer</h5>
+								<a class="btn is-outline is-round" th:href="@{'/login'}">
+									Save Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<section class="m t-center p20 bg-inverse">
+					<i class="t-primary icon is-smartphone is-64 "></i>
+					<h2 class="m20t">Download Employer Mobile App</h2>
+					<p>Hire qualified candidates quickly and easily on your mobile
+						now!</p>
+					<a id="DownloadApp" class="btn m20b" th:href="@{'#'}">Download
+						Now</a>
+					<div>
+						<img
+							src="https://img3cf.b8cdn.com/bayt/assets/employers-130/images/ios.png"
+							class="m10r" alt="ios.png" /> <img
+							src="https://img4cf.b8cdn.com/bayt/assets/employers-130/images/android.png"
+							alt="android.png" />
+					</div>
+				</section>
+				<section class="t-center p20">
+					<a th:href="@{'#'}"><h2 class="p20y">Select Your
+							Recruitment Plan</h2></a>
+					<div data-tabs='{
+				"prevent": false
+			}'>
+						<div class="input-group_inline"></div>
+						<div id="cvSearchPackages" class="is-active tab"
+							data-tab="internationalPackge">
+							<div class="box">
+								<div class="row v-align-center">
+									<div th:each="packageInstance: ${packages}"
+										class="col is-4-d is-12-m">
+										<div class="card">
+											<div class="card-head ">
+												<h3 th:text="${packageInstance.packageName}"></h3>
+											</div>
+											<div class="card-content">
+												<del th:text="@{'$' + ${packageInstance.price}}"
+													class="t-mute p20 t-light h4 u-block"></del>
+
+												<p th:text="@{'$' + ${packageInstance.sellingPrice}}"
+													class="h2 t-light"></p>
+												<form th:action="@{'/buy'}" method="post" class="m20y">
+													<input type="hidden" name="packageId"
+														th:value="${packageInstance.id}" />
+													<button type="submit"
+														class="t-center btn is-secondary is-round is-outline ">Buy
+														Now</button>
+												</form>
+												<hr class="d ">
+												<ul class="list is-basic t-small">
+													<li
+														th:each="line: ${#strings.arraySplit(packageInstance.packageDescription, ',')}"
+														th:text="${line}"><span>•</span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<p class="t-center t-small">
+							By clicking Buy Now, you agree to the <a th:href="@{'#'}"
+								class="is-black"><b>Service Agreement.</b></a><br> We do
+							not charge any additional commission fees when you hire through
+							Mindful.com
+						</p>
+					</div>
+				</section>
+				<section class="bg-inverse t-center p20">
+					<h2 class="p20y">Who's Hiring on Mindful.com</h2>
+					<div class="box">
+						<div class="card-banner">
+							<img th:src="@{'/assets/image/xx_who_is_hiring.png'}"
+								class="u-stretch" alt="Who's Hiring on Bayt.com" usemap="#map"
+								data-remap>
+							<map name="map">
+								<area shape="rect" alt="../../assets/image/xx_who_is_hiring.png"
+									coords="0,0,200,200" th:href="@{'#'}">
+								<area shape="rect" alt="../../assets/image/xx_who_is_hiring.png"
+									coords="200,0,400,200" th:href="@{'#'}">
+								<area shape="rect" alt="../../assets/image/xx_who_is_hiring.png"
+									coords="400,0,600,200" th:href="@{'#'}">
+								<area shape="rect" alt="../../assets/image/xx_who_is_hiring.png"
+									coords="600,0,800,200" th:href="@{'#'}">
+								<area shape="rect" alt="../../assets/image/xx_who_is_hiring.png"
+									coords="800,0,1000,200" th:href="@{'#'}">
+								<area shape="rect" alt="../../assets/image/xx_who_is_hiring.png"
+									coords="0,200,200,400" th:href="@{'#'}">
+								<area shape="rect" alt="../../assets/image/xx_who_is_hiring.png"
+									coords="200,200,400,400" th:href="@{'#'}">
+								<area shape="rect" alt="../../assets/image/xx_who_is_hiring.png"
+									coords="400,200,600,400" th:href="@{'#'}">
+								<area shape="rect" alt="../../assets/image/xx_who_is_hiring.png"
+									coords="600,200,800,400" th:href="@{'#'}">
+								<area shape="rect" alt="../../assets/image/xx_who_is_hiring.png"
+									coords="800,200,1000,400" th:href="@{'#'}">
+							</map>
+						</div>
+					</div>
+				</section>
+				<div class="box t-center">
+					<h2 class="m20y p20y">How Mindful.com Can Help You Hire</h2>
+					<!-- emp-section-title -->
+					<div class="row m20y p20y">
+						<div class="col is-4-d">
+							<a th:href="@{'#'}"><i
+								class="icon is-briefcase is-64 t-primary"></i></a>
+							<h3 class="m20t">Post a job</h3>
+							<p>Receive applications from interested candidates</p>
+						</div>
+						<div class="col is-4-d">
+							<a th:href="@{'#'}"><i class="icon is-search is-64 t-primary"></i></a>
+							<h3 class="m20t">Search CVs</h3>
+							<p class="m0">Search more than 37 million CVs across all
+								industries, career levels, and nationalities</p>
+						</div>
+						<div class="col is-4-d">
+							<a th:href="@{'#'}"><i
+								class="icon is-color-palette is-64 t-primary"></i></a>
+							<h3 class="m20t">Branding Solutions</h3>
+							<p class="m0">Boost your employer brand with a company
+								profile, branding solutions, and your very own career site</p>
+						</div>
+					</div>
+				</div>
+				<section class="t-center bg-inverse p20">
+					<h2>Need Help?</h2>
+					<p class="t-xlarge ">Contact us and we will be happy to assist
+						you</p>
+					<ul class="list is-basic is-spaced">
+						<li><a th:href="@{'#'}" class="h2 contact-num">Call Us:
+								&lrm; +962-6-550-7445</a></li>
+						<li><a class="btn m10y" href="#">Email Us</a></li>
+						<li><img th:src="@{'/assets/image/need-help-img.png'}"
+							alt="Need help" class="img-120-m img-240-d"></li>
+					</ul>
+				</section>
+
+
+				<section class="m40t p20t">
+					<div class="box d u-none jsMobilePromotions">
+						<div class="row is-compact h-align-center bg-inverse m10b">
+							<div class="col is-11 p0 p20t">
+								<div class="media">
+									<img
+										src="https://img4cf.b8cdn.com/bayt/assets/misc-211/images/appStore.png"
+										alt="App Store" class="m10t">
+									<div>
+										<div class="row is-compact v-align-center h-align-between">
+											<div class="col is-8 p10 p40l m40l">
+												<h5>Hire talents easily on your mobile now!</h5>
+												<p class="t-large m0">No matter where you are, access
+													all your favorite Bayt.com features from your mobile
+													device.</p>
+												<a th:href="@{'#'}" target="_blank" class="p10t u-iblock"><img
+													class="img-logo is-android" width="20" height="24"
+													src="https://img3cf.b8cdn.com/bayt/assets/b8static/png/1.png"
+													alt="Google Play"></a> <a href="#" target="_blank"
+													class="p10t p10x u-iblock"><img class="img-logo is-iOS"
+													width="20" height="24"
+													src="https://img3cf.b8cdn.com/bayt/assets/b8static/png/1.png"
+													alt="Apple Store"></a>
+											</div>
+											<div class="col is-3 t-center">
+												<img
+													src="https://img1cf.b8cdn.com/bayt/assets/misc-211/images/qrCode-emp.png"
+													alt="Hire talents easily on your mobile now!">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<div class="box t-center">
+					<h2 class="m20y p20y">What Our 40,000 Clients Say About Us.</h2>
+					<!-- emp-section-title -->
+					<div class="row m20y p20y">
+						<div class="col is-4-d u-spready">
+							<div>
+								<img height="100" alt="Salman Mohammed"
+									th:src="@{'/assets/image/paratam.gif'}" />
+								<p>
+									Mindful.com is one of the best job portals we’ve used until
+									now. We saved so much time find...<a href="#">more </a>
+								</p>
+							</div>
+							<div>
+								<p>
+									<b>Salman Mohammed</b>
+								</p>
+								<p>Chief Executive Officer</p>
+								<p class="t-mute">India</p>
+							</div>
+						</div>
+						<div class="col is-4-d u-spready">
+							<div>
+								<img height="100" alt="Manoj Jalan"
+									th:src="@{'/assets/image/mpower.png'}" />
+								<p>We have been associated with Bayt.com for a long time</p>
+							</div>
+							<div>
+								<p>
+									<b>Manoj Jalan</b>
+								</p>
+								<p>COO</p>
+								<p class="t-mute">India</p>
+							</div>
+						</div>
+					</div>
+					<div class="m20y">
+						<a class="btn is-inverse" href="#">See More Testimonials </a>
+					</div>
+				</div>
+				<div class="bg-inverse t-center">
+					<div class="box">
+						<h2 class="m20y">Why Mindful.com?</h2>
+						<!-- emp-section-title -->
+						<p class="m0t">Largest community of job seekers. Fast, easy,
+							cost-effective. Customer-first attitude.</p>
+						<div class="row m20y p20y">
+							<div class="col is-4-d">
+								<i class="icon is-text is-64 t-primary" data-text="37M+"></i>
+								<h3 class="m20t">Massive reach</h3>
+								<p>Reach the largest community of job seekers in the Middle
+									East, from across all industries and career levels. Growing at
+									over 12,000 a day.</p>
+							</div>
+							<div class="col is-4-d">
+								<i class="icon is-target is-64 t-primary"></i>
+								<h3 class="m20t">Easy & fast</h3>
+								<p>Hiring couldn't be easier. Our super-charged tools will
+									help you find, shortlist and contact your perfect hire in no
+									time</p>
+							</div>
+							<div class="col is-4-d">
+								<i class="icon is-wallet is-64 t-primary"></i>
+								<h3 class="m20t">Cost-Effective hiring</h3>
+								<p>Hire the best talent while maximizing your ROI. Choose
+									from several solutions that works with your time and budget.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box t-center">
+					<h2 class="p20y m20y">Free Consultation</h2>
+					<img alt="Consultation" class="is-circular"
+						th:src="@{'/assets/image/free-consultation-img.png'}">
+					<p class="t-xlarge m20y">
+						Hello, let us help you decide on the best recruitment <br>
+						strategy to use for your business.
+					</p>
+					<a class="btn is-primary m20y" onclick="requestDemo('requestDemo')">Schedule
+						a Free Consultation</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<script th:src="@{'/assets/js/employer_plugin.js'}"></script>
+</body>
+</html>

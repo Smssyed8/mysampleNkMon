@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/jobs_by_sector.css'}" />
+<title>Mindful Consulting Qatar - Jobs by sector</title>
+<meta name="keywords" content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<form action="/jobs/sector" method="get">
+			<div>
+				<section class="t-center box">
+					<h1 class="m20y p20y">Industries Hiring in the Gulf &amp;
+						Middle East</h1>
+					<div class="row h-align-center">
+						<div class="col is-4-d">
+
+							<div class="select">
+								<select class="input form-control" id="provider"
+									onchange="submitform(this.form)" name="cityIds">
+									<option value="">All Cities</option>
+									<option th:each="city: ${cities}" th:value="${city.id}"
+										th:selected="${cityIds != null && #lists.contains(cityIds, city.id)}"
+										th:text="${city.city}"></option>
+								</select>
+							</div>
+
+						</div>
+					</div>
+				</section>
+				<section class="box">
+					<div th:each="instance: ${sectorsWithJobsCountForEachIndustry}"
+						class="card">
+						<div class="card-head">
+							<h4>
+								<a th:text="${instance.key.sector}"
+									th:href="@{'/search/jobs?jobTitle=&companySectors=' + ${instance.key.id} + '&cityIds=' + ${cityIds}}"></a>
+							</h4>
+						</div>
+						<div class="card-content">
+							<ul class="listis-spacedis-tabularof-2-dof-1-mu-stretch">
+								<li th:each="innerInstance: ${instance.key.companyIndustries}"
+									class="p10r"><a class="is-black"
+									th:text="@{${innerInstance.companyIndustry} + ' (' + ${instance.value} + ')'}"
+									th:href="@{'/search/jobs?jobTitle=&companyIndustries=' + ${innerInstance.id} + '&cityIds=' + ${cityIds}}"></a></li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</div>
+		</form>
+		<!-- Body ends -->
+	</div>
+</body>
+</html>

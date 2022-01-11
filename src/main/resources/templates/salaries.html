@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/salaries.css'}" />
+<title>Mindful Consulting Qatar - Salaries</title>
+<meta name="keywords" content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- Body -->
+		<!-- <title>Salaries in India - Bayt.com</title>
+ <link rel="canonical" th:href="@{'#'}" /> 
+</head>  -->
+		<body>
+			<!-- <div class="t-center print-only">
+		<img th:src="@{'/img1cf.b8cdn.com/bayt/assets/b8static/svg/bayt-logo.svg'}" alt="Bayt.com">
+	</div>  -->
+			<section class="row cover is-compact"
+				style="background-image: url(../../assets/image/bgcover.png);">
+				<div class="col is-12-d">
+					<div class="box">
+						<h2 class="t-center t-inverse">Salaries in Qatar</h2>
+						<div>
+							<form class="t-left card p10 d" action="/search/jobs"
+								method="get"
+								data-validate-form='{"redirect":"§b/{text_search!≈»{§search_country/salaries/q/§text_search.s-/}}«text_search≈»stop"}'>
+								<div class="input-pack">
+									<input id="text_search" name="jobTitle" type="text"
+										class="input in-pack is-large m0r"
+										placeholder="Enter a Job Title">
+									<div class="select in-pack m10x">
+										<select name="cityIds" class="input is-large "
+											id="search_country" data-value="india"
+											data-searchable="salariesQuicksearchConfig">
+											<option disabled value="">Select Location</option>
+											<option th:each="instance: ${cities}"
+												th:text="${instance.city}" th:value="${instance.id}"></option>
+										</select>
+									</div>
+									<button type="submit" class="btn  is-large ">
+										Search Salaries <i class="icon is-search"></i>
+									</button>
+								</div>
+								<span id="cvSearch_position_keyword_em_" class="form-hint"></span>
+							</form>
+							<form class="t-left m" action="~/" method="get"
+								data-validate-form='{"redirect":"§b/{text_search1!≈»{§search_country1/salaries/q/§text_search1.s-/}}«text_search1≈»stop"}'>
+								<div class="input-pack">
+									<input id="text_search1" name="keyword" type="text"
+										class="input in-pack is-large m0r"
+										placeholder="Enter a Job Title">
+									<div class="select in-pack">
+										<select name="country_iso" class="input is-large "
+											id="search_country1" data-value="india"
+											data-searchable="salariesQuicksearchConfig">
+											<option disabled value="">Select Country</option>
+											<option value="algeria">Algeria</option>
+											<option value="bahrain">Bahrain</option>
+											<option value="egypt">Egypt</option>
+											<option value="india" selected>India</option>
+											<option value="iraq">Iraq</option>
+											<option value="jordan">Jordan</option>
+											<option value="kuwait">Kuwait</option>
+											<option value="lebanon">Lebanon</option>
+											<option value="libya">Libya</option>
+											<option value="morocco">Morocco</option>
+											<option value="oman">Oman</option>
+											<option value="pakistan">Pakistan</option>
+											<option value="qatar">Qatar</option>
+											<option value="saudi arabia">Saudi Arabia</option>
+											<option value="sri lanka">Sri Lanka</option>
+											<option value="tunisia">Tunisia</option>
+											<option value="united arab emirates">United Arab
+												Emirates</option>
+											<option value="yemen">Yemen</option>
+										</select>
+									</div>
+									<button type="submit" class="btn  is-large in-pack">
+										Search Salaries <i class="icon is-search"></i>
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="bg-inverse m20b-m">
+				<div class="box">
+					<div class="row t-center">
+						<div class="col is-4-d">
+							<i class="fa fa-users is-32"></i>
+							<h5 class="m10y">Company Interviews</h5>
+							<a class="btn is-outline is-round" th:href="@{'#'}">Share Now</a>
+						</div>
+						<div class="col is-4-d">
+							<i class="fa fa-money" is-32></i>
+							<h5 class="m10y">Salary Profiles</h5>
+							<a class="btn is-primary is-round" th:href="@{'#'}">Post Now</a>
+						</div>
+						<div class="col is-4-d">
+							<i class="fa fa-braille is-32"></i>
+							<h5 class="m10y">Company Reviews</h5>
+							<a class="btn is-outline is-round" th:href="@{'#'}">Review
+								Now</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row box">
+				<div class="col is-12-d">
+					<div class="card">
+						<div class="card-head">
+							<h3 class="t-light">Salaries for Most Popular Jobs</h3>
+						</div>
+						<div class="card-content p10r">
+							<table class="range-chart">
+								<thead>
+									<tr>
+										<th>Job Title</th>
+										<th>Average</th>
+										<th class="d"><span style="left: 0%;">0</span> <span
+											style="left: 25%;">50000</span> <span style="left: 50%;">100000</span>
+											<span style="left: 75%;">150000</span> <span
+											style="left: 100%;">200000</span></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="instance: ${avgSalaryForMostPopularJobs}">
+										<td th:text="${instance.key.jobTitle}"></td>
+										<td th:text="@{'INR ' + ${instance.value}}"></td>
+										<td class="d"><span
+											th:style="@{'left: ' + ${(instance.value / 2000)}  + '%; width: ' + ${(instance.value / 2000) + 10} + '%;'}"></span>
+											<span
+											th:style="@{'left: ' + ${(instance.value / 2000)} + '%;'}">
+												<span class="tip on-top"
+												th:aria-label="@{'Average: ' + ${instance.value} + ' INR'}"></span>
+										</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<section class="bg-inverse t-center p20">
+				<h2 class="p20y">Salaries from Qatar's Top Companies</h2>
+				<div class="box">
+					<div class="card-banner">
+						<img th:src="@{'/assets/image/logos.png'}" class="u-stretch"
+							alt="Salaries from Qatar's top Companies" usemap="#map"
+							data-remap>
+						<map name="map">
+							<area shape="rect" alt="../../assets/image/logos.png"
+								coords="0,0,200,200" th:href="@{'#'}">
+							<area shape="rect" alt="../../assets/image/logos.png"
+								coords="200,0,400,200" th:href="@{'#'}">
+							<area shape="rect" alt="../../assets/image/logos.png"
+								coords="400,0,600,200" th:href="@{'#'}">
+							<area shape="rect" alt="../../assets/image/logos.png"
+								coords="600,0,800,200" th:href="@{'#'}">
+							<area shape="rect" alt="../../assets/image/logos.png"
+								coords="800,0,1000,200" th:href="@{'#'}">
+							<area shape="rect" alt="../../assets/image/logos.png"
+								coords="0,200,200,400" th:href="@{'#'}">
+							<area shape="rect" alt="../../assets/image/logos.png"
+								coords="200,200,400,400" th:href="@{'#'}">
+							<area shape="rect" alt="../../assets/image/logos.png"
+								coords="400,200,600,400" th:href="@{'#'}">
+							<area shape="rect" alt="../../assets/image/logos.png"
+								coords="600,200,800,400" th:href="@{'#'}">
+							<area shape="rect" alt="../../assets/image/logos.png"
+								coords="800,200,1000,400" th:href="@{'#'}">
+						</map>
+					</div>
+				</div>
+			</section>
+			<div class="row box">
+				<div class="col is-12-d">
+					<div class="card ">
+						<div class="card-head">
+							<h2 class="h5">Salaries by Job Role</h2>
+						</div>
+						<div class="card-content">
+							<ul class="list is-tabular of-2-d of-1-m  t-large u-expanded">
+								<li th:each="instance: ${avgSalaryForJobRoles}" class="p20r-d"><span
+									th:text="${instance.value}" class="u-right m20x-d"></span> <a
+									th:text="${instance.key.jobRole}" th:href="@{'#'}"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row box">
+				<div class="col is-12-d">
+					<div class="card">
+						<div class="card-head">
+							<h1 class="h5">Salaries by Location</h1>
+						</div>
+						<div class="card-content">
+							<ul class="list is-tabular of-2-d of-1-m t-large u-expanded">
+								<li th:each="instance: ${avgSalaryForLocations}" class="p20r-d"><span
+									th:text="${instance.value}" class="u-right m20x-d"></span> <a
+									th:href="@{'#'}"
+									th:text="@{'Salaries in ' + ${instance.key.city}}"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row box">
+				<div class="col is-12-d">
+					<div class=" bg-inverse  p10">
+						<ul class="list is-inline is-spaced t-center-d">
+							<li class="t-primary br-d p20x "><a th:href="@{'/salaries/locations'}">Salaries
+									by Location</a></li>
+							<li class="t-primary br-d p20x "><a th:href="@{'#'}">Salaries
+									by Company</a></li>
+							<li class="t-primary br-d p20x "><a th:href="@{'/salaries/roles'}">Salaries
+									by Job Role</a></li>
+							<li class="t-primary br-d p20x "><a th:href="@{'#'}">Links</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- <noscript data-deferred-styles>
+	<link rel="stylesheet" type="text/css" href="//csscf.b8cdn.com/bayt/assets/baytui-1.69.0-c4/css/B8.css" media="all" /></noscript> <script src="//jscf.b8cdn.com/bayt/assets/salaries-4/js/salariesB8.js" defer="defer" id="38321064"></script> <script src="//jscf.b8cdn.com/bayt/assets/baytui-1.69.0-c4/js/B8com.js" defer="defer" id="1381158303"></script> <script src="https://www.googletagmanager.com/gtm.js?id=GTM-NW36N4" async="async" id="3804486059"></script> <script>
+	/*<![CDATA[*/
+	
+	if(window.jQuery) {
+		$.ajaxSetup( {
+			data: {
+				"YII_CSRF_TOKEN": "6a04e8e1e6b264d57f7e7cbbcb0a908dd0c3dc37"
+			}
+			, cache:false
+		}
+		);
+	}
+	
+	csrfTokenName="YII_CSRF_TOKEN";
+	csrfToken="6a04e8e1e6b264d57f7e7cbbcb0a908dd0c3dc37";
+	B8.ready(function() {
+		BaytNavigation.ajax.defaultAjaxSetup()
+	}
+	
+	);
+	var dataLayer=dataLayer || [];
+	dataLayer.push( {
+		"pageLang": "en", "pageName": null, "pageSection": "Job Seeker", "pageProtected": false, "userId": "0", "userRole": "Guest"
+	}
+	
+	);
+	dataLayer.push( {
+		"gtm.start": new Date().getTime(), "event": "gtm.js"
+	}
+	
+	);
+	B8v= {
+		"domainType":"jobs",
+		"cookiesDomain":".bayt.com",
+		"devProjects": {
+			"baytUI": 1, "generic": 0, "yiiBetaAndDev": 0, "new_email_confirmation_considration": 0, "hr_communities_new": 1, "baytUIProfile": 1, "cv_refreshness_project": 1, "shagheel_domain": 1, "job_post_baytui": 1
+		}
+		,
+		"pageCached":false,
+		"saveNav":true,
+		"csrf": {
+			"token": "6a04e8e1e6b264d57f7e7cbbcb0a908dd0c3dc37"
+		}
+		,
+		"baytUiNavigation": {
+			"mode":"jsLogout",
+			"list":"jobsLoggedOut",
+			"links": {
+				"upg": "https:\/\/www.bayt.com\/en\/ecommerce\/upgrade\/?native_source=Top-bar", "prm": "https:\/\/www.bayt.com\/en\/myworkspace-j\/elite-premium-account\/"
+			}
+			,
+			"confirmationMsgs": {
+				"undeliverable": "<h5>Employers Can't Contact You!<\/h5> We tried to send you an email but it seems that your email address is incorrect. Change your email address by <a href=\"https:\/\/www.bayt.com\/en\/mycvs\/#contact\">clicking here<\/a>.", "risky": "<h5>Employers Can't Contact You!<\/h5> You need to confirm your email address before you can appear in the employer search. <a href=\"javascript:;\" onclick=\"B8.ajax('\/app\/control\/byt_reg_manager',{data: {byt_reg_stage:45,withMessage:1},success:function(data){B8.push('Email sent, please check your inbox.');}});\">Click here<\/a> to send the confirmation email.", "unknown": "<h5>Employers Can't Contact You!<\/h5> We've sent you a confirmation email. Log in to your email and follow the instructions to confirm. Didn't get the email? <a href=\"javascript:;\" onclick=\"B8.ajax('\/app\/control\/byt_reg_manager',{data: {byt_reg_stage:45,withMessage:1},success:function(data){B8.push('Email sent, please check your inbox.');}});\"> Send it again. <\/a>"
+			}
+		}
+	}
+	
+	;
+	
+	/*]]>*/
+	
+	</script> </body> </html> -->
+
+
+			<!-- Body ends -->
+	</div>
+</body>
+</html>

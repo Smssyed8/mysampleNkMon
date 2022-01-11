@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+<meta charset="utf-8">
+<title>Mindful Consulting Qatar - Jobseeker</title>
+<meta name="keywords"
+	content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+<meta name="author" content="">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" th:href="@{'/assets/css/bootstrap.min.css'}" />
+<link rel="stylesheet" th:href="@{'/assets/css/plugin.css'}" />
+<link rel="stylesheet" th:href="@{'/assets/css/style.css'}" />
+<link rel="stylesheet" th:href="@{'/assets/css/responsive.css'}" />
+
+<link rel="stylesheet"
+	th:href="@{'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'}" />
+</head>
+
+<body>
+	<header id="navbar" class="nav-down mindful-app">
+		<div class="contact-details d-flex">
+			<div class="container-fluid">
+				<nav class="navbar navbar-expand-lg navbar-light desing3">
+					<a class="navbar-brand" href="/"> <img
+						th:src="@{'/assets/image/logos/logo.png'}" style="width: 100%">
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav">
+							<li class="nav-item active"><a class="nav-link"
+								th:href="@{'/jobseeker/home'}">Dashboard</a></li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{'/search/advanced'}">Find Jobs</a></li>
+							<li class="nav-item"><a class="nav-link"
+								href="#user-profile" data-toggle="modal">My Profile</a></li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{'/jobseeker/applied/jobs'}">My Application</a></li>
+							<li class="nav-item"><a th:href="@{'#'}" class="nav-link"
+								target="_blank" data-toggle="modal"
+								th:data-target="@{'#modalUpdateResume'}">CV Manager</a></li>
+							<li class="nav-item"><a class="nav-link border-contact"
+								th:href="@{'/blogs'}">Blogs</a></li>
+						</ul>
+						<ul class="ml-auto d-flex notifications">
+							<li><a th:href="@{'#'}"><i class="fa fa-qrcode"
+									aria-hidden="true"></i></a></li>
+							<li><a th:href="@{'#'}"><i class="fa fa-envelope-o"
+									aria-hidden="true"></i></a></li>
+							<li><a th:href="@{'#'}"><i class="fa fa-bell-o"
+									aria-hidden="true"></i></a></li>
+							<li class="dropdown"><a th:href="@{'#'}"
+								class="dropdown-toggle" data-toggle="dropdown"> <i
+									class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#user-profile" data-toggle="modal">User
+											Profile</a></li>
+									<li><a href="#changePassword" data-toggle="modal">Change
+											Password</a></li>
+									<li><a th:href="@{'/logout'}">Logout</a></li>
+								</ul></li>
+							<div>
+								<div class="modal fade employer-post-job" id="changePassword"
+									data-target="#changePassword">
+									<div class="modal-dialog modal-view">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4>Reset Password Information</h4>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body login-form">
+												<form class="form" th:action="@{/jobseeker/update/password}"
+													method="post">
+													<div class="row">
+														<div class="col-lg-11 mx-auto">
+															<div class="col-lg-12">
+																<div class="form-item">
+																	<div class="label-data text-left">
+																		<label>Password</label>
+																	</div>
+																	<div class="form-value">
+																		<input class="input form-control" type="password"
+																			name="newPassword" placeholder="Enter New Password"
+																			value="" />
+																		<div class="form-hint" id="username_em_"
+																			style="display: none"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-12">
+																<div class="form-item">
+																	<div class="label-data text-left">
+																		<label>Confirm Password</label>
+																	</div>
+																	<div class="form-value">
+																		<input class="input form-control" type="password"
+																			name="newConfirmPassword"
+																			placeholder="Enter Confirm Password" value="" />
+																		<div class="form-hint" id="username_em_"
+																			style="display: none"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-12 text-center">
+																<button class="show-more-btn mt-5 text-right"
+																	type="submit">Change Password</button>
+															</div>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal fade employer-post-job" id="user-profile"
+								data-target="#user-profile">
+								<div class="modal-dialog modal-xl modal-view">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4>Account Information</h4>
+											<button type="button" class="close" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body login-form">
+											<form class="form" method="post">
+												<div class="row">
+													<div class="col-lg-8 mx-auto">
+														<div class="row">
+															<div class="profile-data">
+																<div class="row">
+																	<div class="col-lg-10">
+																		<div class="form-item">
+																			<img style="height: 130px; width: 100px"
+																				th:src="${currentJobseeker.imagePath}">
+																		</div>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-lg-10">
+																		<a th:href="@{'#'}" class="btn-custom" target="_blank"
+																			data-toggle="modal"
+																			th:data-target="@{'#modalUpdatePhoto'}">Change
+																			Photo</a>
+																	</div>
+																</div>
+															</div>
+
+															<div class="col">
+																<h3>Jobseeker Login Details</h3>
+																<div class="profile-data">
+																	<div class="row">
+																		<div class="col-lg-12">
+																			<div class="form-item">
+																				<div class="label-data text-left d-flex">
+																					<label>Email: </label>
+																					<p th:text="${currentLoggedInUserEmail}"
+																						class="pl-2"></p>
+																				</div>
+																				<!--  <div class="form-value">
+																					<input class="input form-control" type="email"
+																						name="email" placeholder="Email" value=""
+																						disabled />
+																					<div class="form-hint" id="username_em_"
+																						style="display: none"></div>
+																				</div>-->
+																			</div>
+																		</div>
+																		<div class="col-lg-12">
+																			<div class="form-item">
+																				<div class="label-data text-left d-flex">
+																					<label>Last Login: </label>
+																					<p th:text="${currentLoggedInUserLastLogin}"
+																						class="pl-2"></p>
+																				</div>
+																				<!--  <div class="form-value">
+																					<input class="input form-control" type="text"
+																						name="lastLogin" placeholder="Last Login"
+																						value="" disabled />
+																					<div class="form-hint" id="username_em_"
+																						style="display: none"></div>
+																				</div>-->
+																			</div>
+																		</div>
+																		<div class="col-lg-12">
+																			<div class="form-item">
+																				<div class="label-data text-left d-flex">
+																					<label>Created On: </label>
+																					<p th:text="${currentLoggedInUserCreatedOn}"
+																						class="pl-2"></p>
+																				</div>
+																				<!--  <div class="form-value">
+																					<input class="input form-control" type="text"
+																						name="createdOn" placeholder="Created On"
+																						value="" disabled />
+																					<div class="form-hint" id="username_em_"
+																						style="display: none"></div>
+																				</div>-->
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</form>
+											<form class="form" id="myform"
+												th:action="@{/jobseeker/update}" method="post">
+												<div class="row">
+													<div class="col-lg-8 mx-auto">
+														<h3 class="mt-5">Jobseeker Account Information</h3>
+														<div class="profile-data mt-2">
+															<div class="row">
+																<div class="col-lg-12">
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Name</label>
+																		</div>
+																		<div class="form-value">
+																			<input class="input form-control" type="text"
+																				name="name" placeholder="Name"
+																				th:value="${currentLoggedInUser.name}" id="input"
+																				disabled />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-lg-12">
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Mobile Phone</label>
+																		</div>
+																		<div class="form-value">
+																			<input class="input form-control" type="number"
+																				name="mobilePhone" placeholder="Mobile Phone"
+																				th:value="${currentLoggedInUser.mobilePhone}"
+																				id="input" disabled />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-lg-12">
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Gender</label>
+																		</div>
+																		<div class="form-value">
+																			<select class="form-control" name="gender" id="input"
+																				disabled
+																				style="-webkit-appearance: menulist; height: 46px;">
+																				<option>Select Gender</option>
+																				<option
+																					th:selected="${currentLoggedInUser.gender == 'Male'}">Male</option>
+																				<option
+																					th:selected="${currentLoggedInUser.gender == 'Female'}">Female</option>
+																				<option
+																					th:selected="${currentLoggedInUser.gender == 'Others'}">Others</option>
+																			</select>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-lg-12">
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>City</label>
+																		</div>
+																		<div class="form-value">
+																			<select name="cityId" class="form-control" id="input"
+																				disabled
+																				style="-webkit-appearance: menulist; height: 46px;">
+																				<option
+																					th:selected="${city.id == currentLoggedInUser.cityId}"
+																					th:each="city: ${cities}" th:text=${city.city}
+																					th:value=${city.id}></option>
+																			</select>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-lg-12">
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Nationality</label>
+																		</div>
+																		<div class="form-value">
+																			<select name="countryId" class="form-control"
+																				id="input" disabled
+																				style="-webkit-appearance: menulist; height: 46px;">
+																				<option
+																					th:selected="${country.id == currentLoggedInUser.countryId}"
+																					th:each="country: ${countries}"
+																					th:text=${country.country} th:value=${country.id}></option>
+																			</select>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-lg-12">
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Marital Status</label>
+																		</div>
+																		<div class="form-value">
+																			<select name="maritalStatus" class="form-control"
+																				id="input" disabled
+																				style="-webkit-appearance: menulist; height: 46px;">
+																				<option>Select Marital Status</option>
+																				<option
+																					th:selected="${currentLoggedInUser.maritalStatus == 'Married'}">Married</option>
+																				<option
+																					th:selected="${currentLoggedInUser.maritalStatus == 'Single'}">Single</option>
+																				<option
+																					th:selected="${currentLoggedInUser.maritalStatus == 'Divorced'}">Divorced</option>
+																				<option
+																					th:selected="${currentLoggedInUser.maritalStatus == 'Widow'}">Widow</option>
+																			</select>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-lg-12">
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Date of Birth</label>
+																		</div>
+																		<div class="form-value">
+																			<input class="input form-control" type="date"
+																				id="input" disabled name="dob"
+																				placeholder="Date of Birth"
+																				th:value="${currentLoggedInUser.dob}" />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-lg-12">
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Telephone Number</label>
+																		</div>
+																		<div class="form-value">
+																			<input class="input form-control" type="number"
+																				name="telNo" placeholder="Telephone Number"
+																				th:value="${currentLoggedInUser.telNo}" id="input"
+																				disabled />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="profile-data mt-5">
+															<div class="row">
+																<div class="col-lg-12">
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>RP Number</label>
+																		</div>
+																		<div class="form-value">
+																			<input class="input form-control" type="number"
+																				name="rpNo" th:value="${currentLoggedInUser.rpNo}"
+																				placeholder="RP Number" id="input" disabled />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-lg-12">
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Passport Number</label>
+																		</div>
+																		<div class="form-value">
+																			<input class="input form-control" type="number"
+																				name="passportNo" placeholder="Passport Number"
+																				th:value="${currentLoggedInUser.passportNo}"
+																				id="input" disabled />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-lg-12">
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>RP Validity</label>
+																		</div>
+																		<div class="form-value">
+																			<input class="input form-control" type="text"
+																				name="rpValidity"
+																				th:value="${currentLoggedInUser.rpValidity}"
+																				placeholder="RP Validity" id="input" disabled />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-lg-12">
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Sponsor</label>
+																		</div>
+																		<div class="form-value">
+																			<input class="input form-control" type="text"
+																				name="sponsor"
+																				th:value="${currentLoggedInUser.sponsor}"
+																				placeholder="Sponsor" id="input" disabled />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-lg-12">
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Status</label>
+																		</div>
+																		<div class="form-value">
+																			<input class="input form-control" type="text"
+																				name="status"
+																				th:value="${currentLoggedInUser.status}"
+																				placeholder="Status" id="input" disabled />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-lg-12">
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Passport Validity</label>
+																		</div>
+																		<div class="form-value">
+																			<input class="input form-control" type="text"
+																				name="passportValidity"
+																				th:value="${currentLoggedInUser.passportValidity}"
+																				id="input" disabled placeholder="Passport Validity" />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<h3 class="mt-5">Jobseeker Profile Details</h3>
+														<div class="profile-data mt-2">
+															<div class="row">
+																<div class="col-lg-12">
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Company Name</label>
+																		</div>
+																		<div class="form-value">
+																			<input id="input" disabled class="input form-control"
+																				type="text" name="companyName"
+																				placeholder="Company Name"
+																				th:value="${currentJobseeker.companyName}" />
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Company Industry</label>
+																		</div>
+																		<div class="form-value">
+																			<select id="input" disabled name="companyIndustry"
+																				data-live-search="true"
+																				data-live-search-style="startsWith"
+																				class="selectpicker form-control"
+																				style="height: 40px;">
+																				<option value="" selected="selected">Select
+																					Company Industry</option>
+																				<option
+																					th:each="companyIndustryInstance: ${companyIndustries}"
+																					th:text="${companyIndustryInstance.companyIndustry}"
+																					th:value="${companyIndustryInstance.id}"
+																					th:selected="${(companyIndustryInstance.id == currentJobseeker.companyIndustry)}"></option>
+																			</select>
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Expected Salary</label>
+																		</div>
+																		<div class="form-value">
+																			<input id="input" disabled class="input form-control"
+																				type="number" name="expectedSalary"
+																				th:value="${currentJobseeker.expectedSalary}"
+																				placeholder="Expected Salary" />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Notice Period (in months)</label>
+																		</div>
+																		<div class="form-value">
+																			<input id="input" disabled class="input form-control"
+																				type="number" name="noticePeriod"
+																				placeholder="Notice Period"
+																				th:value="${currentJobseeker.noticePeriod}" />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Work Experience</label>
+																		</div>
+																		<div class="form-value">
+																			<textarea id="input" disabled name="workExperience"
+																				th:text="${currentJobseeker.workExperience}"
+																				class="input form-control" rows="9"></textarea>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Company Size</label>
+																		</div>
+																		<div class="form-value">
+																			<input id="input" disabled class="input form-control"
+																				type="number" name="companySize"
+																				placeholder="Company Size"
+																				th:value="${currentJobseeker.companySize}" />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Current Salary</label>
+																		</div>
+																		<div class="form-value">
+																			<input id="input" disabled class="input form-control"
+																				type="number" name="currentSalary"
+																				placeholder="Current Salary"
+																				th:value="${currentJobseeker.currentSalary}" />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="profile-data mt-5">
+															<div class="row">
+																<div class="col-lg-12">
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Languages Known</label>
+																		</div>
+																		<div class="form-value">
+																			<textarea id="input" disabled name="languagesKnown"
+																				th:text="${currentJobseeker.languagesKnown}"
+																				class="input form-control" rows="9"></textarea>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Hobbies</label>
+																		</div>
+																		<div class="form-value">
+																			<textarea id="input" disabled name="hobbies"
+																				th:text="${currentJobseeker.hobbies}"
+																				class="input form-control" rows="9"></textarea>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Interests</label>
+																		</div>
+																		<div class="form-value">
+																			<textarea id="input" disabled name="interests"
+																				th:text="${currentJobseeker.interests}"
+																				class="input form-control" rows="9"></textarea>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Skills</label>
+																		</div>
+																		<div class="form-value">
+																			<textarea id="input" disabled name="skills"
+																				th:text="${currentJobseeker.skills}"
+																				class="input form-control" rows="9"></textarea>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Career Level</label>
+																		</div>
+																		<div class="form-value">
+																			<input id="input" disabled class="input form-control"
+																				type="text" name="careerLevel"
+																				placeholder="Career Level"
+																				th:value="${currentJobseeker.careerLevel}" />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Job Role</label>
+																		</div>
+																		<div class="form-value">
+																			<select id="input" disabled name="jobRole"
+																				data-live-search="true"
+																				data-live-search-style="startsWith"
+																				class="selectpicker form-control"
+																				style="height: 40px;">
+																				<option value="" selected="selected">Select
+																					Job Role</option>
+																				<option th:each="jobRoleInstance: ${jobRoles}"
+																					th:text="${jobRoleInstance.jobRole}"
+																					th:value="${jobRoleInstance.id}"
+																					th:selected="${(jobRoleInstance.id == currentJobseeker.jobRole)}"></option>
+																			</select>
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Job Title</label>
+																		</div>
+																		<div class="form-value">
+																			<input id="input" disabled class="input form-control"
+																				type="text" name="jobTitle" placeholder="Job Title"
+																				th:value="${currentJobseeker.jobTitle}" />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Description of the Job looking for</label>
+																		</div>
+																		<div class="form-value">
+																			<textarea id="input" disabled
+																				name="descJobLookingFor"
+																				th:text="${currentJobseeker.descJobLookingFor}"
+																				class="input form-control" rows="9"></textarea>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Linkedin Profile</label>
+																		</div>
+																		<div class="form-value">
+																			<input id="input" disabled class="input form-control"
+																				type="text" name="linkedinProfile"
+																				placeholder="Linkedin Profile"
+																				th:value="${currentJobseeker.linkedinProfile}" />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Facebook Profile</label>
+																		</div>
+																		<div class="form-value">
+																			<input id="input" disabled class="input form-control"
+																				type="text" name="facebookProfile"
+																				placeholder="Facebook Profile"
+																				th:value="${currentJobseeker.facebookProfile}" />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="label-data text-left">
+																			<label>Video Profile</label>
+																		</div>
+																		<div class="form-value">
+																			<input id="input" disabled class="input form-control"
+																				type="text" name="videoProfile"
+																				placeholder="Video Profile"
+																				th:value="${currentJobseeker.videoProfile}" />
+																			<div class="form-hint" id="username_em_"
+																				style="display: none"></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-profile-data">
+													<a href="#" class="show-more-btn" id="edit">Edit</a>
+													<button class="show-more-btn" type="submit">
+														Update</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<!-- header end -->
+	<div layout:fragment="content">
+		<!-- Your Page Content Here -->
+	</div>
+	<!-- footer section -->
+	<footer id="down-footer">
+		<div class="d-flex justify-content-end">
+			<a href="#" class="chat-link">Chat With Us Now <i
+				class="fa fa-comments-o" aria-hidden="true"></i></a>
+		</div>
+		<div class="footer-section">
+			<div class="container">
+				<div class="row">
+					<!-- <div class="digitax-details"> -->
+					<div class="col col-6 col-sm-6 col-md-4 col-lg-2">
+						<div class="basic-links">
+							<h3 class="white">Featured Job</h3>
+							<ul class="basic-link-item pl-0">
+								<li class="item"><a th:href="@{'/search/jobs?jobTitle='}">Browse
+										Jobs</a></li>
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=mba'}">Premium MBA Jobs</a></li>
+								<li class="item"><a th:href="@{''}">Access Database</a></li>
+								<li class="item"><a th:href="@{''}">Managae Response</a></li>
+								<li class="item"><a th:href="@{'/contactus'}">Report a Problem</a></li>
+								<li class="item"><a th:href="@{''}">Mobile Site</a></li>
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=engineer'}">Jobs By Skill</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col col-6 col-sm-6 col-md-3 col-lg-2">
+						<div class="basic-links">
+							<h3 class="white footer-link">Find Jobs</h3>
+							<ul class="basic-link-item pl-0">
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=&cityIds=2'}">AI Rayyan</a></li>
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=&cityIds=3'}">AI Wakra</a></li>
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=&cityIds=4'}">Umm Said</a></li>
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=&cityIds=5'}">Khor AI
+										Udaid</a></li>
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=&cityIds=6'}">AI Khor</a></li>
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=&cityIds=7'}">RLIC</a></li>
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=&cityIds=8'}">Mesaieed</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col col-6 col-sm-6 col-md-5 col-lg-3">
+						<div class="row">
+							<div class="col col-12 col-md-6 col-lg-6">
+								<div class="basic-links">
+									<h3 class="white footer-link">Company</h3>
+									<ul class="basic-link-item pl-0">
+										<li class="item"><a th:href="@{'/aboutus'}">About us</a></li>
+										<li class="item"><a th:href="@{'/contactus'}">Contact
+												us</a></li>
+										<li class="item"><a th:href="@{'/careers'}">Careers</a></li>
+										<li class="item"><a th:href="@{'/blogs'}">Blogs</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col col-12 col-md-6 col-lg-6">
+								<div class="basic-links">
+									<h3 class="white footer-link">Quick Links</h3>
+									<ul class="basic-link-item pl-0">
+										<li class="item"><a th:href="@{''}">Career Tips</a></li>
+										<li class="item"><a th:href="@{''}">Events</a></li>
+										<li class="item"><a th:href="@{''}">Never Miss An
+												Email</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col col-12 col-sm-12 col-md-6 col-lg-12">
+								<div class="basic-links ftr">
+									<h6 class="yellow">
+										Follow <a th:href="@{'#'}">Mindfulqatar.com</a>
+									</h6>
+									<ul>
+										<li><a th:href="@{'https://www.twitter.com'}" target="_blank"><i
+											class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a th:href="@{'https://www.instagram.com'}"
+										target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+									<li><a th:href="@{'https://www.linkedin.com'}"
+										target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+									<li><a th:href="@{'https://www.facebook.com'}"
+										target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col col-6 col-sm-6 col-md-5 col-lg-3">
+						<div class="basic-links">
+							<h3 class="white">Reach Us</h3>
+							<ul class="basic-link-item pl-0">
+								<li class="item"><a th:href="@{''}">Mindful Consulting</a></li>
+								<li class="item"><a th:href="@{''}">Shoumoukh Towers,</a></li>
+								<li class="item"><a th:href="@{''}">C Ring Road</a></li>
+								<li class="item"><a th:href="@{''}">Al Sadd Doha, Qatar</a></li>
+								<li class="item"><a th:href="@{'mailto:info@mindfulqatar.com'}"
+									class="mb-none">Email: info@mindfulqatar.com</a></li>
+								<li class="item"><a th:href="@{'tel:97412345678'}">Call:+974 123 45678</a></li>
+								<li class="item"><a th:href="@{''}">FAX: 123 456 85</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col col-12 col-sm-6 col-md-4 col-lg-2">
+						<div class="basic-links">
+							<h3 class="white">Drop A Mail</h3>
+							<form action="/drop/email" method="post">
+								<input name="name" type="text" placeholder="Your Name">
+								<input name="email" type="email" placeholder="Email">
+								<textarea name="message" placeholder="Message"></textarea>
+								<button class="btn-ftr" type="submit">Send</button>
+							</form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="all-rights mx-auto text-center">
+			<div class="container">
+				<div class="copy-right">
+					© Copyright 2019 Mindfulqatar | Design By <span
+						style="color: #ffc23d; font-weight: 600">THE WAY</span>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer end -->
+	<!-- bootstrap script links -->
+	<script th:src="@{'/assets/js/jquery.min.js'}"></script>
+	<script th:src="@{'/assets/js/popper.min.js'}"></script>
+	<script th:src="@{'/assets/js/bootstrap.min.js'}"></script>
+
+	<!-- plugin javascript -->
+	<script th:src="@{'/assets/js/plugin.js'}"></script>
+	<!-- navigation script -->
+
+
+	<!-- Counter number script -->
+	<script type="text/javascript">
+		var el = document.getElementById('edit');
+		var frm = document.getElementById('myform');
+		el.addEventListener('click', function() {
+			for (var i = 0; i < frm.length; i++) {
+				frm.elements[i].disabled = false;
+
+			}
+			frm.elements[0].focus();
+		});
+
+		$('.counter').each(function() {
+			var $this = $(this), countTo = $this.attr('data-count');
+
+			$({
+				countNum : $this.text()
+			}).animate({
+				countNum : countTo
+			}, {
+				duration : 1000,
+				easing : 'linear',
+				step : function() {
+					$this.text(Math.floor(this.countNum));
+				},
+				complete : function() {
+					$this.text(this.countNum);
+					//alert('finished');
+				}
+			});
+		});
+
+		$(window).mousemove(function(e) {
+			var change;
+			var xpos = e.clientX;
+			var ypos = e.clientY;
+			var left = change * 50;
+			var xpos = xpos * 2;
+			ypos = ypos * 2;
+			$('.banner-seo-img').css('top', ((0 + (ypos / 50)) + "px"));
+			$('.banner-seo-img').css('right', ((0 + (xpos / 80)) + "px"));
+
+		});
+
+		function jobDetails(instance) {
+			var pEle = document.getElementById("t-jobTitle");
+			pEle.innerHTML = instance.jobTitle;
+		}
+
+		function hideElement(id) {
+			document.getElementById(id).style.display = "none";
+		}
+
+		function submitform(form) {
+			form.submit();
+		}
+
+		function openCity(evt, cityName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(
+						" active", "");
+			}
+			document.getElementById(cityName).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+	</script>
+</body>
+
+</html>

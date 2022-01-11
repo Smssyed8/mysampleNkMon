@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/employer.css'}" />
+<link rel="stylesheet" th:href="@{'/assets/css/plugin_other.css'}" />
+<title>Mindful Consulting Qatar - Thank You</title>
+<meta name="keywords"
+	content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="employersPage">
+			<div class="t-center print-only"></div>
+			<div class="all-content">
+				<section class="t-center p20">
+					<div id="alertMessage" class="alert alert-success">
+						<span
+							th:text="@{'Hi ' + ${contactName}} + '! Thank you for contacting us. One of our executive will get back to you with in next 24 hrs.'"></span>
+						<button onclick="hideElement('alertMessage')" class="close"
+							aria-hidden="true">x</button>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<script th:src="@{'/assets/js/employer_plugin.js'}"></script>
+</body>
+</html>

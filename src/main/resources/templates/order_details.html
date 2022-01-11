@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout_employers">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/employer.css'}" />
+<link rel="stylesheet" th:href="@{'/assets/css/plugin_other.css'}" />
+<title>Mindful Consulting Qatar - Employers</title>
+<meta name="keywords"
+	content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="employersPage">
+			<div class="t-center print-only"></div>
+			<div class="all-content">
+				<section class="t-center p20">
+					<a th:href="@{'#'}"><h2 class="p20y">You have selected the
+							below package. Please click checkout to complete the payment.</h2></a>
+					<div data-tabs='{
+				"prevent": false
+			}'>
+						<div class="input-group_inline"></div>
+						<div id="cvSearchPackages" class="t-center is-active tab"
+							data-tab="internationalPackge">
+							<div class="box">
+								<div class="row v-align-center">
+									<div class="col is-4-d is-12-m">
+										<div class="card">
+											<div class="card-head ">
+												<h3 th:text="${package.packageName}"></h3>
+											</div>
+											<div class="card-content">
+												<del th:text="@{'$' + ${package.price}}"
+													class="t-mute p20 t-light h4 u-block"></del>
+
+												<p th:text="@{'$' + ${package.sellingPrice}}"
+													class="h2 t-light"></p>
+												<hr class="d ">
+												<ul class="list is-basic t-small">
+													<li
+														th:each="line: ${#strings.arraySplit(package.packageDescription, ',')}"
+														th:text="${line}"><span>•</span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col is-4-d is-12-m">
+										<form th:action="@{'/checkout'}" method="post" class="m20y">
+											<input type="hidden" name="packageId"
+												th:value="${package.id}" /> <input type="hidden"
+												name="orderId" th:value="${order.id}" />
+											<button type="submit"
+												class="btn is-secondary is-round t-center">Checkout</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<p class="t-center t-small">
+							By purchasing this package, you agree to the <a th:href="@{'#'}"
+								class="is-black"><b>Service Agreement.</b></a><br> We do
+							not charge any additional commission fees when you hire through
+							Mindful.com
+						</p>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<script th:src="@{'/assets/js/employer_plugin.js'}"></script>
+</body>
+</html>

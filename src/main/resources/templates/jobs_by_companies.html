@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/jobs_by_companies.css'}" />
+<title>Mindful Consulting Qatar - Jobs by companies</title>
+<meta name="keywords" content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- Body starts here -->
+
+		<div class="box is-wide">
+			<div class="row m20-d p20-d h-align-center">
+				<div th:each="instance: ${companiesWithJobsCount}"
+					class="col is-2-d">
+					<div class="card">
+						<div class="card-content t-center-d media-m">
+							<img class="img-120 img-70-m u-left-m"
+								th:src="@{'/assets/image/1992151_logo_1525976263_n.png'}"
+								th:alt="${instance.key.companyName}"
+								th:title="${instance.key.companyName}">
+							<div>
+								<a th:text="${instance.key.companyName}"
+									th:href="@{'/search/jobs?employers=' + ${instance.key.id}}"></a>
+								<p th:text="@{${instance.value} + ' Jobs'}"
+									class="t-mute m0-m p10y"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<ul class="pagination" id="pagination">
+			<li class="pagination-prev hidden"><a th:href="@{'/#'}"></a></li>
+			<li class="pagination-first-d hidden"><a th:href="@{'/#'}">First</a></li>
+			<li class="page pagination-current"><a th:href="@{'/#'}">1</a></li>
+			<li class="page"><a th:href="@{'/#'}">2</a></li>
+			<li class="page"><a th:href="@{'/#'}">3</a></li>
+			<li class="pagination-last-d"><a th:href="@{'/#'}">Last</a></li>
+			<li class="pagination-next"><a th:href="@{'/#'}"></a></li>
+		</ul>
+
+		<!-- Body ends here -->
+	</div>
+</body>
+</html>

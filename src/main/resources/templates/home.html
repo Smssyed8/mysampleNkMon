@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+
+<head>
+<title>Mindful Consulting - Leading Job Portal In Qatar | Jobs in Qatar | Jobs in Doha | Best Talent in Qatar</title>
+<meta name="keywords" content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+</head>
+<body>
+	<div layout:fragment="content">
+		<section id="slider">
+			<div id="carouselExampleIndicators" class="carousel slide"
+				data-ride="carousel">
+				<!-- <ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			</ol> -->
+				<div class="carousel-inner">
+					<div class="carousel-item slider1 active">
+						<!-- <img class="d-block w-100" src="" alt="First slide"> -->
+						<div class="container">
+							<div class="slider-content text-center">
+								<div class="row">
+									<div class="col col-12 col-md-12 col-lg-12">
+										<h1 class="slider-heading padbot20">Aim Higher. Reach
+											Farther. Dream Bigger.</h1>
+										<p class="slider-description">A Better career is out
+											there. We'll help you find it. We're first step to becoming
+											everything you want to be.</p>
+										<div class="d-flex justify-content-center search-form">
+											<form class="d-flex form-width" action="/search/jobs" method="get">
+												<div class="form-group search-left">
+													<input type="text" class="form-control skills search-left"
+														name="jobTitle"
+														placeholder="Job title, Keywords,Skills, etc">
+												</div>
+												<div class="form-group search-left">
+													<select class="form-control select-group" name="cityIds">
+														<option value="" disabled="" selected="">Select
+															Location</option>
+														<option th:each="instance: ${cities}"
+															th:text="${instance.city}" th:value="${instance.id}"></option>
+													</select> <i class="fa fa-angle-down"></i>
+												</div>
+												<div class="form-group search-left">
+													<select class="form-control select-group"
+														name="companySectors">
+														<option value="" disabled="" selected="">Select
+															Sector</option>
+														<option th:each="instance: ${sectors}"
+															th:text="${instance.sector}" th:value="${instance.id}"></option>
+													</select> <i class="fa fa-angle-down"></i>
+												</div>
+												<div class="search-btn">
+													<button>
+														<i class="fa fa-search" aria-hidden="true"></i>
+													</button>
+												</div>
+											</form>
+										</div>
+										<div class="d-flex justify-content-center mt-3">
+											<div class="d-flex">
+												<div class="form-group input-file-container">
+													<input class="input-file" id="my-file" type="file">
+													<a class="fa fa-arrow-circle-up btn banner-btn"
+														href="/login?action=upload-resume"> &nbsp;Upload your
+														resume</a>
+												</div>
+												<div>
+													<a href="/login?action=post-job"
+														class="fa fa-suitcase btn banner-btn"> &nbsp;Hiring?
+														Post a job for free</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item slider2 text-center">
+						<div class="container">
+							<div class="slider-content">
+								<div class="row">
+									<div class="col col-12 col-md-12 col-lg-12">
+										<h1 class="slider-heading padbot20">Aim Higher. Reach
+											Farther. Dream Bigger.</h1>
+										<p class="slider-description">A Better career is out
+											there. We'll help you find it. We're first step to becoming
+											everything you want to be.</p>
+										<div class="d-flex justify-content-center search-form">
+											<form class="d-flex form-width" action="/search/jobs" method="get">
+												<div class="form-group search-left">
+													<input type="text" class="form-control skills search-left"
+														name="jobTitle"
+														placeholder="Job title, Keywords,Skills, etc">
+												</div>
+												<div class="form-group search-left">
+													<select class="form-control select-group" name="cityIds">
+														<option value="" disabled="" selected="">Select
+															Location</option>
+														<option th:each="instance: ${cities}"
+															th:text="${instance.city}" th:value="${instance.id}"></option>
+													</select> <i class="fa fa-angle-down"></i>
+												</div>
+												<div class="form-group search-left">
+													<select class="form-control select-group"
+														name="companySectors">
+														<option value="" disabled="" selected="">Select
+															Sector</option>
+														<option th:each="instance: ${sectors}"
+															th:text="${instance.sector}" th:value="${instance.id}"></option>
+													</select> <i class="fa fa-angle-down"></i>
+												</div>
+												<div class="search-btn">
+													<button>
+														<i class="fa fa-search" aria-hidden="true"></i>
+													</button>
+												</div>
+											</form>
+										</div>
+
+										<div class="d-flex justify-content-center mt-3">
+											<div class="d-flex">
+												<div class="form-group input-file-container">
+													<input class="input-file" id="my-file" type="file">
+													<a class="fa fa-arrow-circle-up btn banner-btn"
+														href="/login?action=upload-resume"> &nbsp;Upload your
+														resume</a>
+												</div>
+												<div>
+													<a href="/login?action=post-job"
+														class="fa fa-suitcase btn banner-btn"> &nbsp;Hiring?
+														Post a job for free</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item slider3 text-center">
+						<div class="container">
+							<div class="slider-content">
+								<div class="row">
+									<div class="col col-12 col-md-12 col-lg-12">
+										<h1 class="slider-heading padbot20">Aim Higher. Reach
+											Farther. Dream Bigger.</h1>
+										<p class="slider-description">A Better career is out
+											there. We'll help you find it. We're first step to becoming
+											everything you want to be.</p>
+										<div class="d-flex justify-content-center search-form">
+											<form class="d-flex form-width" action="/search/jobs" method="get">
+												<div class="form-group search-left">
+													<input type="text" class="form-control skills search-left"
+														name="jobTitle"
+														placeholder="Job title, Keywords,Skills, etc">
+												</div>
+												<div class="form-group search-left">
+													<select class="form-control select-group" name="cityIds">
+														<option value="" disabled="" selected="">Select
+															Location</option>
+														<option th:each="instance: ${cities}"
+															th:text="${instance.city}" th:value="${instance.id}"></option>
+													</select> <i class="fa fa-angle-down"></i>
+												</div>
+												<div class="form-group search-left">
+													<select class="form-control select-group"
+														name="companySectors">
+														<option value="" disabled="" selected="">Select
+															Sector</option>
+														<option th:each="instance: ${sectors}"
+															th:text="${instance.sector}" th:value="${instance.id}"></option>
+													</select> <i class="fa fa-angle-down"></i>
+												</div>
+												<div class="search-btn">
+													<button>
+														<i class="fa fa-search" aria-hidden="true"></i>
+													</button>
+												</div>
+											</form>
+										</div>
+										<div class="d-flex justify-content-center mt-3">
+											<div class="d-flex">
+												<div class="form-group input-file-container">
+													<input class="input-file" id="my-file" type="file">
+													<a class="fa fa-arrow-circle-up btn banner-btn"
+														href="/login?action=upload-resume"> &nbsp;Upload your
+														resume</a>
+												</div>
+												<div>
+													<a href="/login?action=post-job"
+														class="fa fa-suitcase btn banner-btn"> &nbsp;Hiring?
+														Post a job for free</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleIndicators"
+						role="button" data-slide="prev"> <span><img
+							th:src="@{'/assets/image/logos/left.png'}" class="img-fluid"
+							style="width: 75%;"></span> <span class="sr-only">Previous</span>
+					</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
+						role="button" data-slide="next"> <span><img
+							th:src="@{'/assets/image/logos/right-arrow.png'}"
+							class="img-fluid" style="width: 75%;"></span> <span
+						class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</section>
+		<section id="oorja-established-box">
+			<div id="services">
+				<div class="container">
+					<div class="service-headings text-center">
+						<div class="row">
+							<div class="col col-12 col-md-11 col-lg-7 mx-auto">
+								<h2 class="dark-blue oorja-section-heading padbot10">Find
+									Popular Jobs</h2>
+							</div>
+						</div>
+					</div>
+					<div class="services-cards">
+						<div class="row">
+							<div class="col col-12 col-md-12 col-lg-10 mx-auto">
+								<div th:each="instance: ${popularJobs}"
+									class="thyroid-profile-box">
+									<div class="row">
+										<div class="col col-12 col-sm-2 col-md-2 col-lg-2">
+											<div class="profile-img">
+												<img th:src="@{${instance.employer.imagePath}}"
+													class="img-fluid
+											">
+											</div>
+										</div>
+										<div class="col col-12 col-sm-7 col-md-8 col-lg-8 no-pad">
+											<div class="google">
+												<h4>
+													<a class="title-without-link"
+														th:href="@{'/search/jobs?jobTitle=&id=' + ${instance.id}}"
+														th:text="${instance.jobTitle}"></a>
+												</h4>
+												<div class="d-flex mb-width">
+													<span class="suitcase"><i
+														th:text="@{' ' + ${instance.employer.companyName}}"
+														class="fa fa-suitcase"></i></span> <span><i
+														th:text="@{' ' + ${instance.employer.address}}"
+														class="fa fa-map-marker "></i> </span>
+													<p
+														th:text="@{'$' + ${instance.minSalary} + '-$' + ${instance.maxSalary}}"
+														class="amount"></p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="d-flex justify-content-center">
+							<a th:href="@{'/search/jobs?jobTitle='}" class="btn view-jobs">View
+								All Jobs</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Satisfied clients -->
+		<section id="clients">
+			<!-- <div class="bg-overlay"></div> -->
+			<div class="client-info">
+				<div class="container">
+					<div class="row">
+						<div class="col col-12 col-sm-6 col-md-6 col-lg-3">
+							<div class="client1 text-center">
+								<div class="client-img m-bottom25">
+									<img th:src="@{'/assets/image/logos/fun1.png'}"
+										style="height: 75px">
+								</div>
+								<div class="client-text white">
+									<div class="counter" data-count="890">0</div>
+									<span class="countplus">+</span>
+									<h3 class="white">Jobs available</h3>
+								</div>
+							</div>
+						</div>
+						<div class="col col-12 col-sm-6 col-md-6 col-lg-3">
+							<div class="client1">
+								<div class="client-img m-bottom25">
+									<img th:src="@{'/assets/image/logos/fun2.png'}"
+										style="height: 75px">
+								</div>
+								<div class="client-text white">
+									<div class="counter" data-count="3120">0</div>
+									<span class="countplus">+</span>
+									<h3 class="white">Active resumes</h3>
+								</div>
+							</div>
+						</div>
+						<div class="col col-12 col-sm-6 col-md-6 col-lg-3">
+							<div class="client1 text-center">
+								<div class="client-img m-bottom25">
+									<img th:src="@{'/assets/image/logos/fun3.png'}"
+										style="height: 75px">
+								</div>
+								<div class="client-text white">
+									<div class="counter" data-count="230">0</div>
+									<span class="countplus">+</span>
+									<h3 class="white">Employers Profile</h3>
+								</div>
+							</div>
+						</div>
+						<div class="col col-12 col-sm-6 col-md-6 col-lg-3">
+							<div class="client1 text-center">
+								<div class="client-img m-bottom25">
+									<img th:src="@{'/assets/image/logos/fun4.png'}"
+										style="height: 75px">
+								</div>
+								<div class="client-text white">
+									<div class="counter" data-count="150">0</div>
+									<span class="countplus">+</span>
+									<h3 class="white">Positioned matched</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Video Section -->
+		<section id="workful">
+			<div class="container">
+				<div class="row pad-tb35">
+					<div class="col col-12 col-md-12 col-lg-12 text-center">
+						<h1 class="worktext padbot20">How Does Mindful Work?</h1>
+					</div>
+					<div class="col col-12 col-md-12 col-lg-12">
+						<embed src="https://www.youtube.com/embed/F9Bo89m2f6g"
+							allowfullscreen="true" width="100%" height="400px">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Jobs Section -->
+		<section id="work">
+			<div class="container">
+				<div th:each="advertisementInstance: ${advertisements}"
+					class="pad-tb35">
+					<div class="col col-12 col-md-12 col-lg-12">
+						<form th:action="${advertisementInstance.link}" method="get">
+							<div class="row workbg">
+								<div class="col col-12 col-sm-4 col-md-3 col-lg-2 pl-0">
+									<img th:src="${advertisementInstance.imagePath}">
+								</div>
+								<div class="col col-12 col-sm-8 col-md-6 col-lg-7">
+									<h1 th:text="${advertisementInstance.title}"
+										class="jobstext ex-text"></h1>
+									<p th:text="${advertisementInstance.text}"></p>
+								</div>
+								<div class="col col-12 col-md-3 col-lg-3">
+									<button type="submit"
+										th:text="${advertisementInstance.buttonText}"
+										class="jobs-discover"></button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Clients section -->
+		<section id="clientsinfo">
+			<div class="container">
+				<div class="row">
+					<div class="col col-12 col-md-12 col-lg-12 text-center">
+						<h1 class="worktext padtop15">Who's Hiring on
+							Mindfulqatar.com</h1>
+						<div class="row">
+							<div class="col-12 col-sm-6 col-md-3 col-lg-3">
+								
+								<div>
+									<a th:href="@{'https://www.qatarairways.com'}" target="_blank">
+										<img th:src="@{'/assets/image/logos/Qatar-Logo.png'}"
+										class="img-fluid" />
+									</a>
+								</div>
+							
+							</div>
+							<div class="col-12 col-sm-6 col-md-3 col-lg-3">
+								<div>
+									<a th:href="@{'https://en.nissanqatar.com/'}" target="_blank">
+									<img th:src="@{'/assets/image/logos/Saleh.jpg'}"
+										class="img-fluid" />
+									</a>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-3 col-lg-3">
+								<div>
+									<a th:href="@{'https://www.alfardan.com.qa/en/'}" target="_blank">
+									<img th:src="@{'/assets/image/logos/alfa.png'}"
+										class="img-fluid" />
+										</a>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-3 col-lg-3">
+								<div>
+									<a th:href="@{'http://www.darwishholding.com/en/'}" target="_blank">
+									<img th:src="@{'/assets/image/logos/darwish.png'}"
+										class="img-fluid" />
+										</a>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-3 col-lg-3">
+								<div>
+									<a th:href="@{'https://www.abuissa.com/'}" target="_blank">
+									<img th:src="@{'/assets/image/logos/abuissa.png'}"
+										class="img-fluid" />
+										</a>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-3 col-lg-3">
+								<div>
+									<a th:href="@{'https://qatar-weill.cornell.edu/'}" target="_blank">
+									<img th:src="@{'/assets/image/logos/we.png'}" class="img-fluid" />
+										</a>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-3 col-lg-3">
+								<div>
+									<a th:href="@{'https://kingabdulaziz.academia.edu/JaudahAlmaghrabi'}" target="_blank">
+									<img th:src="@{'/assets/image/logos/jaidah.jpg'}"
+										class="img-fluid" />
+										</a>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-3 col-lg-3">
+								<div>
+									<a th:href="@{'https://www.qf.org.qa/'}" target="_blank">
+									<img th:src="@{'/assets/image/logos/Qatar-Fondation.png'}"
+										class="img-fluid" />
+										</a>
+								</div>
+							</div>
+
+							<div class="col col-12 col-md-12 col-lg-12">
+								<a th:href="@{'/employer'}">
+								<button class="view hiring-btn">Is your company hiring?
+									Join 1128 employers on Mindful</button>
+								</a>
+								
+							</div>
+						</div>
+						<!-- 				<div class="row">
+							<div class="col col-2 col-md-2 col-lg-2">
+								<img th:src="@{'/assets/image/logos/hiring.png'}">
+							</div>
+							<div class="col col-2 col-md-2 col-lg-2">
+								<img th:src="@{'/assets/image/logos/nissan.png'}">
+							</div>
+							<div class="col col-2 col-md-2 col-lg-2">
+								<img th:src="@{'/assets/image/logos/alfardan.png'}">
+							</div>
+	
+							<div class="col col-2 col-md-2 col-lg-2">
+								<img th:src="@{'/assets/image/logos/elan.png'}">
+							</div>
+							<div class="col col-2 col-md-2 col-lg-2">
+								<img th:src="@{'/assets/image/logos/darwish.png'}">
+							</div>
+						</div>
+						<div class="row padtop50 padbot25">
+							<div class="col col-2 col-md-2 col-lg-2">
+								<img th:src="@{'/assets/image/logos/qatar.png'}">
+							</div>
+							<div class="col col-2 col-md-2 col-lg-2">
+								<img th:src="@{'/assets/image/logos/abuissa.png'}">
+							</div>
+							<div class="col col-2 col-md-2 col-lg-2">
+								<img th:src="@{'/assets/image/logos/hiring.png'}">
+							</div>
+							<div class="col col-2 col-md-2 col-lg-2">
+								<img th:src="@{'/assets/image/logos/weill.png'}">
+							</div>
+							<div class="col col-2 col-md-2 col-lg-2">
+								<img th:src="@{'/assets/image/logos/foundation.png'}">
+							</div>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Testimonials Section -->
+		<section id="testimonials">
+			<div class="container">
+				<div class="row">
+					<div class="col col-12 col-md-12 col-lg-12 text-center">
+						<h1 class="test-head padtop15">Success Stories</h1>
+						<div class="row padtop10 padbot50">
+							<div class="col col-12 col-sm-6 col-md-6 col-lg-3">
+								<div class="testimonial">
+									<div class="pic">
+										<img th:src="@{'/assets/image/logos/client3.png'}" alt="">
+									</div>
+									<div class="customer-details">
+										<div class="c-name light-green">Ahmed Afzal</div>
+										<div class="c-name1">Sales Operational Manager</div>
+										<div class="c-designation m-top7">Bharavi Trading</div>
+									</div>
+									<div class="divider"></div>
+									<p class="sub-heading-text c-opinion">This is the perfect
+										opportunity and way to shareour experience with Bayt.com. This
+										is a great ....</p>
+									<a href="#" class="link">See More</a>
+								</div>
+							</div>
+							<div class="col col-12 col-sm-6 col-md-6 col-lg-3">
+								<div class="testimonial">
+									<div class="pic">
+										<img th:src="@{'/assets/image/logos/client5.png'}" alt="">
+									</div>
+									<div class="customer-details">
+										<div class="c-name light-green">Ahmed Nazmi Imran</div>
+										<div class="c-name1">Assistant Manager</div>
+										<div class="c-designation m-top7">CMA CGM</div>
+									</div>
+									<div class="divider"></div>
+									<p class="sub-heading-text c-opinion">Hi friends, it is
+										time now to say thank you tothe site that thought me my first
+										conveyed ...</p>
+									<a href="#" class="link">See More</a>
+								</div>
+							</div>
+							<div class="col col-12 col-sm-6 col-md-6 col-lg-3">
+								<div class="testimonial">
+									<div class="pic">
+										<img th:src="@{'/assets/image/logos/client6.png'}" alt="">
+									</div>
+									<div class="customer-details">
+										<div class="c-name light-green">Arun George Mathew</div>
+										<div class="c-name1">Sales Executive</div>
+										<div class="c-designation m-top7">Marka Holding</div>
+									</div>
+									<div class="divider"></div>
+									<p class="sub-heading-text c-opinion">I am really thankful
+										to Bayt.com for helping me find a job vacancy at Transmed. I
+										would also ...</p>
+									<a href="#" class="link">See More</a>
+								</div>
+							</div>
+							<div class="col col-12 col-sm-6 col-md-6 col-lg-3">
+								<div class="testimonial">
+									<div class="pic">
+										<img th:src="@{'/assets/image/logos/client2.png'}" alt="">
+									</div>
+									<div class="customer-details">
+										<div class="c-name light-green">Trecia Thapa</div>
+										<div class="c-name1">Sales Executive</div>
+										<div class="c-designation m-top7">Marka Holding</div>
+									</div>
+									<div class="divider"></div>
+									<p class="sub-heading-text c-opinion">After posting my CV
+										on MindfulQatar.com, i received an opportunity for an
+										interview from marka holding ...</p>
+									<a href="#" class="link">See More</a>
+								</div>
+							</div>
+						</div>
+						<div class="row padbot25">
+							<div class="col col-12 col-md-12 col-lg-12">
+								<button class="view">View More</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="d-flex justify-content-end">
+					<a href="#" class="chat-link">Chat With Us Now <i
+						class="fa fa-comments-o" aria-hidden="true"></i></a>
+				</div> -->
+			</div>
+		</section>
+	</div>
+</body>
+</html>

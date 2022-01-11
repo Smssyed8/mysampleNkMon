@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout_employers">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/advanced_search.css'}" />
+<title>Mindful Consulting Qatar - Advanced CV search</title>
+<meta name="keywords"
+	content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- AdvancedSearch page Starts -->
+		<div class="row box m20t-d  is-collapsed-m ">
+			<section class="col is-2-d">
+				<div class="p20 card">
+					<h1 class="h3">Advanced CV Search</h1>
+					<form class="form is-compact"
+						data-validate-form="jobSearchAdvancedBaytUIForm"
+						novalidate="novalidate" action="/employer/cv/jobseekers"
+						method="post">
+						<div class="form-item ">
+							<label class="form-label" for="keywords">Keywords</label>
+							<div class="form-value ">
+								<input class="input" name="keywords" type="text"
+									placeholder="Job title, Keywords,Skills, etc" />
+							</div>
+						</div>
+
+						<div class="form-item ">
+							<label class="form-label" for="city">Job Location</label>
+							<div class="form-value ">
+								<div class="select">
+									<select
+										data-searchable="{&quot;data&quot;:{&quot;search&quot;:&quot;*&quot;}}"
+										class="input" name="cityId">
+										<option value="" selected="selected" disabled="disabled">Select
+											City</option>
+										<option th:each="instance: ${cities}"
+											th:text="${instance.city}" th:value="${instance.id}"></option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-item ">
+							<label class="form-label" for="jobRoles">Job Role</label>
+							<div class="form-value ">
+								<div class="select">
+									<select
+										data-searchable="{&quot;data&quot;:{&quot;search&quot;:&quot;*&quot;}}"
+										class="input" name="jobRole">
+										<option value="" selected="selected" disabled="disabled">Select
+											your Job Role</option>
+										<option th:each="instance: ${jobRoles}"
+											th:text="${instance.jobRole}" th:value="${instance.id}"></option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-item ">
+							<label class="form-label" for="companyIndustry">Company
+								Industry</label>
+							<div class="form-value ">
+								<div class="select">
+									<select
+										data-searchable="{&quot;data&quot;: {&quot;search&quot;: &quot;*&quot;}}"
+										class="input" name="companyIndustry">
+										<option value="" selected="selected" disabled="disabled">Select
+											Company Industry</option>
+										<option th:each="instance: ${companyIndustries}"
+											th:text="${instance.companyIndustry}"
+											th:value="${instance.id}"></option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-item ">
+							<label class="form-label">Gender</label>
+							<div class="form-value ">
+								<span class="input-group_inline"><input class="input"
+									id="gender_0" value="m" type="checkbox" name="genders" /> <label
+									for="gender_0">Male</label><input class="input" id="gender_1"
+									value="f" type="checkbox" name="genders" /> <label
+									for="gender_1">Female</label><input class="input" id="gender_2"
+									value="" checked="checked" type="checkbox" name="" /> <label
+									for="gender_2">Any</label></span>
+							</div>
+						</div>
+
+						<div class="form-item ">
+							<label class="form-label"
+								for="jobSearchAdvancedForm_jb_salary_range">Minimum
+								Monthly Salary</label>
+							<div class="form-value ">
+								<div class="select">
+									<select
+										data-searchable="{&quot;data&quot;:{&quot;search&quot;:false}}"
+										class="input" name="monthlySalary">
+										<option value="" selected="selected" disabled="disabled">Select
+											a number</option>
+										<option value="0">Select a number</option>
+										<option value="500">$500</option>
+										<option value="1000">$1,000</option>
+										<option value="2000">$2,000</option>
+										<option value="3000">$3,000</option>
+										<option value="4000">$4,000</option>
+										<option value="5000">$5,000</option>
+										<option value="6000">$6,000</option>
+										<option value="7000">$7,000</option>
+										<option value="8000">$8,000</option>
+										<option value="9000">$9,000</option>
+										<option value="10000">$10,000</option>
+										<option value="15000">$15,000</option>
+										<option value="30000">$30,000</option>
+										<option value="500000">$50,000</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-item ">
+							<label class="form-label">Career Level</label>
+							<div class="form-value ">
+								<span th:each="instance,counter: ${jobLevels}"><input
+									class="input" th:id="@{'jobLevels_' + ${counter.index}}"
+									th:value="${instance.id}" type="checkbox" name="jobLevels" />
+									<label th:for="@{'jobLevels_' + ${counter.index}}"
+									th:text="${instance.jobLevel}"></label></span>
+							</div>
+						</div>
+
+						<!-- <div class="form-item ">
+							<label class="form-label">Job Post Language</label>
+							<div class="form-value ">
+								<input id="ytjobSearchAdvancedForm_jb_post_language"
+									type="hidden" value=""
+									name="jobSearchAdvancedForm[jb_post_language]" /><span
+									id="jobSearchAdvancedForm_jb_post_language"><input
+									class="input" id="jobSearchAdvancedForm_jb_post_language_0"
+									value="none" type="checkbox"
+									name="jobSearchAdvancedForm[jb_post_language][]" /> <label
+									for="jobSearchAdvancedForm_jb_post_language_0">No
+										preference</label><input class="input"
+									id="jobSearchAdvancedForm_jb_post_language_1" value="en"
+									type="checkbox"
+									name="jobSearchAdvancedForm[jb_post_language][]" /> <label
+									for="jobSearchAdvancedForm_jb_post_language_1">English
+										only</label><input class="input"
+									id="jobSearchAdvancedForm_jb_post_language_2" value="ar"
+									type="checkbox"
+									name="jobSearchAdvancedForm[jb_post_language][]" /> <label
+									for="jobSearchAdvancedForm_jb_post_language_2">Arabic
+										only</label><input class="input"
+									id="jobSearchAdvancedForm_jb_post_language_3" value="fr"
+									type="checkbox"
+									name="jobSearchAdvancedForm[jb_post_language][]" /> <label
+									for="jobSearchAdvancedForm_jb_post_language_3">French
+										only</label></span>
+								<div class="form-hint"
+									id="jobSearchAdvancedForm_jb_post_language_em_"
+									style="display: none"></div>
+							</div>
+						</div> -->
+
+						<footer class="form-footer">
+							<button type="submit" class="btn-adv">Search</button>
+						</footer>
+					</form>
+				</div>
+			</section>
+		</div>
+		<!-- Advance search page ends -->
+	</div>
+</body>
+</html>

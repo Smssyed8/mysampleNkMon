@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout_employers">
+<head>
+<title>Mindful Consulting Qatar - Employer</title>
+<meta name="keywords"
+	content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body id="design3" class="bg-light">
+	<div layout:fragment="content">
+		<div class="employer_section">
+			<section id="">
+				<div class="container">
+					<div th:if="${displayErrorMessage}" id="alertErrorMessage"
+						class="alert alert-danger">
+						<span th:text="${displayErrorMessage}"></span>
+						<button onclick="hideElement('alertErrorMessage')" class="close"
+							aria-hidden="true">x</button>
+					</div>
+					<div th:if="${displayMessage}" id="alertMessage"
+						class="alert alert-success">
+						<span th:text="${displayMessage}"></span>
+						<button onclick="hideElement('alertMessage')" class="close"
+							aria-hidden="true">x</button>
+					</div>
+					<div class="application">
+						<!-- <h4 class="application-heading">Application Statistics</h4> -->
+						<div class="row">
+							<div class="col-12 col-sm-6 col-md-6 col-lg-3 px-4">
+								<div class="applicant_data">
+									<h1
+										th:text="${(activeJobs != null)?#lists.size(activeJobs):'0'}"
+										class="job10"></h1>
+									<p>
+										Active Jobs <i class="fa fa-info-circle"></i>
+									</p>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-6 col-lg-3 px-4">
+								<div class="applicant_data">
+									<h1 th:text=${applicantsCount} class="job10"></h1>
+									<p>
+										Applicants in Inbox <i class="fa fa-info-circle"></i>
+									</p>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-6 col-lg-3 px-4">
+								<div class="applicant_data">
+									<h1 th:if="${allCandidates != null}"
+										th:text="${#lists.size(allCandidates)}" class="job10"></h1>
+									<h1 th:if="${allCandidates == null}" class="job10">0</h1>
+									<p>
+										New Applicants Last Login <i class="fa fa-info-circle"></i>
+									</p>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-6 col-lg-3 px-4">
+								<div class="applicant_data">
+									<h1 th:if="${allShortListedCandidates != null}"
+										th:text="${#lists.size(allShortListedCandidates)}"
+										class="job10"></h1>
+									<h1 th:if="${allShortListedCandidates == null}" class="job10">0</h1>
+									<p>
+										Shortlisted Applicants <i class="fa fa-info-circle"></i>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="quick-suggestion candidate-hiring">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+							<div class="quick-suggestion-sub">
+								<div class="section2-sub1">
+									<h3>Applications Over Time</h3>
+									<!-- <img src="../Assets/edit.svg" alt="img"> -->
+									<i class="fa fa-external-link" aria-hidden="true"></i>
+									<p class="first-post">You have not received any new
+										applications in the last 30 days. Post a new job to start
+										receving applicants.</p>
+								</div>
+								<a href="#postJob" data-toggle="modal"
+									class="btn-custom add-btn">Post a Job</a>
+								<div class="modal fade employer-post-job" id="postJob"
+									data-target="#postJob">
+									<div class="modal-dialog modal-xl modal-view">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4>Post a Job</h4>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body login-form">
+												<form class="form" th:action="@{/employer/job/post}"
+													method="post">
+													<div class="row">
+														<div class="col-lg-8 mx-auto">
+															<div class="profile-data">
+																<div class="row">
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Job Title</label>
+																			</div>
+																			<div class="form-value">
+																				<input type="hidden" name="employerId"
+																					th:value="${currentEmployer.id}" />
+																				<div class="form-hint" id="username_em_"
+																					style="display: none"></div>
+																				<input class="input form-control" type="text"
+																					name="jobTitle" placeholder="Job Title" value="" />
+																				<div class="form-hint" id="username_em_"
+																					style="display: none"></div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Job Role</label>
+																			</div>
+																			<div class="form-value">
+																				<select name="jobRole" class="form-control"
+																					style="-webkit-appearance: menulist; height: 46px;">
+																					<option>Select Job Role</option>
+																					<option th:each="jobRoleInstance: ${jobRoles}"
+																						th:text="${jobRoleInstance.jobRole}"
+																						th:value="${jobRoleInstance.id}"></option>
+																				</select>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>City</label>
+																			</div>
+																			<select name="city" class="form-control"
+																				style="-webkit-appearance: menulist; height: 46px;">
+																				<option>Select City</option>
+																				<option th:each="cityInstance: ${cities}"
+																					th:text="${cityInstance.city}"
+																					th:value="${cityInstance.id}"></option>
+																			</select>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Job Level</label>
+																			</div>
+																			<div class="form-value">
+																				<select name="jobLevel" class="form-control"
+																					style="-webkit-appearance: menulist; height: 46px;">
+																					<option>Select Job Level</option>
+																					<option th:each="jobLevelInstance: ${jobLevels}"
+																						th:text="${jobLevelInstance.jobLevel}"
+																						th:value="${jobLevelInstance.id}"></option>
+																				</select>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Job Type</label>
+																			</div>
+																			<div class="form-value">
+																				<select name="jobType" class="form-control"
+																					style="-webkit-appearance: menulist; height: 46px;">
+																					<option>Select Job Type</option>
+																					<option th:each="jobTypeInstance: ${jobTypes}"
+																						th:text="${jobTypeInstance.jobType}"
+																						th:value="${jobTypeInstance.id}"></option>
+																				</select>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Company Industry</label>
+																			</div>
+																			<div class="form-value">
+																				<select name="companyIndustry" class="form-control"
+																					style="-webkit-appearance: menulist; height: 46px;">
+																					<option>Select Company Industry</option>
+																					<option
+																						th:each="companyIndustryInstance: ${companyIndustries}"
+																						th:text="${companyIndustryInstance.companyIndustry}"
+																						th:value="${companyIndustryInstance.id}"></option>
+																				</select>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Type Of Work</label>
+																			</div>
+																			<div class="form-value">
+																				<input class="input form-control" type="text"
+																					name="typeOfWork" placeholder="Type Of Work"
+																					value="" />
+																				<div class="form-hint" id="username_em_"
+																					style="display: none"></div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Monthly Salary</label>
+																			</div>
+																			<div class="form-value">
+																				<input class="input form-control" type="text"
+																					name="monthlySalary" placeholder="Monthly Salary"
+																					value="" />
+																				<div class="form-hint" id="username_em_"
+																					style="display: none"></div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Professional Summary</label>
+																			</div>
+																			<div class="form-value">
+																				<input class="input form-control" type="text"
+																					name="professionalSummary"
+																					placeholder="Professional Summary" value="" />
+																				<div class="form-hint" id="username_em_"
+																					style="display: none"></div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Notice Period</label>
+																			</div>
+																			<div class="form-value">
+																				<input class="input form-control" type="text"
+																					name="noticePeriod" placeholder="Notice Period"
+																					value="" />
+																				<div class="form-hint" id="username_em_"
+																					style="display: none"></div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Years Of Experience</label>
+																			</div>
+																			<div class="form-value">
+																				<input class="input form-control" type="text"
+																					name="yearsOfExperience"
+																					placeholder="Years Of Experience" value="" />
+																				<div class="form-hint" id="username_em_"
+																					style="display: none"></div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="profile-data mt-5">
+																<div class="row">
+
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Skills</label>
+																			</div>
+																			<div class="form-value">
+																				<input class="input form-control" type="text"
+																					name="skills" placeholder="Skills" value="" />
+																				<div class="form-hint" id="username_em_"
+																					style="display: none"></div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Description</label>
+																			</div>
+																			<div class="form-value">
+																				<input class="input form-control" type="text"
+																					name="description" placeholder="Description"
+																					value="" />
+																				<div class="form-hint" id="username_em_"
+																					style="display: none"></div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Last Date For Application</label>
+																			</div>
+																			<div class="form-value">
+																				<input class="input form-control" type="date"
+																					name="lastDateForApplication"
+																					placeholder="Last Date For Application" value="" />
+																				<div class="form-hint" id="username_em_"
+																					style="display: none"></div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Min Salary</label>
+																			</div>
+																			<div class="form-value">
+																				<input class="input form-control" type="text"
+																					name="minSalary" placeholder="Min Salary" value="" />
+																				<div class="form-hint" id="username_em_"
+																					style="display: none"></div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Max Salary</label>
+																			</div>
+																			<div class="form-value">
+																				<input class="input form-control" type="text"
+																					name="maxSalary" placeholder="Max Salary" value="" />
+																				<div class="form-hint" id="username_em_"
+																					style="display: none"></div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Qualification</label>
+																			</div>
+																			<div class="form-value">
+																				<input class="input form-control" type="text"
+																					name="qualification" placeholder="Qualification"
+																					value="" />
+																				<div class="form-hint" id="username_em_"
+																					style="display: none"></div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-item">
+																			<div class="label-data text-left">
+																				<label>Required Gender</label>
+																			</div>
+																			<div class="form-value">
+																				<select name="requiredGender" class="form-control"
+																					style="-webkit-appearance: menulist; height: 46px;">
+																					<option>All</option>
+																					<option>Male</option>
+																					<option>Female</option>
+																					<option>Others</option>
+																				</select>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="form-profile-data">
+														<button class="show-more-btn" type="submit">Post</button>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+							<div class="quick-suggestion-sub">
+								<div class="section2-sub1">
+									<h3>Start Hiring Immediately!</h3>
+								</div>
+								<div class="pad-lr20 assesmenttest immediate-hiring">
+									<img th:src="@{'/assets/image/female-user-search.png'}"
+										class="img-fluid" />
+									<h1 class="hiring-weeks">
+										2 <span>Week</span>
+										</h5>
+										<h4 class="cv-search">CV Search</h4>
+										<h5 class="hiring-cost">
+											<i class="fa fa-dollar"></i>750
+										</h5>
+										<h1 class="mt-3">
+											<i class="fa fa-dollar"></i>675
+										</h1>
+								</div>
+								<a href="#" class="btn-custom add-btn">Add to Cart</a>
+							</div>
+						</div>
+
+						<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+							<form class="form" th:action="@{/employer/cv/jobseekers}"
+								method="post">
+								<div class="quick-suggestion-sub">
+									<div class="section2-sub1">
+										<h3 class="mt-2 quick-search">Quick CV Search</h3>
+
+										<div class="form-group job-title select-employers">
+											<label class="custom-form mt-4">Keywords</label> <input
+												name="keywords" type="text"
+												class="form-control custom-input" id="name"
+												placeholder="Keywords"> <label
+												class="custom-form mt-3">Locations</label>
+											<div class="select-option select-choice">
+												<select name="cityId" class="experienced-years">
+													<option value="0" selected="selected">Select
+														Location</option>
+													<option th:each="city: ${cities}" th:text=${city.city}
+														th:value=${city.id}></option>
+												</select>
+											</div>
+											<label class="custom-form mt-3">Years of Experience</label>
+											<div class="row">
+												<div class="col col-12 col-sm-6 col-md-6">
+													<input name="minExperience" type="number" value="0"
+														class="form-control" id="name" placeholder="Min Exp.">
+												</div>
+												<div class="col col-12 col-sm-6 col-md-6">
+													<input name="maxExperience" type="number" value="0"
+														class="form-control" id="name" placeholder="Max Exp.">
+												</div>
+											</div>
+										</div>
+									</div>
+									<a href="#" class="btn-custom search-btn"><button
+											type="submit">Search</button></a> <a
+										href="/employer/cv/jobseekers" class="btn-advance">Advance
+										Search</a>
+								</div>
+							</form>
+						</div>
+						<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+							<div class="quick-suggestion-sub candidate-data">
+								<div class="section2-sub1">
+									<img th:src="@{'/assets/image/client.jpg'}" class="img-fluid" />
+									<p style="min-height: 135px;">Join other HR professionals
+										to network and stay up to date with trends in the HR industry</p>
+								</div>
+								<a href="#" class="btn-custom add-btn">Join Now</a>
+							</div>
+						</div>
+
+						<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+							<div class="quick-suggestion-sub">
+								<div class="section2-sub1 recommended-cv">
+									<h3 class="quick-search">Recommended CVs</h3>
+									<p class="assesment-text quick-search">Based on Your Latest
+										CV Search</p>
+									<p class="assesment-text quick-search">Search Date:
+										2019-05-07</p>
+								</div>
+								<div class="pad-lr20 assesmenttest candidate-profile">
+									<div class="row">
+										<div class="col col-12 col-md-4 col-lg-4">
+											<div>
+												<img src="" class="img-fluid" />
+											</div>
+										</div>
+										<div class="col col-12 col-md-8 col-lg-8">
+											<div>
+												<h5>Priya Subbaiah</h5>
+												<div class="client-designation">
+													<p>Java Developer</p>
+													<p>Infoview Technology</p>
+												</div>
+											</div>
+										</div>
+										<div class="col col-12 col-md-4 col-lg-4">
+											<div>
+												<img src="" class="img-fluid" />
+											</div>
+										</div>
+										<div class="col col-12 col-md-8 col-lg-8">
+											<div>
+												<h5>Fahad Althobaiti</h5>
+												<div class="client-designation">
+													<p>Java Developer</p>
+													<p>Technology Control Co..</p>
+												</div>
+											</div>
+										</div>
+										<div class="col col-12 col-md-4 col-lg-4">
+											<div>
+												<img src="" class="img-fluid" />
+											</div>
+										</div>
+										<div class="col col-12 col-md-8 col-lg-8">
+											<div>
+												<h5>Ahmed Mostafa</h5>
+												<div class="client-designation">
+													<p>Java & Big Data Developer</p>
+													<p>IBM</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+							<div class="quick-suggestion-sub applicant-break">
+								<div class="section2-sub1 recommended-cv">
+									<h3 class="mt-2 quick-search">Applicants Breakdown</h3>
+									<div class="form-group job-title">
+										<div class="select-option select-choice">
+											<select class="experienced-years" name="options"
+												style="-webkit-appearance: none;">
+												<option selected="selected">Condidates by Gender</option>
+												<option>Condidates by Age Group</option>
+												<option>Condidates by Nationality</option>
+												<option>Condidates by Career Level</option>
+												<option>Condidates by Education Level</option>
+												<option>Condidates by Location</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="candidate-exective-job">
+				<div class="container">
+					<div class="executive-section">
+						<div class="">
+							<div class="col col-12 col-md-12 col-lg-12">
+								<div class="row workbg">
+									<div class="col col-12 col-sm-4 col-md-3 col-lg-2 pl-0">
+										<img th:src="@{'/assets/image/logos/tag.png'}">
+									</div>
+									<div class="col col-12 col-sm-8 col-md-6 col-lg-7">
+										<h1 class="jobstext ex-text">Executive Jobs</h1>
+										<p>Explore the latest opportunities in top management</p>
+									</div>
+									<div class="col col-12 col-md-3 col-lg-3">
+										<button class="jobs-discover">Discover Jobs</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="padtop35">
+							<div class="col col-12 col-md-12 col-lg-12">
+								<div class="row workbg1">
+									<div class="col col-12 col-sm-5 col-md-4 col-lg-4 pl-0">
+										<img th:src="@{'/assets/image/logos/tag1.png'}"
+											class="img-fluid" style="height: 100%">
+									</div>
+									<div class="col col-12 col-sm-7 col-md-5 col-lg-5">
+										<h1 class="jobstext">Jobs for Qatari Nationals Are
+											Available Today</h1>
+										<!-- <p>Explore the latest opportunities in top management</p> -->
+									</div>
+									<div class="col col-12 col-md-3 col-lg-3">
+										<button class="jobs-apply">Apply Now</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="user-activity">
+				<div class="container">
+					<div class="application">
+						<h4 class="application-heading">User Activity in Last 30 Days</h4>
+						<div class="select-option select-choice user-data-select">
+							<select class="experienced-years select-choice" name="options">
+								<option selected="selected">User Name</option>
+								<option>0</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
+						</div>
+						<div class="row">
+							<div class="col-12 col-sm-6 col-md-4 col-lg-2 px-4">
+								<div class="applicant_data">
+									<!-- <h5 class="app-job">Applied Jobs</h5> -->
+									<h1 class="job10">10</h1>
+									<p>Active Jobs</p>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-4 col-lg-2 px-4">
+								<div class="applicant_data">
+									<!-- <h5 class="app-job">Applied Jobs</h5> -->
+									<h1 class="job10">0</h1>
+									<p>Job Posted</p>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-4 col-lg-2 px-4">
+								<div class="applicant_data">
+									<!-- <h5 class="app-job">Applied Jobs</h5> -->
+									<h1 class="job10">0</h1>
+									<p>CV Search</p>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-4 col-lg-2 px-4">
+								<div class="applicant_data">
+									<!-- <h5 class="app-job">Applied Jobs</h5> -->
+									<h1 class="job10">12</h1>
+									<p>CV Views</p>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-4 col-lg-2 px-4">
+								<div class="applicant_data">
+									<!-- <h5 class="app-job">Applied Jobs</h5> -->
+									<h1 class="job10">0</h1>
+									<p>Revealed Contacts</p>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-4 col-lg-2 px-4">
+								<div class="applicant_data">
+									<!-- <h5 class="app-job">Applied Jobs</h5> -->
+									<h1 class="job10">2</h1>
+									<p>Cv Folders</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="application m-top35 active-jobs">
+						<h4 class="application-heading">Active Job Posting</h4>
+						<h5>No Data Available</h5>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</body>
+</html>

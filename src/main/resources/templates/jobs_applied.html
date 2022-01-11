@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout_jobseeker">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/executive_jobs.css'}" />
+<title>Mindful Consulting Qatar - Jobs Applied</title>
+<meta name="keywords" content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- Body -->
+		<div class="box is-wide row is-reversed-d is-collapsed-m">
+			<section id="jsMiniJobView"
+				class="col is-1-d is-half sticky-sense u-none">
+				<div id="formToggleSheet">
+					<div id="view_inner"></div>
+					<div class="u-none" id=toggleFooter></div>
+				</div>
+			</section>
+			<section id="jsMainListingContainer" class="col is-1-d sticky-sense">
+				<div class="sticky-sidebar" data-sticky-sidebar>
+					<!-- Job Results-->
+					<div id="results_inner" class="sticky-content">
+
+						<!-- Job Results-->
+
+						<div class="card p0b search-tabs">
+							<div class="card-content">
+								<div class="row">
+									<div class="col-md-6 mb-3">
+										<div class="tab">
+											<div class="card-head">
+												<h1 th:text="${headerMessage}" class="h5"></h1>
+												<span th:if="${#lists.size(appliedJobs)} > 0"
+													th:text="@{${#lists.size(appliedJobs)} + ' Applications Found: Showing ' + ${lowerLimit} + ' - ' + ${upperLimit}}"></span>
+												<span th:if="${#lists.size(appliedJobs)} == 0"
+													th:text="@{'You have not applied for any jobs yet'}"></span>
+												<a id="filter" class="m u-right" th:href="@{'#'}"> <i
+													class="fa fa-filter t-large u-left"></i> <b
+													class="t-large "> Filter </b>
+												</a>
+											</div>
+											<button th:each="jobInstance: ${appliedJobs}"
+												class="tablinks"
+												th:onclick="@{'openCity(event, ' + ${jobInstance.id} + ')'}"
+												id="defaultOpen">
+												<div class="d-flex justify-content-between">
+													<div class="t-small">
+														<h1 class="m0 t-regular">
+															<a th:href="@{'#'}" th:text="${jobInstance.job.jobTitle}"></a>
+														</h1>
+														<span class="d-flex"><b
+															th:text="@{${jobInstance.job.employer.companyName} + ' - ' + ${jobInstance.job.city.city} + ', ' + ${jobInstance.job.city.country.country}}"
+															class="p10r"></b>
+															<p th:text="${jobInstance.job.createdOnFormatted}"></p></span> <span
+															class="list is-basic is-inline  t-small m10y"> <i
+															class="fa fa-briefcase t-mute m10x"></i><span
+															th:text="@{'&nbsp;' + ${jobInstance.job.jobLevel}}"></span>
+															<i class="fa fa-money t-mute m10x"></i><span
+															th:text="@{'$' + ${jobInstance.job.minSalary} + ' - $' + ${jobInstance.job.maxSalary}}"></span>
+														</span>
+														<p th:text="${jobInstance.job.description}"></p>
+													</div>
+													<div>
+														<img th:src="${jobInstance.job.employer.imagePath}"
+															class="img-70 u-right m10l">
+													</div>
+												</div>
+											</button>
+											<div class="p20y search-pagination">
+												<ul id="pagination" class="pagination">
+													<li class="pagination-prev hidden"><a
+														class="jsAjaxLoad"
+														data-js-params="{&quot;listOnly&quot;:true}"
+														th:href="@{'#'}"></a></li>
+													<li class="page pagination-current"><a
+														class="jsAjaxLoad"
+														data-js-params="{&quot;listOnly&quot;:true}"
+														th:href="@{'#'}">1</a></li>
+													<li class="page"><a class="jsAjaxLoad"
+														data-js-params="{&quot;listOnly&quot;:true}"
+														th:href="@{'#'}">2</a></li>
+													<li class="page"><a class="jsAjaxLoad"
+														data-js-params="{&quot;listOnly&quot;:true}"
+														th:href="@{'#'}">3</a></li>
+													<li class="page"><a class="jsAjaxLoad"
+														data-js-params="{&quot;listOnly&quot;:true}"
+														th:href="@{'#'}">4</a></li>
+													<li class="pagination-next"><a class="jsAjaxLoad"
+														data-js-params="{&quot;listOnly&quot;:true}"
+														th:href="@{'#'}"></a></li>
+												</ul>
+											</div>
+										</div>
+										<!--Tab Content-->
+									</div>
+									<div class="col-md-6">
+										<div th:each="jobInstance: ${appliedJobs}"
+											th:id="${jobInstance.id}" class="tabcontent">
+											<div class="card is-primary has-scroll">
+												<div class="card-head">
+													<div class="media" style="display: flex;">
+														<img th:src="${jobInstance.job.employer.imagePath}"
+															style="width: 95px;">
+														<div class="col">
+															<h2 th:text="${jobInstance.job.jobTitle}" class="t-large"></h2>
+															<ul class="list is-basic t-small">
+																<li><a
+																	th:text="${jobInstance.job.employer.companyName}"
+																	class="is-black" style="color: black;" href="#"></a></li>
+																<li><a class="is-black" style="color: black;"
+																	href="#"><span
+																		th:text="${jobInstance.job.city.city}"></span></a><a
+																	class="is-black" style="color: black;" href="#"><span
+																		th:text="@{', ' + ${jobInstance.job.city.country.country}}"></span></a>
+																	<span
+																	th:text="@{'Date Posted: ' + ${jobInstance.job.createdOnFormatted}}"
+																	class="p20l-d p10y-m u-block-m"></span></li>
+															</ul>
+														</div>
+													</div>
+													<div
+														th:text="@{'Applied on ' + ${jobInstance.createdOnFormatted}}">
+													</div>
+												</div>
+												<div class="card-content t-small bt p20"
+													style="max-height: 291px;">
+													<h2 style="font-size: 1rem; font-weight: 600">Job
+														Description</h2>
+													<strong>Roles And Responsibility</strong>
+													<p th:text=${jobInstance.job.description}></p>
+													<strong>Responsibilities</strong>:
+													<p th:text=${jobInstance.job.typeOfWork}></p>
+													<h2 class="h6 p10t" style="font-size: 1rem;">Skills
+														Required</h2>
+													<p th:text=${jobInstance.job.skills}></p>
+													&nbsp;
+													<h2 class="h6 p10t" style="font-size: 1rem;">Other Job
+														Details</h2>
+													<dl class="dlist is-spaced is-fitted t-small m0">
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 145px;">Job
+																Location</dt>
+															<dd
+																th:text="@{${jobInstance.job.city.city} + ', ' + ${jobInstance.job.city.country.country}}"></dd>
+														</div>
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 145px;">Company
+																Industry</dt>
+															<dd
+																th:each="companyIndustryInstance: ${companyIndustries}"
+																th:if="${companyIndustryInstance.id == jobInstance.job.companyIndustry}"
+																th:text="${companyIndustryInstance.companyIndustry}"></dd>
+														</div>
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 145px;">Company
+																Type</dt>
+															<dd th:each="companyTypeInstance: ${companyTypes}"
+																th:if="${companyTypeInstance.id == jobInstance.job.employer.companyType}"
+																th:text="${companyTypeInstance.companyType}"></dd>
+														</div>
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 145px;">Job
+																Role</dt>
+															<dd th:each="jobRoleInstance: ${jobRoles}"
+																th:if="${jobRoleInstance.id == jobInstance.job.jobRole}"
+																th:text="${jobRoleInstance.jobRole}"></dd>
+														</div>
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 145px;">Monthly
+																Salary</dt>
+															<dd th:text="${jobInstance.job.monthlySalary}"></dd>
+														</div>
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 145px;">Minimun
+																Salary</dt>
+															<dd th:text="${jobInstance.job.minSalary}"></dd>
+														</div>
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 145px;">Maximum
+																Salary</dt>
+															<dd th:text="${jobInstance.job.maxSalary}"></dd>
+														</div>
+													</dl>
+													&nbsp;
+													<h2 class="h6 p10t" style="font-size: 1rem;">Preferred
+														Candidate</h2>
+													<dl class="dlist is-spaced is-fitted t-small m0">
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 185px;">Career
+																Level</dt>
+															<dd th:each="jobLevelInstance: ${jobLevels}"
+																th:if="${jobLevelInstance.id == jobInstance.job.jobLevel}"
+																th:text="${jobLevelInstance.jobLevel}"></dd>
+														</div>
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 185px;">Years
+																of Experience</dt>
+															<dd th:text="${jobInstance.job.yearsOfExperience}"></dd>
+														</div>
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 185px;">Qualification
+																Required</dt>
+															<dd th:text="${jobInstance.job.qualification}"></dd>
+														</div>
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 185px;">Professional
+																Summary</dt>
+															<dd th:text="${jobInstance.job.professionalSummary}"></dd>
+														</div>
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 185px;">Notice
+																Period</dt>
+															<dd th:text="${jobInstance.job.noticePeriod}"></dd>
+														</div>
+														<div style="display: flex;">
+															<dt style="font-weight: bold; min-width: 185px;">Last
+																Date For Application</dt>
+															<dd
+																th:text="${jobInstance.job.lastDateForApplicationFormatted}"></dd>
+														</div>
+													</dl>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+.employer-banner{
+	background-image: url('/assets/image/empbanner.jpg');
+}
+
+.dropdown{padding:0px !important;}
+#header .navbar-light .dropdown .nav-link {padding: 4px 17px !important;}
+
+.employersPage .btn.is-outline,
+.employersPage a {
+    color: #fed90a !important;
+    background-color: transparent !important;
+}
+b {
+    font-weight: bolder
+}
+.employersPage h2, .employersPage h3,.employersPage .candidates-heading,.employersPage h5{
+    font-weight: 600;
+}
+.employersPage .contact-num{color:#6b6a73 !important;}
+.cover {
+    align-items: center;
+    height: 460px;
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.cover.from-bottom {
+    background-position-y: 100%
+}
+
+.cover.is-compact {
+    height: 320px
+}
+
+.cover>.box {
+    text-align: center;
+    width: 100%
+}
+.employersPage .btn {
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 700;
+    padding: 13px 27px;
+    background-color: #6b6a73 !important;
+    border: 1px solid #fed90a !important;
+    display: inline-block;
+    overflow: hidden;
+    color: #fff;
+    border-radius: 4px
+}
+
+.btn.is-inverse {
+    color: #828a93;
+    background-color: #fff;
+    border-color: #fff
+}
+
+.btn.is-large {
+    font-size: 1.125rem;
+    line-height: 1;
+    font-weight: 700;
+    padding: 15px 31px
+}
+
+.employersPage .btn.is-royal {
+    background-color: #fed90a !important;
+    border-color: #fed90a !important;
+}
+.t-left {
+    text-align: left!important
+}
+
+.t-center {
+    text-align: center!important
+}
+
+.t-small {
+    line-height: 1.67
+}
+
+.t-large {
+    font-size: 1.125rem;
+    line-height: 1.67
+}
+
+.employersPage .t-primary {
+    color: #fed90a; 
+}
+
+.t-mute {
+    color: #a6afb9
+}
+
+.t-inverse {
+    color: #fff
+}
+
+.bg-inverse {
+    background-color: #fff
+}
+.employersPage img[data-src] {
+    opacity: 1;
+}
+
+
+/*  Salaries By Roles Page   */
+.sec-roles .range-chart>tbody>tr>td>span:last-child{background-color:#fed90a;}
+.sec-roles .card-content .list li a,.sec-roles .box .list a{color:#fed90a;}
+.sec-roles .card-content .list li a:hover,.sec-roles .box .list a:hover{color: #6b6a73;}
+@media screen and (max-width:1023px) {
+    .h2,
+    h1,
+    h2,
+    h3,
+    h5 {
+        line-height: 1.2
+    }
+    h1 {
+        font-size: 2.75rem
+    }
+    .h2,
+    h2 {
+        font-size: 2.125rem
+    }
+    h3 {
+        font-size: 1.625rem
+    }
+    h5 {
+        font-size: 1.125rem
+    }
+    .cover {
+        padding: 30px 0
+    }
+    .cover,
+    .cover.is-compact {
+        height: auto
+    }
+    .row {
+        flex-flow: column nowrap
+    }
+    .col.is-12-m {
+        flex: 0 0 auto;
+        width: 100%
+    }
+    .card {
+        padding: 16px;
+        border-radius: 0
+    }
+    .in-pack,
+    .input-pack {
+        display: block
+    }
+    .in-pack {
+        width: 100%
+    }
+    .in-pack:not(:last-child) {
+        margin-bottom: 16px
+    }
+    .m20b-m {
+        margin-bottom: 20px!important
+    }
+    .d,
+    .u-none-m {
+        display: none!important
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .col.is-4-d {
+        flex: 0 0 auto;
+        width: 33.33333%
+    }
+    .btn.in-pack {
+        flex: none;
+        min-width: auto;
+        height: 44px;
+        padding: 13px;
+        border: 1px solid #a6afb8;
+        outline: 0
+    }
+    .btn.in-pack.is-large {
+        height: 50px;
+        padding: 15px
+    }
+    .input-pack {
+        display: flex
+    }
+    .in-pack {
+        flex: 1;
+        vertical-align: top
+    }
+    .in-pack,
+    .in-pack>.input {
+        border-radius: 0;
+        min-width: 150px
+    }
+    .in-pack:first-child {
+        border-radius: 2px 0 0 2px
+    }
+    .in-pack:last-child {
+        border-radius: 0 2px 2px 0
+    }
+    .in-pack:not(:first-child):not(:last-child) {
+        margin-left: -1px;
+        margin-right: -1px
+    }
+    .p20b-d {
+        padding-bottom: 20px!important
+    }
+    .m,
+    .u-none-d {
+        display: none!important
+    }
+}
+
+@media screen {
+    .print-only {
+        display: none!important
+    }
+}

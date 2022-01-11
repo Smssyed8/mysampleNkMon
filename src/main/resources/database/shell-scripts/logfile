@@ -1,0 +1,23 @@
+2019-09-27 15:55:36.441 IST [60689] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-09-27 15:55:36.441 IST [60689] LOG:  listening on IPv6 address "::1", port 5432
+2019-09-27 15:55:36.442 IST [60689] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-09-27 15:55:36.456 IST [60690] LOG:  database system was shut down at 2019-09-26 17:27:21 IST
+2019-09-27 15:55:36.460 IST [60689] LOG:  database system is ready to accept connections
+2019-09-27 15:57:24.367 IST [61187] ERROR:  insert or update on table "company_industry" violates foreign key constraint "fkjscfcmr4yn50xv73ie0rs9983"
+2019-09-27 15:57:24.367 IST [61187] DETAIL:  Key (id)=(20) is not present in table "sector".
+2019-09-27 15:57:24.367 IST [61187] STATEMENT:  alter table if exists company_industry add constraint FKjscfcmr4yn50xv73ie0rs9983 foreign key (id) references sector
+2019-09-27 16:13:03.421 IST [60689] LOG:  received smart shutdown request
+2019-09-27 16:13:03.424 IST [60689] LOG:  background worker "logical replication launcher" (PID 60696) exited with exit code 1
+2019-09-27 16:13:03.424 IST [60691] LOG:  shutting down
+2019-09-27 16:13:03.429 IST [60689] LOG:  database system is shut down
+2019-10-25 11:50:55.514 IST [36221] LOG:  listening on IPv6 address "::1", port 5432
+2019-10-25 11:50:55.514 IST [36221] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-10-25 11:50:55.515 IST [36221] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-10-25 11:50:55.535 IST [36222] LOG:  database system was shut down at 2019-10-16 15:54:13 IST
+2019-10-25 11:50:55.543 IST [36221] LOG:  database system is ready to accept connections
+2019-10-25 13:09:48.185 IST [54061] ERROR:  column "%job%" does not exist at character 37
+2019-10-25 13:09:48.185 IST [54061] STATEMENT:  select * from job where job_title = "%job%";
+2019-10-25 16:19:55.102 IST [36221] LOG:  received smart shutdown request
+2019-10-25 16:19:55.103 IST [36221] LOG:  background worker "logical replication launcher" (PID 36228) exited with exit code 1
+2019-10-25 16:19:55.103 IST [36223] LOG:  shutting down
+2019-10-25 16:19:55.111 IST [36221] LOG:  database system is shut down

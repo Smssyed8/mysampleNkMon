@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/executive_jobs.css'}" />
+<title>Mindful Consulting Qatar - Apply Now</title>
+<meta name="keywords" content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+<style type="text/css">
+.t-large {
+	font-size: 1.125rem;
+	line-height: 1.67;
+}
+
+.u-stretch {
+	width: 100% !important;
+}
+
+.upload-cv {
+	position: absolute;
+	top: 1px;
+	background-color: white;
+	padding: 8px 38%;
+	left: 1px;
+	z-index: 0;
+	border: 1px solid #a6afb8;
+	cursor: pointer;
+}
+
+.upload-cv .t-primary {
+	color: #fed90a;
+}
+
+.block-cv {
+	width: 100%;
+	position: relative;
+	opacity: 0;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.u-expanded {
+	width: 70% !important;
+	margin: 0px auto;
+	background-color: #fed90a;
+}
+
+.u-expanded:hover {
+	background-color: #e2c103;
+	color: #ffffff;
+}
+
+.form-item {
+	padding-bottom: 10px;
+}
+</style>
+</head>
+<body>
+	<div layout:fragment="content">
+		<a th:href="@{'/messages/test'}"></a>
+		<div
+			class="row h-align-center t-left m20y justify-content-center text-center">
+			<div
+				class="is-col is-10 bg-inverse p20 col-lg-7 col-md-10 mt-4 mb-4 p-4">
+				<div class="row bg h-align-center p40">
+					<section class="is-col is-8 mx-auto">
+						<p class="t-large">You have successfully applied for ""</p>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

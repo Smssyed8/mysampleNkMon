@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/contact_us.css'}" />
+<title>Mindful Consulting - Contact us</title>
+<meta name="keywords"
+	content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<section id="contactUs">
+			<div class="container">
+				<div class="contactPage">
+					<div class="row">
+						<div class="col col-md-12 col-lg-12">
+							<div class="card-data">
+								<div class="card">
+									<div class="card-head">
+										<h1 class="h3">Contact Us</h1>
+									</div>
+									<div class="section-content">
+										<div class="row">
+											<div class="col-md-6 col-sm-5">
+												<h5>Feel free to drop us a line!</h5>
+												<form action="/drop/email" method="post"
+													class="contact-form" id="contactForm" name="contactform">
+
+													<div class="form-group">
+														<input class="form-control" id="name" name="name"
+															placeholder="Your Name" type="text" required="">
+													</div>
+
+													<div class="form-group">
+														<input name="email" class="form-control"
+															placeholder="Email Address" type="email" required="">
+													</div>
+
+													<div class="form-group">
+														<textarea name="message" class="form-control"
+															placeholder="Type your message here" rows="5" required=""></textarea>
+													</div>
+
+													<button type="submit" class="btn btn-dark btn-block">Submit</button>
+
+												</form>
+											</div>
+											<div class="col-md-6 col-sm-7">
+												<h5>Find us on Google map</h5>
+												<div class="google-map">
+													<iframe
+														src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d972.1510756154407!2d77.61037522918099!3d12.93313479943007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1592f65f6f5b%3A0x37e49d2593f67ffa!2sWondrous+Software+Pvt+Ltd!5e0!3m2!1sen!2sin!4v1551782211948"
+														width="600" height="450" frameborder="0" style="border: 0"
+														allowfullscreen=""></iframe>
+												</div>
+
+												<div class="row contact-info-wrap">
+													<div class="col-sm-6">
+														<div>
+															<h5>Office Address</h5>
+															<address class="contact-info">
+																<span>Mindful Consulting</span><br> <span>Shoumoukh
+																	Towers</span>, <span>C Ring Road </span>,<br> <span>Al
+																	Sadd Doha, Qatar</span>
+															</address>
+														</div>
+
+													</div>
+													<div class="col-sm-6">
+														<div>
+															<h5>Contact Information</h5>
+															<div class="contact-info">
+																<a th:href="@{'tel:97412345678'}">Call:+974 123
+																	45678</a> <br> Fax: 123 456 85<br> <a
+																	th:href="@{'mailto:info@mindfulqatar.com'}">info@mindfulqatar.com</a>
+
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

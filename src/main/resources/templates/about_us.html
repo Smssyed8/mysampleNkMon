@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/about_us.css'}" />
+<link rel="stylesheet"
+	th:href="@{'/assets/css/plugin.css'}" />
+<title>Mindful Consulting - Leading Job Portal In Qatar</title>
+<meta name="keywords" content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<section class="about-banner">
+			<span class="banner-transparent"></span>
+			<div class="container">
+				<div class="about-fancy-banner">
+					<h1>About us</h1>
+				</div>
+			</div>
+		</section>
+		<section class="about-company">
+			<div class="container">
+				<div class="company-details">
+					<div class="row">
+						<div class="col-12 col-sm-12 col-md-12 col-lg-6">
+							<div class="about-company-text">
+								<h2>About Our Company</h2>
+								<p class="about-sub-text">We create mindful and compassionate workplace cultures using principles of neuroscience in our interventions for recruitment, leadership development, mindfulness and resilience. 
+</p>
+								<p><strong>Vision:</strong><br />
+To be a home grown leader in Talent Management Solutions in Qatar by 2022</p>
+								<p><strong>Mission:</strong><br />
+Provide holistic and mindful solutions for effective talent management</p>
+							</div>
+						</div>
+						<div class="col-12 col-sm-12 col-md-12 col-lg-6">
+							<div class="about-thumbnail-img">
+								<img
+									th:src="@{'https://careerfy.net/demo/wp-content/uploads/about-us-thumb.png'}"
+									class="img-fluid" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="about-modern-counter text-center">
+					<div class="row">
+						<div class="col-12 col-sm-4 col-md-4 col-lg-4">
+							<div class="counter-data">
+								<span class="counter-icon"><img
+									th:src="@{'/assets/image/file.png'}" /></span>
+								<div class="counter text-center" data-count="123,012">0</div>
+								<p>Jobs Added</p>
+							</div>
+						</div>
+						<div class="col-12 col-sm-4 col-md-4 col-lg-4">
+							<div class="counter-data">
+								<span class="counter-icon"><img
+									th:src="@{'/assets/image/curriculum.png'}" /></span>
+								<div class="counter text-center" data-count="123,022">0</div>
+								<p>Active Resume</p>
+							</div>
+						</div>
+						<div class="col-12 col-sm-4 col-md-4 col-lg-4">
+							<div class="count">
+								<span class="counter-icon"><img
+									th:src="@{'/assets/image/suitcase.png'}" /></span>
+								<div class="counter text-center" data-count="123,042">0</div>
+								<p>Positions Matched</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="about-client">
+			<div class="container-fluid">
+				<div class="during-job-data">
+					<div class="row">
+						<div class="col-12 col-sm-12 col-md-5 col-lg-5">
+							<div class="client-img">
+								<img th:src="@{'/assets/image/client.jpg'}" class="img-fluid" />
+							</div>
+						</div>
+						<div class="col-12 col-sm-12 col-md-7 col-lg-7">
+							<div id="slider">
+								<div id="carouselExampleIndicators" class="carousel slide customer-logos"
+									data-ride="carousel">
+									<!-- <ol class="carousel-indicators">
+								<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+								<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+								<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+								</ol> -->
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<div class="slick-slider-text">
+												<p>I just got a job that I applied for via careerfy! I
+													used the site all the time during my job hunt.</p>
+												<div class="testimanial-data">
+													<h2>Richard Anderson</h2>
+													<span>Nevada, USA</span>
+												</div>
+											</div>
+										</div>
+										<div class="carousel-item text-center">
+											<div class="slick-slider-text">
+												<p>I just got a job that I applied for via careerfy! I
+												used the site all the time during my job hunt.</p>
+												<div class="testimanial-data">
+													<h2>Richard Anderson</h2>
+													<span>Nevada, USA</span>
+												</div>
+											</div>
+										</div>
+										<div class="carousel-item text-center">
+											<div class="slick-slider-text">
+												<p>I just got a job that I applied for via careerfy! I
+												used the site all the time during my job hunt.</p>
+												<div class="testimanial-data">
+													<h2>Richard Anderson</h2>
+													<span>Nevada, USA</span>
+												</div>
+											</div>
+										</div>
+										<div>
+										<a class="carousel-control-prev" href="#carouselExampleIndicators"
+											role="button" data-slide="prev"> <span class="fa fa-chevron-circle-left"></span> <span class="sr-only">Previous</span>
+										</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
+											role="button" data-slide="next"> <span class="fa fa-chevron-circle-right"></span> <span
+											class="sr-only">Next</span>
+										</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="services">
+			<div class="">
+				<div class="container">
+					<div class="featured-services">
+						<div class="text-center service-heading">
+							<h2>Our Featured Services</h2>
+							<p>A better career is out there. We'll help you find it.
+								We're your first step to becoming everything you want to be.</p>
+						</div>
+						<div class="row">
+							<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+								<div class="service-box">
+									<span>1</span>
+									<div class="service-img">
+										<img th:src="@{'/assets/image/coding.png'}" class="img-fluid" />
+									</div>
+									<h2><a href="#">Head Hunting</a> </h2>
+									<p>Etiam lobortis egestas orci vitaa laort ed at nunc nec
+										mas pretiuem lao.</p>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+								<div class="service-box">
+									<span>2</span>
+									<div class="service-img">
+										<img th:src="@{'/assets/image/support.png'}" class="img-fluid" />
+									</div>
+									<h2><a href="#">Consulting</a> </h2>
+									<p>Etiam lobortis egestas orci vitaa laort ed at nunc nec
+										mas pretiuem lao.</p>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+								<div class="service-box">
+									<span>3</span>
+									<div class="service-img">
+										<img th:src="@{'/assets/image/vector.png'}" class="img-fluid" />
+									</div>
+									<h2><a href="#">HR - Human Resources</a> </h2>
+									<p>Etiam lobortis egestas orci vitaa laort ed at nunc nec
+										mas pretiuem lao rtl.</p>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+								<div class="service-box">
+									<span>4</span>
+									<div class="service-img">
+										<img th:src="@{'/assets/image/work-time.png'}"
+											class="img-fluid" />
+									</div>
+									<h2><a href="#"> Emotion Training</a> </h2>
+									<p>Etiam lobortis egestas orci vitaa laort ed at nunc nec
+										mas pretiuem lao.</p>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+								<div class="service-box">
+									<span>5</span>
+									<div class="service-img">
+										<img th:src="@{'/assets/image/company-workers.png'}"
+											class="img-fluid" />
+									</div>
+									<h2><a href="#"> Placements</a> </h2>
+									<p>Etiam lobortis egestas orci vitaa laort ed at nunc nec
+										mas pretiuem lao.</p>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+								<div class="service-box">
+									<span>6</span>
+									<div class="service-img">
+										<img th:src="@{'/assets/image/analysis.png'}"
+											class="img-fluid" />
+									</div>
+									<h2><a href="#"> Counseling </a> </h2>
+									<p>Etiam lobortis egestas orci vitaa laort ed at nunc nec
+										mas pretiuem lao.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- <section id="service-slider">
+			<div class="container">
+				<div class="service-heading">
+					<h2>Our Creative Team</h2>
+					<p>A better career is out there. We'll help you find it. We're
+						your first step to becoming everything you want to be.</p>
+				</div>
+			</div>
+				<div id="slider">
+				<div class="carousel slide" data-ride="carousel">
+			        <div class="carousel-inner">
+			            <div class="carousel-item active">
+			                <div class="row">
+			                    <div class="col-sm"><img class="d-block w-100" th:src="@{'https://careerfy.net/demo/wp-content/uploads/team-jobsearch-about5-.png'}" alt="1 slide"></div>
+			                    <div class="col-sm"><img class="d-block w-100" th:src="@{'https://careerfy.net/demo/wp-content/uploads/team-jobsearch-about3-.png'}" alt="2 slide"></div>
+			                    <div class="col-sm"><img class="d-block w-100" th:src="@{'https://careerfy.net/demo/wp-content/uploads/team-jobsearch-about1-.png'}" alt="3 slide"></div>
+			                    <div class="col-sm"><img class="d-block w-100" th:src="@{'https://careerfy.net/demo/wp-content/uploads/team-jobsearch-about2-.png'}" alt="4 slide"></div>
+			                </div>
+			            </div>
+			            <div class="carousel-item">
+			                <div class="row">
+			                    <div class="col-sm"><img class="d-block w-100" th:src="@{'https://careerfy.net/demo/wp-content/uploads/team-jobsearch-about3-.png'}" alt="5 slide"></div>
+			                    <div class="col-sm"><img class="d-block w-100" th:src="@{'https://careerfy.net/demo/wp-content/uploads/team-jobsearch-about5-.png'}" alt="6 slide"></div>
+			                    <div class="col-sm"><img class="d-block w-100" th:src="@{'https://careerfy.net/demo/wp-content/uploads/team-jobsearch-about1-.png'}" alt="7 slide"></div>
+			                    <div class="col-sm"><img class="d-block w-100" th:src="@{'https://careerfy.net/demo/wp-content/uploads/team-jobsearch-about2-.png'}" alt="8 slide"></div>        
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+			</div>		
+		</section> -->
+		<section id="right-job">
+			<div class="container">
+				<div class="million-jobs">
+					<div class="row">
+						<div class="col-12 col-sm-12 col-md-12 col-lg-6">
+							<div class="find-job service-heading">
+								<h2>MILLIONS OF JOBS. FIND THE ONE THAT’S RIGHT FOR YOU.</h2>
+								<p>Search all the open positions on the web. Get your own
+									personalized salary estimate. Read reviews on over 600,000
+									companies worldwide. The right job is out there. Use careerfy
+									to find it.</p>
+								<a th:href="@{'/search/advanced'}" class="btn btn-search-job">Search Job</a>
+							</div>
+						</div>
+						<div class="col-12 col-sm-12 col-md-12 col-lg-6">
+							<div class="jobs-img">
+								<img th:src="@{'/assets/image/multiple-logos.jpg'}"
+									class="img-fluid" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	
+		<!-- bootstrap script links -->
+	<script th:src="@{'/assets/js/jquery.min.js'}"></script>
+	<script th:src="@{'/assets/js/popper.min.js'}"></script>
+	<script th:src="@{'/assets/js/bootstrap.min.js'}"></script>
+
+	<!-- plugin javascript -->
+	<script th:src="@{'/assets/js/plugin.js'}"></script>
+	<!-- navigation script -->
+	<script th:src="@{'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js'}"></script>
+	<script>
+	$(document).ready(function () {
+		$('.customer-logos').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 5000,
+			arrows: true,
+			dots: false,
+			pauseOnHover: false,
+			responsive: [{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 1
+				}
+			}, {
+				breakpoint: 520,
+				settings: {
+					slidesToShow: 1
+				}
+			}]
+		});
+	});
+	
+	$(document).ready(function () {
+		$('.clients-slider').slick({
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 5000,
+			arrows: true,
+			dots: false,
+			pauseOnHover: false,
+			responsive: [{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			}, {
+				breakpoint: 520,
+				settings: {
+					slidesToShow: 2
+				}
+			}]
+		});
+	});
+	</script>
+</body>
+</html>

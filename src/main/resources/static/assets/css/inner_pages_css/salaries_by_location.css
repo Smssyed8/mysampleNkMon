@@ -1,0 +1,44 @@
+.sec-salaries #navbar .contact-details p{font-size: 15px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    line-height: 1.5;}
+.sec-salaries #navbar .contact-details{
+	font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+.sec-salaries #navbar ,.sec-salaries #down-footer{
+	font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+.sec-salaries .login-details a {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.sec-salaries #down-footer .item{padding: 0px !important;line-height:1.5;font-size:16px;}
+.sec-salaries #down-footer button {
+    
+    background:none;
+    background-color: #fed90a;
+    border-color: #fed90a;
+    color:#000;
+    margin:0px;
+    font-size: 12px;
+    font-weight: 200;
+}
+.sec-salaries #down-footer button:hover {    background-color: #d0971c;
+    border-color: #d0971c;}
+.sec-salaries{    background-color: #f1f2f0;}
+.sec-salaries #content-frame-wrapper{padding: 65px 0px 15px;}
+.sec-salaries .salaries_home_footer_links {
+    margin-bottom: 50px;
+}
+.sec-salaries .blockmod-content .pt li a{color: #6b6a73;}
+.sec-salaries .blockmod-content .pt li a:hover,.sec-salaries .total-avg-title{color: #fed90a;}
+.sec-salaries .rp-g-value {
+    background-color: #fed90a;}
+.sec-salaries .rp-avg-pointer {
+    background-color: #6b6a73;}
+.sec-salaries #down-footer .basic-links h6{
+      margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 1rem;
+}
+    
+    

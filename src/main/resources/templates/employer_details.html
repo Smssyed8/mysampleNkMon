@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/login.css'}" />
+<title>Mindful Consulting Qatar - Employer Details</title>
+<meta name="keywords" content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- navigation section-->
+		<div id="header"></div>
+
+		<!-- header end -->
+		<section id="login">
+			<div class="container">
+				<div class="login-form text-center">
+					<form class="form" th:action="@{/login}" method="post">
+					<h1 class="loginHeading">Employer Details</h1>
+						<div class="row">
+							<div class="col col-md-8 col-lg-6">
+								<input type="hidden" value="" name="">
+								<div style="display: none">
+									<input type="hidden" value="1" name="yform_c6de1a2f">
+								</div>
+								<div class="form-item">
+								<div class="label-data text-left">
+									<label>First Name*</label>
+								</div>
+									<div class="form-value">
+										<input class="input" type="text" id="username"
+											name="fname" placeholder="First Name" value="" />
+										<div class="form-hint" id="username_em_" style="display: none"></div>
+									</div>
+								</div>
+								<div class="form-item">
+								<div class="label-data text-left">
+									<label>Last Name*</label>
+								</div>
+									<div class="form-value">
+										<input class="input" type="text" id="username"
+											name="lname" placeholder="Last Name" value="" />
+										<div class="form-hint" id="username_em_" style="display: none"></div>
+									</div>
+								</div>
+								<div class="form-item">
+								<div class="label-data text-left">
+									<label>Employee Register Number*</label>
+								</div>
+									<div class="form-value">
+										<input class="input" type="text"
+											name="emp" placeholder="Employee Id" value="" />
+										<div class="form-hint" id="username_em_" style="display: none"></div>
+									</div>
+								</div>
+								<div class="form-item">
+								<div class="label-data text-left">
+									<label>Date of Joining*</label>
+								</div>
+									<div class="form-value">
+										<input class="input" type="text"
+											name="doj" placeholder="Date of Joining" value="" />
+										<div class="form-hint" id="username_em_" style="display: none"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col col-md-8 col-lg-6">
+							<div class="form-item">
+								<div class="label-data text-left">
+									<label>Employee Designation*</label>
+								</div>
+									<div class="form-value">
+										<input class="input" type="text"
+											name="empdes" placeholder="Employee Designation" value="" />
+										<div class="form-hint" id="username_em_" style="display: none"></div>
+									</div>
+								</div>
+								<div class="form-item">
+								<div class="label-data text-left">
+									<label>Date Of Birth*</label>
+								</div>
+									<div class="form-value">
+										<input class="input" type="text" 
+											name="dob" placeholder="Date of Birth" value="" />
+										<div class="form-hint" id="username_em_" style="display: none"></div>
+									</div>
+								</div>
+								<div class="form-item">
+								<div class="label-data text-left">
+									<label>Email*</label>
+								</div>
+									<div class="form-value">
+										<input class="input" type="email" id="username"
+											name="username" placeholder="Email" value="" />
+										<div class="form-hint" id="username_em_" style="display: none"></div>
+									</div>
+								</div>
+								<div class="form-item">
+								<div class="label-data text-left">
+									<label>Password*</label>
+								</div>
+									<div class="form-value">
+										<input class="input" type="password" id="username"
+											name="password" placeholder="Password" value="" />
+										<div class="form-hint" id="username_em_" style="display: none"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col col-md-12 col-lg-12">
+								<div class="form-item">
+									<div class="label-data text-left">
+										<label>Employee Address*</label>
+									</div>
+									<div class="form-value">
+										<textarea class="input" rows="9"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="col col-md-8 col-lg-6 mx-auto">
+								<footer class=" form-footer p0t p10b">
+									<button type="submit" name="submit" value="submit"
+										id="login-button" class="btn u-expanded ">Submit</button>
+								</footer>
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+
+		</section>
+	</div>
+</body>
+</html>

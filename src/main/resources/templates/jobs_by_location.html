@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<link rel="stylesheet"
+	th:href="@{'/assets/css/inner_pages_css/jobs_by_location.css'}" />
+<title>Mindful Consulting Qatar - Jobs by location</title>
+<meta name="keywords" content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1 class="m20-d p20 text-center">Cities Hiring in Qatar</h1>
+		<div class="row m20-d p20-d v-align-stretch is-m">
+			<div class="col is-2-d is-6-m">
+				<div class="card">
+					<div class="card-banner">
+						<div>
+							<img class="img-countries is-auto is-xx" alt="All Countries"
+								th:src="@{'/assets/image/logos/images/1.png'}">
+						</div>
+						<a th:href="@{'/search/jobs'}"> <span>All
+								Cities</span> <span th:text="${totalJobsCount}"></span> <span>Jobs
+						</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div th:each="instance : ${locationsWithJobsCount}"
+				class="col is-2-d is-6-m">
+				<div class="card">
+					<div class="card-banner">
+						<div>
+							<img class="img-countries is-auto is-in"
+								th:alt="${instance.key.city}"
+								th:src="@{'/assets/' + ${instance.key.path}}">
+						</div>
+						<a th:href="@{'/search/jobs?cityIds=' + ${instance.key.id}}">
+							<span th:text="${instance.key.city}"></span> <span
+							th:text="${instance.value}"></span> <span>Jobs </span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

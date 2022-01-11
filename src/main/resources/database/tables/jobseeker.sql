@@ -1,0 +1,32 @@
+CREATE TABLE jobseeker
+(
+    id                   BIGSERIAL,
+    account_id           BIGINT NOT NULL REFERENCES account (id),
+    work_experience      INTEGER DEFAULT 0,
+    company_name     	 VARCHAR(256),
+    sector               BIGINT NULL REFERENCES sector (id),
+    company_industry     BIGINT NULL REFERENCES company_industry (id),
+    company_size         INTEGER DEFAULT 0,
+    current_salary       INTEGER DEFAULT 0,
+    languages_known      VARCHAR(256),
+    hobbies              VARCHAR(256),
+    interests            VARCHAR(256),
+    skills               VARCHAR(256),
+    career_level         VARCHAR(256),
+    job_role             BIGINT NULL REFERENCES job_role (id),
+    job_title            VARCHAR(256),
+    resume_path          VARCHAR(256),
+    image_path           VARCHAR(256),
+    desc_job_looking_for VARCHAR(256),
+    linkedin_profile     VARCHAR(256),
+    facebook_profile     VARCHAR(256),
+    video_profile        VARCHAR(256),
+    expected_salary      INTEGER DEFAULT 0,
+    notice_period        INTEGER DEFAULT 0,
+    is_anonymous         BOOLEAN,
+    created_on           TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_on           TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_by           BIGINT,
+
+    CONSTRAINT pk_jobseeker PRIMARY KEY (id)
+);

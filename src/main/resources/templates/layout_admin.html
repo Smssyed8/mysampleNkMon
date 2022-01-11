@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+<meta charset="utf-8">
+<title>Mindful Consulting Qatar - Admin</title>
+<meta name="keywords"
+	content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+<meta name="author" content="">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" th:href="@{'/assets/css/bootstrap.min.css'}" />
+<link rel="stylesheet" th:href="@{'/assets/css/plugin.css'}" />
+<link rel="stylesheet" th:href="@{'/assets/css/style.css'}" />
+<link rel="stylesheet" th:href="@{'/assets/css/responsive.css'}" />
+
+<link rel="stylesheet"
+	th:href="@{'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'}" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- Your Page Content Here -->
+	</div>
+	<!-- footer section -->
+	<footer id="down-footer">
+		<div class="d-flex justify-content-end">
+			<a href="#" class="chat-link">Chat With Us Now <i
+				class="fa fa-comments-o" aria-hidden="true"></i></a>
+		</div>
+		<div class="footer-section">
+			<div class="container">
+				<div class="row">
+					<!-- <div class="digitax-details"> -->
+					<div class="col col-6 col-sm-6 col-md-4 col-lg-2">
+						<div class="basic-links">
+							<h3 class="white">Featured Job</h3>
+							<ul class="basic-link-item pl-0">
+								<li class="item"><a th:href="@{'/search/jobs?jobTitle='}">Browse
+										Jobs</a></li>
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=mba'}">Premium MBA Jobs</a></li>
+								<li class="item"><a th:href="@{''}">Access Database</a></li>
+								<li class="item"><a th:href="@{''}">Managae Response</a></li>
+								<li class="item"><a th:href="@{'/contactus'}">Report a Problem</a></li>
+								<li class="item"><a th:href="@{''}">Mobile Site</a></li>
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=engineer'}">Jobs By Skill</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col col-6 col-sm-6 col-md-3 col-lg-2">
+						<div class="basic-links">
+							<h3 class="white footer-link">Find Jobs</h3>
+							<ul class="basic-link-item pl-0">
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=&cityIds=2'}">AI Rayyan</a></li>
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=&cityIds=3'}">AI Wakra</a></li>
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=&cityIds=4'}">Umm Said</a></li>
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=&cityIds=5'}">Khor AI
+										Udaid</a></li>
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=&cityIds=6'}">AI Khor</a></li>
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=&cityIds=7'}">RLIC</a></li>
+								<li class="item"><a
+									th:href="@{'/search/jobs?jobTitle=&cityIds=8'}">Mesaieed</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col col-6 col-sm-6 col-md-5 col-lg-3">
+						<div class="row">
+							<div class="col col-12 col-md-6 col-lg-6">
+								<div class="basic-links">
+									<h3 class="white footer-link">Company</h3>
+									<ul class="basic-link-item pl-0">
+										<li class="item"><a th:href="@{'/aboutus'}">About us</a></li>
+										<li class="item"><a th:href="@{'/contactus'}">Contact
+												us</a></li>
+										<li class="item"><a th:href="@{'/careers'}">Careers</a></li>
+										<li class="item"><a th:href="@{'/blogs'}">Blogs</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col col-12 col-md-6 col-lg-6">
+								<div class="basic-links">
+									<h3 class="white footer-link">Quick Links</h3>
+									<ul class="basic-link-item pl-0">
+										<li class="item"><a th:href="@{''}">Career Tips</a></li>
+										<li class="item"><a th:href="@{''}">Events</a></li>
+										<li class="item"><a th:href="@{''}">Never Miss An
+												Email</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col col-12 col-sm-12 col-md-6 col-lg-12">
+								<div class="basic-links ftr">
+									<h6 class="yellow">
+										Follow <a th:href="@{'#'}">Mindfulqatar.com</a>
+									</h6>
+									<ul>
+										<li><a th:href="@{'https://www.twitter.com'}" target="_blank"><i
+											class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a th:href="@{'https://www.instagram.com'}"
+										target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+									<li><a th:href="@{'https://www.linkedin.com'}"
+										target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+									<li><a th:href="@{'https://www.facebook.com'}"
+										target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col col-6 col-sm-6 col-md-5 col-lg-3">
+						<div class="basic-links">
+							<h3 class="white">Reach Us</h3>
+							<ul class="basic-link-item pl-0">
+								<li class="item"><a th:href="@{''}">Mindful Consulting</a></li>
+								<li class="item"><a th:href="@{''}">Shoumoukh Towers,</a></li>
+								<li class="item"><a th:href="@{''}">C Ring Road</a></li>
+								<li class="item"><a th:href="@{''}">Al Sadd Doha, Qatar</a></li>
+								<li class="item"><a th:href="@{'mailto:info@mindfulqatar.com'}"
+									class="mb-none">Email: info@mindfulqatar.com</a></li>
+								<li class="item">
+									<a th:href="@{'tel:97412345678'}">Call:+974 123 45678</a>
+								</li>
+								<li class="item"><a th:href="@{''}">FAX: 123 456 85</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col col-12 col-sm-6 col-md-4 col-lg-2">
+						<div class="basic-links">
+							<h3 class="white">Drop A Mail</h3>
+							<form action="/drop/email" method="post">
+								<input name="name" type="text" placeholder="Your Name">
+								<input name="email" type="email" placeholder="Email">
+								<textarea name="message" placeholder="Message"></textarea>
+								<button class="btn-ftr" type="submit">Send</button>
+							</form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="all-rights mx-auto text-center">
+			<div class="container">
+				<div class="copy-right">
+					© Copyright 2019 Mindfulqatar | Design By <span
+						style="color: #ffc23d; font-weight: 600">THE WAY</span>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer end -->
+	<!-- bootstrap script links -->
+	<script th:src="@{'/assets/js/jquery.min.js'}"></script>
+	<script th:src="@{'/assets/js/popper.min.js'}"></script>
+	<script th:src="@{'/assets/js/bootstrap.min.js'}"></script>
+
+	<!-- plugin javascript -->
+	<script th:src="@{'/assets/js/plugin.js'}"></script>
+	<!-- navigation script -->
+
+
+	<!-- Counter number script -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.employers-data a').click(function(e) {
+				$(".nav-tabs li a").each(function(index, el) {
+					var txt = $(el, ".itemlink").attr('href');
+					if (txt === $('.employers-data a').attr("href")) {
+						$(el).addClass("active");
+					} else {
+						$(el).removeClass("active");
+					}
+				});
+				e.preventDefault();
+			});
+		});
+
+		var el = document.getElementById('edit');
+		var frm = document.getElementById('myform');
+		el.addEventListener('click', function() {
+			for (var i = 0; i < frm.length; i++) {
+				frm.elements[i].disabled = false;
+
+			}
+			frm.elements[0].focus();
+		});
+		$('.counter').each(function() {
+			var $this = $(this), countTo = $this.attr('data-count');
+
+			$({
+				countNum : $this.text()
+			}).animate({
+				countNum : countTo
+			}, {
+				duration : 1000,
+				easing : 'linear',
+				step : function() {
+					$this.text(Math.floor(this.countNum));
+				},
+				complete : function() {
+					$this.text(this.countNum);
+					//alert('finished');
+				}
+			});
+		});
+
+		$(window).mousemove(function(e) {
+			var change;
+			var xpos = e.clientX;
+			var ypos = e.clientY;
+			var left = change * 50;
+			var xpos = xpos * 2;
+			ypos = ypos * 2;
+			$('.banner-seo-img').css('top', ((0 + (ypos / 50)) + "px"));
+			$('.banner-seo-img').css('right', ((0 + (xpos / 80)) + "px"));
+
+		});
+
+		function jobDetails(instance) {
+			var pEle = document.getElementById("t-jobTitle");
+			pEle.innerHTML = instance.jobTitle;
+		}
+
+		function hideElement(id) {
+			document.getElementById(id).style.display = "none";
+		}
+
+		function submitform(form) {
+			form.submit();
+		}
+
+		function openCity(evt, cityName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(
+						" active", "");
+			}
+			document.getElementById(cityName).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+
+		$('#edit').click(function() {
+			$('#form-edit').toggleClass('view');
+			$('input').each(function() {
+				var inp = $(this);
+				if (inp.attr('readonly')) {
+					inp.removeAttr('readonly');
+				} else {
+					inp.attr('readonly', 'readonly');
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>

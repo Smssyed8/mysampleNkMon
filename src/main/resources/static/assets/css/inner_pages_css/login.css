@@ -1,0 +1,151 @@
+#login {
+	background-color: #f1f2f0;
+	padding: 25px 0px;
+}
+
+.login-form {
+	background-color: #fff;
+	padding: 40px
+}
+
+.loginHeading {
+	font-size: 35px;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+
+.login-form .input, .login-form select {
+	width: 100%;
+	font-size: 14px;
+	line-height: 1;
+	padding: 14px;
+	/*border: 1px solid #6b6a73;*/
+	border-radius: 2px;
+	outline: none;
+	vertical-align: middle;
+	background-image: none;
+	box-shadow: none;
+}
+
+.login-form .form-item {
+	margin-top: 16px;
+	display: table;
+	width: 100%;
+}
+
+input[type="checkbox"] .input.is-small+label {
+	padding: 10.5px 10.5px 10.5px 27.125px;
+	font-size: 14px;
+	line-height: 1.21429;
+}
+
+label:before {
+	width: 17.5px;
+	height: 17.5px;
+}
+
+input[type="checkbox"]  .input.is-small+label:after, input[type="checkbox"].input.is-small+label:before
+	{
+	top: 10.5px;
+}
+
+input[type="checkbox"] .input:checked+label:before {
+	background-color: #2784fc;
+	border: none;
+}
+
+#login .btn:active:not:disabled {
+	background-color: #3294ff;
+	border-color: #3294ff;
+}
+
+.form-footer {
+	padding: 32px 0;
+}
+
+.u-expanded {
+	display: block !important;
+}
+
+.u-expanded, .u-fit, .u-stretch {
+	width: 100% !important;
+}
+
+#login .btn {
+	font-size: 1rem;
+	line-height: 1;
+	font-weight: 700;
+	padding: 13px 27px;
+	background-color: #fed90a;
+	border: 1px solid #6b6a73;
+	overflow: hidden;
+	color: #fff;
+	border-radius: 4px;
+	cursor: pointer;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+
+#login .btn.is-facebook {
+	background-color: #2e579f;
+	border-color: #2e579f;
+}
+
+#login .btn:focus:not :disabled, #login .btn:hover:not :disabled {
+	background-color: #e4c205;
+	border-color: #6b6a73;
+}
+
+#login .btn.is-facebook:focus:not :disabled, #login .btn.is-facebook:hover:not :disabled {
+	background-color: #26457c;
+	border-color: #26457c;
+}
+
+#login .btn.is-linkedin:focus:not :disabled, #login .btn.is-linkedin:hover:not :disabled {
+	background-color: #c62f26;
+	border-color: #c62f26;
+}
+
+#login .btn:hover {
+	color: #fff;
+}
+
+#login .list.is-basic {
+	list-style: none;
+	padding-left: 0;
+	margin-top: 18px;
+}
+
+#login .btn.is-linkedin {
+	background-color: #2977c9;
+	border-color: #ec382d;
+}
+
+.list.is-basic.is-spaced>li {
+	padding: 6px 0;
+}
+
+#login .t-mute {
+	color: #a6afb9;
+}
+
+#login .t-xsmall {
+	font-size: .75rem;
+	line-height: 1.67;
+	text-align: left;
+}
+
+#login a:not .btn :not .b-close :not .label:hover {
+	text-decoration: none;
+}
+
+#login .register {
+	color: #6b6a73;
+	font-size: 19px;
+	font-weight: 600;
+}
+
+#login .register:hover {
+	color: #fed90a;
+}

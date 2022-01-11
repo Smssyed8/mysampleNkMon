@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout_employers">
+<head>
+<title>Mindful Consulting Qatar - Job Seeker</title>
+<meta name="keywords" content="Job vacancies in Qatar , jobs in qatar , jobs in qatar airways , jobs near me , Best job portal in Qatar , Opportunities in Qatar, Jobs near me,  administration jobs, therapist jobs,
+Qatar Jobs, Top 5 Job Portals in Qatar, IT jobs in Qatar, Government jobs in Qatar, Developer jobs in Qatar, Designer Jobs in Qatar,jobs & vacancies in Qatar government and High pay developer jobs in Qatar." />
+
+<link rel="stylesheet"
+	th:href="@{'/assets/css/plugin_other.css'}" />
+</head>
+<body id="design3" class="cv-search">
+	<div layout:fragment="content">
+	<section class="p20y t-center cover to-left"
+        style="background-image: url('https://img0cf.b8cdn.com/bayt/assets/pages-22/images/peopleCoverImg-1.png');">
+        <div class="box p20y m20y">
+            <h1 class="t-inverse p20y m20b search-heading">Grow Your Professional Network <br> in the Middle East</h1>
+            <form class="search-bar" action="" method="">
+                <div class="row is-compact h-align-stretch v-align-center">
+                    <div class="col is-5-d is-12-m">
+                        <div class="searchable u-block">
+                            <input name="" id="text_search" type="text" class="input is-large u-expanded"
+                                placeholder="Enter name or job title" autocomplete="off">
+                            <input type="hidden" name="" value="">
+                        </div>
+                    </div>
+                    <div class="col is-5-d is-12-m">
+                        <div class="select">
+                            <select name="country" id="search_country" data-value="international" class="input is-large"
+                                data-searchable="getSearchConfig">
+                                <option disabled>Select Country</option>
+                                <option value="">- All -</option>
+                                <option value="dz">Algeria</option>
+                                <option value="bh">Bahrain</option>
+                                <option value="ae,4,0">Dubai</option>
+                                <option value="eg">Egypt</option>
+                                <option value="in">India</option>
+                                <option value="ir">Iran</option>
+                                <option value="iq">Iraq</option>
+                                <option value="jo">Jordan</option>
+                                <option value="kw">Kuwait</option>
+                                <option value="lb">Lebanon</option>
+                                <option value="ly">Libya</option>
+                                <option value="ma">Morocco</option>
+                                <option value="om">Oman</option>
+                                <option value="pk">Pakistan</option>
+                                <option value="qa">Qatar</option>
+                                <option value="sa">Saudi Arabia</option>
+                                <option value="lk">Sri Lanka</option>
+                                <option value="tn">Tunisia</option>
+                                <option value="ae">United Arab Emirates</option>
+                                <option value="ye">Yemen</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col is-2-d is-12-m">
+                        <button class="btn is-large add-to-cart" data-js-aid="search"> Search </button>
+                    </div>
+                </div>
+            </form>
+            <p class="t-inverse t-large p20y m20y find-candidate">14.50 million professionals have chosen to go public with Bayt.com
+            </p>
+        </div>
+    </section>
+
+    <section class="bg-inverse t-center p20y">
+        <h2 class="p20t m10t search-heading">People Just Joined</h2>
+        <div class="box">
+            <div class="row t-center-d h-align-center">
+                <div class="col is-3-d">
+                    <div class="card">
+                        <div class="card-head">
+                            <img class="img-120 img-70-m is-circular"
+                                th:src="@{'/assets/image/people1.jpg'}"
+                                alt="Firas Alqahtani" />
+                        </div>
+
+                        <div class="card-content is-stretched">
+                            <ul class="list is-basic m0-m m0b-d">
+                                <li>
+                                    <a th:href="@{'#'}" class="external-link">
+                                        Firas Alqahtani </a>
+                                </li>
+                                <li>
+                                    co-op </li>
+                            </ul>
+                            <p class="t-small m10t-d find-candidate">
+                                Alinma Investment </p>
+                            <p class="t-small m0b find-candidate">
+                                Saudi Arabia </p>
+                        </div>
+
+                        <div class="card-foot">
+                            <a class="btn add-to-cart" th:href="@{'#'}">Connect</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col is-3-d">
+                    <div class="card">
+                        <div class="card-head">
+                            <img class="img-120 img-70-m is-circular"
+                               th:src="@{'/assets/image/people2.jpg'}"
+                                alt="Sondos Hamideh" />
+                        </div>
+
+                        <div class="card-content is-stretched">
+                            <ul class="list is-basic m0-m m0b-d">
+                                <li>
+                                    <a th:href="@{'#'}" class="external-link">
+                                        Sondos Hamideh </a>
+                                </li>
+                                <li>
+                                    Educational Consultant </li>
+                            </ul>
+                            <p class="t-small m10t-d find-candidate">
+                                LKD Academy </p>
+                            <p class="t-small m0b find-candidate">
+                                Jordan </p>
+                        </div>
+
+                        <div class="card-foot">
+                            <a class="btn add-to-cart" th:href="@{'#'}">Connect</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col is-3-d">
+                    <div class="card">
+                        <div class="card-head">
+                            <img class="img-120 img-70-m is-circular"
+                                th:src="@{'/assets/image/people3.jpg'}"
+                                alt="Shaikh khalid" />
+                        </div>
+
+                        <div class="card-content is-stretched">
+                            <ul class="list is-basic m0-m m0b-d">
+                                <li>
+                                    <a th:href="@{'#'}" class="external-link">
+                                        Shaikh khalid </a>
+                                </li>
+                                <li>
+                                    store manager </li>
+                            </ul>
+                            <p class="t-small m10t-d find-candidate">
+                                Moti mahal </p>
+                            <p class="t-small m0b find-candidate">
+                                Saudi Arabia </p>
+                        </div>
+
+                        <div class="card-foot">
+                            <a class="btn add-to-cart" th:href="@{'#'}">Connect</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col is-3-d">
+                    <div class="card">
+                        <div class="card-head">
+                            <img class="img-120 img-70-m is-circular"
+                                th:src="@{'/assets/image/people4.jpg'}"
+                                alt="akram abdelmonem abd elhady moubarak" />
+                        </div>
+
+                        <div class="card-content is-stretched">
+                            <ul class="list is-basic m0-m m0b-d">
+                                <li>
+                                    <a th:href="@{'#'}" class="external-link">
+                                        akram abdelmonem abd elhady moubarak </a>
+                                </li>
+                                <li>
+                                    صاحب العمل </li>
+                            </ul>
+                            <p class="t-small m10t-d find-candidate">
+                                مبارك للمحاماه والإستشارات&#8230; </p>
+                            <p class="t-small m0b find-candidate">
+                                Egypt </p>
+                        </div>
+
+                        <div class="card-foot">
+                            <a class="btn add-to-cart" th:href="@{'#'}">Connect</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+            </div>
+            <script th:src="@{'/assets/js/employer_plugin.js'}"></script>
+</body>
+
+</html>
